@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宏志计划 · 无人机行业应用人才培养方案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #1a2332 50%, #0d1f2d 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(56, 139, 253, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(56,139,253,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(56, 139, 253, 0.12);
+    border: 1px solid rgba(56, 139, 253, 0.3);
+    color: #58a6ff;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: #8b949e;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: #58a6ff;
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+
+  /* Module Tabs */
+  .modules-nav {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 20px 40px;
+    background: #161b22;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #8b949e;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 400;
+  }
+
+  .tab-btn:hover {
+    color: #e6edf3;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .tab-btn.active {
+    background: rgba(56, 139, 253, 0.15);
+    border-color: rgba(56, 139, 253, 0.3);
+    color: #58a6ff;
+    font-weight: 500;
+  }
+
+  /* Content Area */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .module-section {
+    display: none;
+  }
+
+  .module-section.active {
+    display: block;
+  }
+
+  .module-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .module-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .module-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+  }
+
+  .module-desc {
+    font-size: 14px;
+    color: #8b949e;
+  }
+
+  /* Course Cards */
+  .course-card {
+    background: #161b22;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+
+  .course-card:hover {
+    border-color: rgba(56, 139, 253, 0.25);
+    background: #1c2128;
+  }
+
+  .course-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .card-main {
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    cursor: pointer;
+  }
+
+  .class-num {
+    min-width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .card-meta span {
+    font-size: 12px;
+    color: #8b949e;
+  }
+
+  .card-meta span b {
+    color: #e6edf3;
+    font-weight: 500;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    color: #8b949e;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .card-arrow {
+    color: #58a6ff;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .card-expand {
+    display: none;
+    padding: 0 24px 20px 82px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .card-expand.open {
+    display: block;
+  }
+
+  .expand-title {
+    font-size: 12px;
+    color: #58a6ff;
+    font-weight: 500;
+    margin: 14px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .expand-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .expand-list li {
+    font-size: 13px;
+    color: #c9d1d9;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .expand-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .video-note {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(56, 139, 253, 0.06);
+    border: 1px solid rgba(56, 139, 253, 0.12);
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8b949e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .video-note strong {
+    color: #58a6ff;
+  }
+
+  /* Progress Bar */
+  .progress-wrap {
+    margin-top: 40px;
+    padding: 24px;
+    background: #161b22;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .progress-header span {
+    font-size: 13px;
+    color: #8b949e;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .progress-seg {
+    height: 100%;
+    transition: width 0.3s;
+  }
+
+  .timeline-wrap {
+    margin-top: 16px;
+  }
+
+  .timeline-grid {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+  }
+
+  .tl-item {
+    font-size: 11px;
+    color: #8b949e;
+    text-align: center;
+    width: 44px;
+    cursor: default;
+  }
+
+  .tl-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    margin: 0 auto 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0.4;
+    transition: all 0.2s;
+  }
+
+  .tl-item:hover .tl-dot {
+    opacity: 1;
+  }
+
+  /* Module Colors */
+  .m1 .class-num { background: rgba(56,139,253,0.12); color: #58a6ff; }
+  .m1 .module-tag { background: rgba(56,139,253,0.12); color: #58a6ff; }
+  .m1 .expand-list li::before { background: #58a6ff; }
+
+  .m2 .class-num { background: rgba(63,185,80,0.12); color: #3fb950; }
+  .m2 .module-tag { background: rgba(63,185,80,0.12); color: #3fb950; }
+  .m2 .expand-list li::before { background: #3fb950; }
+
+  .m3 .class-num { background: rgba(210,153,34,0.12); color: #d29922; }
+  .m3 .module-tag { background: rgba(210,153,34,0.12); color: #d29922; }
+  .m3 .expand-list li::before { background: #d29922; }
+
+  .m4 .class-num { background: rgba(188,140,255,0.12); color: #bc8cff; }
+  .m4 .module-tag { background: rgba(188,140,255,0.12); color: #bc8cff; }
+  .m4 .expand-list li::before { background: #bc8cff; }
+
+  .m5 .class-num { background: rgba(255,123,114,0.12); color: #ff7b72; }
+  .m5 .module-tag { background: rgba(255,123,114,0.12); color: #ff7b72; }
+  .m5 .expand-list li::before { background: #ff7b72; }
+
+  .progress-seg.m1-s { background: #58a6ff; }
+  .progress-seg.m2-s { background: #3fb950; }
+  .progress-seg.m3-s { background: #d29922; }
+  .progress-seg.m4-s { background: #bc8cff; }
+  .progress-seg.m5-s { background: #ff7b72; }
+
+  .tl-dot.m1-dot { background: rgba(56,139,253,0.2); color: #58a6ff; }
+  .tl-dot.m2-dot { background: rgba(63,185,80,0.2); color: #3fb950; }
+  .tl-dot.m3-dot { background: rgba(210,153,34,0.2); color: #d29922; }
+  .tl-dot.m4-dot { background: rgba(188,140,255,0.2); color: #bc8cff; }
+  .tl-dot.m5-dot { background: rgba(255,123,114,0.2); color: #ff7b72; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #484f58;
+    font-size: 12px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 50px 20px 40px; }
+    .hero h1 { font-size: 26px; }
+    .hero-stats { gap: 24px; }
+    .modules-nav { padding: 16px 12px; gap: 4px; }
+    .tab-btn { padding: 6px 12px; font-size: 12px; }
+    .container { padding: 24px 12px 60px; }
+    .card-main { padding: 16px; gap: 12px; }
+    .card-expand { padding: 0 16px 16px 64px; }
+    .expand-list { grid-template-columns: 1fr; }
+    .class-num { min-width: 36px; height: 36px; font-size: 12px; }
+  }
+
+  /* ===== Modal 弹窗样式 ===== */
+  .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;overflow-y:auto;padding:20px}
+  .modal-overlay.open{display:block}
+  .modal{background:#161b22;border:1px solid rgba(255,255,255,0.1);border-radius:16px;width:100%;max-width:880px;margin:20px auto 40px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+  .modal-header{padding:24px 28px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;gap:16px;position:relative}
+  .modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:#8b949e;font-size:22px;cursor:pointer;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+  .modal-close:hover{background:rgba(255,255,255,0.08);color:#f0f6fc}
+  .modal-num{min-width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+  .modal-header-body{flex:1}.modal-header-body h2{font-size:18px;font-weight:700;color:#f0f6fc;margin-bottom:4px}.modal-header-body .sub{font-size:12px;color:#8b949e}
+  .modal-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,0.06);padding:0 28px;overflow-x:auto}
+  .mtab{background:none;border:none;color:#8b949e;font-size:13px;font-family:inherit;padding:12px 16px;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap}
+  .mtab:hover{color:#e6edf3}.mtab.active{color:#58a6ff;border-bottom-color:#58a6ff}
+  .modal-body{padding:24px 28px 28px;max-height:65vh;overflow-y:auto}
+  .mtab-content{display:none}.mtab-content.active{display:block}
+  .syll-section{margin-bottom:20px}
+  .syll-section h3{font-size:14px;font-weight:600;color:#58a6ff;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(56,139,253,0.15)}
+  .syll-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .sg-item{font-size:13px;color:#c9d1d9;padding:6px 10px;background:rgba(255,255,255,0.02);border-radius:6px;border:1px solid rgba(255,255,255,0.04)}
+  .info-table{width:100%;border-collapse:collapse;font-size:13px}.info-table tr{border-bottom:1px solid rgba(255,255,255,0.04)}.info-table td{padding:8px 10px;vertical-align:top}.info-table td:first-child{color:#8b949e;width:110px}
+  .plan-timeline{position:relative;padding-left:28px}.plan-timeline::before{content:'';position:absolute;left:9px;top:4px;bottom:4px;width:2px;background:rgba(56,139,253,0.2)}
+  .pstep{position:relative;margin-bottom:16px}.pstep::before{content:'';position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:#58a6ff;border:2px solid #161b22}
+  .pstep-time{font-size:11px;color:#58a6ff;font-weight:500;margin-bottom:2px}.pstep-title{font-size:13px;font-weight:600;color:#f0f6fc;margin-bottom:4px}.pstep-detail{font-size:12px;color:#8b949e;line-height:1.7}.pstep-detail ul{padding-left:16px;margin-top:4px}.pstep-detail li{margin-bottom:2px}
+  .step-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+  .step-card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .step-num{min-width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+  .step-card-title{font-size:14px;font-weight:600;color:#f0f6fc}
+  .step-card-body{font-size:13px;color:#c9d1d9;line-height:1.7}.step-card-body p{margin-bottom:8px}.step-card-body ul{padding-left:18px;margin-bottom:8px}.step-card-body li{margin-bottom:4px}
+  .tip-box{margin-top:8px;padding:8px 12px;background:rgba(56,139,253,0.06);border:1px solid rgba(56,139,253,0.12);border-radius:6px;font-size:12px;color:#8b949e}.tip-box b{color:#58a6ff}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.res-item{padding:10px 14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:8px}
+  .ri-type{font-size:10px;color:#58a6ff;font-weight:500;margin-bottom:2px;text-transform:uppercase;letter-spacing:0.5px}.ri-name{font-size:13px;color:#c9d1d9}
+  .modal-body::-webkit-scrollbar{width:6px}.modal-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:3px}
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">宏志计划 · 人才培养专项</div>
+  <h1>无人机行业应用<br>人才培养方案</h1>
+  <p class="hero-sub">从飞行原理到行业实战，以真实案例串联全链路能力，聚焦无人机在各领域的深度应用与操作技能培养</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">15</div>
+      <div class="stat-label">核心课时</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">≈6.25h</div>
+      <div class="stat-label">视频总时长</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5</div>
+      <div class="stat-label">能力模块</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4</div>
+      <div class="stat-label">行业方向</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE TABS -->
+<div class="modules-nav">
+  <button class="tab-btn active" onclick="showModule('m1')">🛡️ 基础认知</button>
+  <button class="tab-btn" onclick="showModule('m2')">🔧 组装实操</button>
+  <button class="tab-btn" onclick="showModule('m3')">📷 基础应用</button>
+  <button class="tab-btn" onclick="showModule('m4')">🏢 行业实战</button>
+  <button class="tab-btn" onclick="showModule('m5')">💡 综合提升</button>
+  <button class="tab-btn" onclick="showModule('all')">📋 全部课程</button>
+</div>
+
+<div class="container">
+
+  <!-- MODULE 1: 基础认知 -->
+  <div class="module-section active m1" id="m1">
+    <div class="module-header">
+      <div class="module-tag">MODULE 01</div>
+      <div class="module-title">基础认知 — 从天空开始理解无人机</div>
+      <div class="module-desc">建立对无人机系统的整体认知，掌握飞行原理与安全法规，为后续实操奠定理论基础</div>
+    </div>
+
+    <!-- C1 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">01</div>
+        <div class="card-content">
+          <div class="card-title">无人机概述与行业图谱</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 理论</span>
+            <span>📁 基础知识</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">无人机分类</span>
+            <span class="tag">行业全景</span>
+            <span class="tag">发展趋势</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>多旋翼/固定翼/垂直起降无人机的结构与适用场景</li>
+          <li>军用/民用/消费级无人机的等级划分与法规体系</li>
+          <li>无人机产业链上中下游全景图谱</li>
+          <li>低空经济政策背景与市场前景分析</li>
+          <li>国内外主流无人机品牌与产品矩阵</li>
+          <li>无人机驾驶员执照分类与考证路径</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>通过行业报告数据与政策文件，立体呈现无人机赛道的机会与门槛</div>
+      </div>
+    </div>
+
+    <!-- C2 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">02</div>
+        <div class="card-content">
+          <div class="card-title">飞行原理与空气动力学</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 理论</span>
+            <span>📁 核心原理</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">飞行力学</span>
+            <span class="tag">升力原理</span>
+            <span class="tag">动力学</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>旋翼产生的升力原理与推力控制机制</li>
+          <li>无人机的六自由度运动模型（俯仰/横滚/偏航/升降）</li>
+          <li>电机、螺旋桨、电池的性能匹配关系</li>
+          <li>风速、风向对飞行稳定性的影响分析</li>
+          <li>悬停状态的受力平衡与能效最优点</li>
+          <li>无人机极限飞行包络线与安全边界</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>配合飞行模拟器演示，让抽象的飞行力学可视化呈现</div>
+      </div>
+    </div>
+
+    <!-- C3 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">03</div>
+        <div class="card-content">
+          <div class="card-title">无人机系统组成与硬件架构</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 理论+认知</span>
+            <span>📁 硬件基础</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">飞控系统</span>
+            <span class="tag">动力系统</span>
+            <span class="tag">通信链路</span>
+            <span class="tag">任务载荷</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>飞控系统：陀螺仪、加速度计、磁力计、气压计的作用</li>
+          <li>动力系统：电机、电调、螺旋桨、电池的选型逻辑</li>
+          <li>通信链路：遥控器、图传、数传链路的工作频段与距离</li>
+          <li>任务载荷：可见光相机、红外热成像、激光雷达、多光谱等</li>
+          <li>地面站系统（GCS）功能与软件界面认知</li>
+          <li>整机参数表解读与主流机型横向对比</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>以实机拆解视频配合动画，逐一拆解各子系统的工作逻辑</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2: 组装实操 -->
+  <div class="module-section m2" id="m2">
+    <div class="module-header">
+      <div class="module-tag">MODULE 02</div>
+      <div class="module-title">组装实操 — 从零件到飞行</div>
+      <div class="module-desc">亲手完成无人机整机装配与调试，建立对硬件的直观认知，具备独立完成飞行前检查的能力</div>
+    </div>
+
+    <!-- C4 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">04</div>
+        <div class="card-content">
+          <div class="card-title">无人机硬件组装实操</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 动手实操</span>
+            <span>📁 组装流程</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">整机装配</span>
+            <span class="tag">布线焊接</span>
+            <span class="tag">实名登记</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>机身结构件、机臂、起落架的安装顺序与注意事项</li>
+          <li>电机安装与校准（正反转、动平衡检查）</li>
+          <li>电调与飞控的接线逻辑（信号线、电源线定义）</li>
+          <li>图传系统与天线的布线与屏蔽处理</li>
+          <li>无人机实名登记与UOM平台账号注册</li>
+          <li>组装完成后的外观检查与螺丝紧固复核</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>全程实拍分步教学，标注每一步的关键细节与常见错误</div>
+      </div>
+    </div>
+
+    <!-- C5 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">05</div>
+        <div class="card-content">
+          <div class="card-title">飞控系统调试与地面站使用</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 动手实操</span>
+            <span>📁 飞控调试</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">飞控调参</span>
+            <span class="tag">地面站</span>
+            <span class="tag">固件升级</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>飞控固件烧录与品牌地面站软件安装（QGroundControl / Mission Planner）</li>
+          <li>遥控器对码、通道校准、模式切换逻辑</li>
+          <li>PID参数含义与调参基本原则（不要乱调！先理解再动手）</li>
+          <li>传感器校准：加速度计、罗盘、气压计的校准流程</li>
+          <li>飞行模式切换与失效保护（Failsafe）设置</li>
+          <li>地面站地图加载、航点规划、航迹显示功能</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>重点讲解调试参数的含义，避免学员死记硬背参数值</div>
+      </div>
+    </div>
+
+    <!-- C6 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">06</div>
+        <div class="card-content">
+          <div class="card-title">飞行安全规范与法规</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 法规+安全</span>
+            <span>📁 合规飞行</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">民用航空法</span>
+            <span class="tag">飞行禁区</span>
+            <span class="tag">保险</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>《民用航空法》无人机章节与《无人驾驶航空器飞行管理暂行条例》</li>
+          <li>实名登记、飞行资质、空域申请三件事的法律效力</li>
+          <li>禁飞区、限飞区、管控区的识别与规避（含真实事故案例）</li>
+          <li>视距内（VLOS）与超视距（BVLOS）飞行的条件与许可</li>
+          <li>飞行前检查清单（PREFLIGHT CHECKLIST）标准化流程</li>
+          <li>无人机第三者责任险的必要性解读</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>结合真实违规处罚案例，强化法规意识与安全底线思维</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3: 基础应用 -->
+  <div class="module-section m3" id="m3">
+    <div class="module-header">
+      <div class="module-tag">MODULE 03</div>
+      <div class="module-title">基础应用 — 从拍摄到数据</div>
+      <div class="module-desc">掌握航拍、影像处理、建模三大基础应用技能，建立"飞行-采集-处理"的全链路闭环</div>
+    </div>
+
+    <!-- C7 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">07</div>
+        <div class="card-content">
+          <div class="card-title">航空摄影测量基础</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 技能</span>
+            <span>📁 航测入门</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">像控点布设</span>
+            <span class="tag">航线规划</span>
+            <span class="tag">航向重叠率</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>航空摄影测量的基本原理与坐标系转换</li>
+          <li>像控点（Ground Control Point, GCP）布设方法与数量计算</li>
+          <li>航线规划软件的使用（DJI Pilot、DJI Terrain Follow等）</li>
+          <li>航向重叠率/旁向重叠率的参数设置依据</li>
+          <li>不同地形（平原、丘陵、山地）的航线策略差异</li>
+          <li>飞行高度、地面分辨率（GSD）与相机参数的关系</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>通过不同地形案例，讲解航线参数的灵活调整逻辑</div>
+      </div>
+    </div>
+
+    <!-- C8 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">08</div>
+        <div class="card-content">
+          <div class="card-title">航拍技巧与影像获取</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 技能</span>
+            <span>📁 航拍摄影</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">运镜技巧</span>
+            <span class="tag">曝光控制</span>
+            <span class="tag">场景构图</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>对焦模式、曝光补偿、白平衡的手动控制技巧</li>
+          <li>五种经典运镜手法：前进/后退/侧移/旋转/俯冲</li>
+          <li>不同光照条件下的飞行拍摄策略（顺光/逆光/晨昏）</li>
+          <li>ND滤镜的使用时机与效果</li>
+          <li>航拍素材的质量判断：分辨率、色彩、清晰度、快速检查法</li>
+          <li>飞行安全距离与障碍规避的目视判断</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>大量航拍实飞片段演示，逐一拆解运镜动作的执行要点</div>
+      </div>
+    </div>
+
+    <!-- C9 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">09</div>
+        <div class="card-content">
+          <div class="card-title">影像数据处理与三维建模</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 技能</span>
+            <span>📁 数据处理</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">Pix4D</span>
+            <span class="tag">ContextCapture</span>
+            <span class="tag">DOM/DEM</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>主流建模软件对比：Pix4Dmapper、ContextCapture、Metashape</li>
+          <li>航测数据处理全流程：原始数据→对齐→刺点→空三→重建→输出</li>
+          <li>DOM（数字正射影像图）与 DEM（数字高程模型）的区别与用途</li>
+          <li>三维模型精度评估指标：GSD、点云密度、绝对/相对精度</li>
+          <li>常见建模失败原因与质量检查方法</li>
+          <li>成果格式转换与行业软件对接（CAD、GIS、BIM）</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>完整演示一个实际建模项目从导入到输出的全过程</div>
+      </div>
+    </div>
+
+    <!-- C10 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">10</div>
+        <div class="card-content">
+          <div class="card-title">多光谱与红外热成像技术</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 技能</span>
+            <span>📁 传感载荷</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">多光谱</span>
+            <span class="tag">热成像</span>
+            <span class="tag">NDVI指数</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>多光谱/高光谱成像原理与波段的农业/环境意义</li>
+          <li>NDVI（归一化植被指数）的计算方法与判读逻辑</li>
+          <li>红外热成像原理：温度场分布与设备检测应用</li>
+          <li>多光谱/热红外数据采集的飞行参数设置要点</li>
+          <li>专业分析软件的使用（TASSEOMATIC、DJI Terra等）</li>
+          <li>多源数据融合：可见光+热红外+多光谱的联合判读</li>
+        </ul>
+        <div class="video-note">🎬 <strong>视频要点：</strong>同一地块同时采集三种数据，对比展示各自的应用价值</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4: 行业实战 -->
+  <div class="module-section m4" id="m4">
+    <div class="module-header">
+      <div class="module-tag">MODULE 04</div>
+      <div class="module-title">行业实战 — 五大领域的真实战场</div>
+      <div class="module-desc">深入测绘地理信息、农业植保、电力巡检、应急救援、阵列表演五大行业，以真实项目串联技术与场景</div>
+    </div>
+
+    <!-- C11 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">11</div>
+        <div class="card-content">
+          <div class="card-title">测绘地理信息行业应用</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 行业实战</span>
+            <span>📁 测绘GIS</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">1:500地形图</span>
+            <span class="tag">实景三维</span>
+            <span class="tag">不动产权籍调查</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>无人机测绘在1:500、1:1000地形图生产中的标准化作业流程</li>
+          <li>实景三维中国建设政策与的市场空间分析</li>
+          <li>不动产测绘中的无人机权籍调查应用</li>
+          <li>水库、堤坝、河道等水利设施的无人机监测方案</li>
+          <li>地形图精度验收标准与质量控制要点</li>
+          <li>测绘资质要求与无人机测绘项目投标要点</li>
+        </ul>
+        <div class="video-note">🎬 <strong>案例串联：</strong>以某县1:1000地形图测绘项目为线索，完整展示从投标到成果交付</div>
+      </div>
+    </div>
+
+    <!-- C12 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">12</div>
+        <div class="card-content">
+          <div class="card-title">农业植保行业应用</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 行业实战</span>
+            <span>📁 智慧农业</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">变量施药</span>
+            <span class="tag">仿地飞行</span>
+            <span class="tag">农业遥感</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>植保无人机的选型：载重、喷洒系统、作业效率的匹配</li>
+          <li>航线规划与仿地飞行（雷达/RTK高度跟随）技术</li>
+          <li>变量施药技术：基于多光谱影像的精准喷洒决策</li>
+          <li>作业参数（高度、速度、流量、喷幅）与防治效果的关系</li>
+          <li>小麦、水稻、柑橘等不同作物的作业方案差异</li>
+          <li>农业无人机的运营模式：单机合作社、共享平台、大疆农业T50案例</li>
+        </ul>
+        <div class="video-note">🎬 <strong>案例串联：</strong>以某水稻主产区的统防统治项目，串联从病虫害监测到施药验收的全流程</div>
+      </div>
+    </div>
+
+    <!-- C13 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">13</div>
+        <div class="card-content">
+          <div class="card-title">电力巡检行业应用</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 行业实战</span>
+            <span>📁 电力能源</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">输电线路</span>
+            <span class="tag">缺陷AI识别</span>
+            <span class="tag">精细化巡检</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>输电线路无人机巡检的两种模式：通道巡检 vs 精细化巡检</li>
+          <li>杆塔航线自动生成与RTK精准定位技术</li>
+          <li>可见光照片+AI缺陷识别系统（断股、锈蚀、异物、松脱）</li>
+          <li>红外热成像在电力设备缺陷检测中的应用</li>
+          <li>配电网（杆式变压器、柱上开关）巡检的特殊挑战</li>
+          <li>国网/南网无人机巡检规范解读与数字化验收</li>
+        </ul>
+        <div class="video-note">🎬 <strong>案例串联：</strong>以某±800kV特高压直流线路巡检项目，展示从外业采集到缺陷报告全流程</div>
+      </div>
+    </div>
+
+    <!-- C14 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">14</div>
+        <div class="card-content">
+          <div class="card-title">应急救援与公共安全应用</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 行业实战</span>
+            <span>📁 应急救援</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">搜救</span>
+            <span class="tag">火情监测</span>
+            <span class="tag">堰塞湖</span>
+            <span class="tag">重大活动保障</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>无人机应急救援装备体系：可见光/热红外/照明/喊话/抛投</li>
+          <li>山岳搜救场景的无人机搜索策略（网格搜索、立体搜索）</li>
+          <li>森林草原火情的无人机火场监测与态势标绘</li>
+          <li>地震、洪涝等自然灾害中的无人机应急测绘</li>
+          <li>大型活动低空安保的无人机部署与管控</li>
+          <li>应急管理部、消防救援队伍无人机配备标准解读</li>
+        </ul>
+        <div class="video-note">🎬 <strong>案例串联：</strong>以某山岳救援真实案例，串联搜索、定位、引导、评估四大应急场景</div>
+      </div>
+    </div>
+
+    <!-- C15 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">15</div>
+        <div class="card-content">
+          <div class="card-title">无人机阵列表演</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 行业实战</span>
+            <span>📁 灯光秀</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">集群控制</span>
+            <span class="tag">RTK定位</span>
+            <span class="tag">节目编排</span>
+            <span class="tag">文旅演艺</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>无人机阵列表演行业概述：市场规模、商业模式、主要应用场景</li>
+          <li>飞行控制系统：TDOA定位技术与地面站同步机制</li>
+          <li>单机操控 vs 阵列集群的差异与协同逻辑</li>
+          <li>节目编排与3D建模：如何设计立体动态图形</li>
+          <li>安全管控：电磁干扰、气象条件、应急处置方案</li>
+          <li>空域申请流程与行业资质要求</li>
+        </ul>
+        <div class="video-note">🎬 <strong>案例串联：</strong>以国庆庆典、春晚、大唐不夜城等震撼灯光秀为线索，拆解技术实现全流程</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 5: 综合提升 -->
+  <div class="module-section m5" id="m5">
+    <div class="module-header">
+      <div class="module-tag">MODULE 05</div>
+      <div class="module-title">综合提升 — 从学员到从业者</div>
+      <div class="module-desc">以综合案例串联全部技能树，同时补充职业发展路径与行业资源对接，培养完整的从业者思维</div>
+    </div>
+
+    <!-- C16 -->
+    <div class="course-card" onclick="toggleCard(this)">
+      <div class="card-main">
+        <div class="class-num">16</div>
+        <div class="card-content">
+          <div class="card-title">综合实训项目与职业发展</div>
+          <div class="card-meta">
+            <span>📺 <b>25分钟</b></span>
+            <span>🎯 综合实训</span>
+            <span>📁 职业闭环</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag">综合项目</span>
+            <span class="tag">职业路径</span>
+            <span class="tag">资质认证</span>
+            <span class="tag">行业资源</span>
+          </div>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+      <div class="card-expand">
+        <div class="expand-title">核心知识点</div>
+        <ul class="expand-list">
+          <li>综合实训设计：选择真实场景，完成"需求分析→方案制定→外业飞行→数据处理→成果输出"全流程</li>
+          <li>如何撰写一份专业的无人机应用项目技术方案</li>
+          <li>从业路径规划：飞手→技术负责人→项目经理→创业</li>
+          <li>必备证书体系：AOPA/CAAC执照、行业认证、安全员认证</li>
+          <li>行业资源平台：政府采购平台、政企合作渠道、行业协会资源</li>
+          <li>学员成果展示与互评，复盘课程全链路收获</li>
+        </ul>
+        <div class="video-note">🎬 <strong>课程收尾：</strong>以一个完整行业项目投标文件为成果输出，让学员带走一份可用的真实材料</div>
+      </div>
+    </div>
+
+    <!-- Summary Card -->
+    <div class="course-card" style="background: rgba(56,139,253,0.04); border-color: rgba(56,139,253,0.15);">
+      <div class="card-main">
+        <div class="class-num" style="background:rgba(56,139,253,0.15);color:#58a6ff;">✓</div>
+        <div class="card-content">
+          <div class="card-title" style="color: #58a6ff;">16课时学习路径总结</div>
+          <div class="card-tags" style="margin-top:8px;">
+            <span class="tag" style="background:rgba(56,139,253,0.1);color:#58a6ff;border-color:rgba(56,139,253,0.2);">模块一 3课时</span>
+            <span class="tag" style="background:rgba(63,185,80,0.1);color:#3fb950;border-color:rgba(63,185,80,0.2);">模块二 3课时</span>
+            <span class="tag" style="background:rgba(210,153,34,0.1);color:#d29922;border-color:rgba(210,153,34,0.2);">模块三 4课时</span>
+            <span class="tag" style="background:rgba(188,140,255,0.1);color:#bc8cff;border-color:rgba(188,140,255,0.2);">模块四 5课时</span>
+            <span class="tag" style="background:rgba(255,123,114,0.1);color:#ff7b72;border-color:rgba(255,123,114,0.2);">模块五 1课时</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL MODULES (collapsed overview) -->
+  <div class="module-section" id="all">
+    <div class="module-header">
+      <div class="module-tag">全部课程</div>
+      <div class="module-title">16课时完整课表</div>
+      <div class="module-desc">从零基础到行业实战，完整的学习路径图</div>
+    </div>
+    <div id="all-course-list"></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap">
+    <div class="progress-header">
+      <span style="font-size:14px;font-weight:500;color:#f0f6fc;">课程模块分布</span>
+      <span>16课时 · 约400分钟</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-seg m1-s" style="width:18.75%"></div>
+      <div class="progress-seg m2-s" style="width:18.75%"></div>
+      <div class="progress-seg m3-s" style="width:25%"></div>
+      <div class="progress-seg m4-s" style="width:31.25%"></div>
+      <div class="progress-seg m5-s" style="width:6.25%"></div>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:10px;flex-wrap:wrap;">
+      <span style="font-size:12px;color:#8b949e;display:flex;align-items:center;gap:5px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#58a6ff;display:inline-block;"></span>基础认知 3课时
+      </span>
+      <span style="font-size:12px;color:#8b949e;display:flex;align-items:center;gap:5px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#3fb950;display:inline-block;"></span>组装实操 3课时
+      </span>
+      <span style="font-size:12px;color:#8b949e;display:flex;align-items:center;gap:5px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#d29922;display:inline-block;"></span>基础应用 4课时
+      </span>
+      <span style="font-size:12px;color:#8b949e;display:flex;align-items:center;gap:5px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#bc8cff;display:inline-block;"></span>行业实战 5课时
+      </span>
+      <span style="font-size:12px;color:#8b949e;display:flex;align-items:center;gap:5px;">
+        <span style="width:10px;height:10px;border-radius:2px;background:#ff7b72;display:inline-block;"></span>综合提升 1课时
+      </span>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="progress-header" style="margin-bottom:14px;">
+        <span style="font-size:13px;color:#8b949e;">课时进度轴</span>
+        <span style="font-size:12px;color:#484f58;">1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14 → 15 → 16</span>
+      </div>
+      <div class="timeline-grid">
+        <div class="tl-item"><div class="tl-dot m1-dot">01</div>基础</div>
+        <div class="tl-item"><div class="tl-dot m1-dot">02</div>原理</div>
+        <div class="tl-item"><div class="tl-dot m1-dot">03</div>架构</div>
+        <div class="tl-item"><div class="tl-dot m2-dot">04</div>组装</div>
+        <div class="tl-item"><div class="tl-dot m2-dot">05</div>调试</div>
+        <div class="tl-item"><div class="tl-dot m2-dot">06</div>法规</div>
+        <div class="tl-item"><div class="tl-dot m3-dot">07</div>航测</div>
+        <div class="tl-item"><div class="tl-dot m3-dot">08</div>航拍</div>
+        <div class="tl-item"><div class="tl-dot m3-dot">09</div>建模</div>
+        <div class="tl-item"><div class="tl-dot m3-dot">10</div>多光谱</div>
+        <div class="tl-item"><div class="tl-dot m4-dot">11</div>测绘</div>
+        <div class="tl-item"><div class="tl-dot m4-dot">12</div>农业</div>
+        <div class="tl-item"><div class="tl-dot m4-dot">13</div>电力</div>
+        <div class="tl-item"><div class="tl-dot m4-dot">14</div>应急</div>
+        <div class="tl-item"><div class="tl-dot m4-dot">15</div>阵列</div>
+        <div class="tl-item"><div class="tl-dot m5-dot">16</div>综合</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL: 课程详情弹窗（完整版内容） -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header" id="modal-header">
+      <div class="modal-num" id="modal-num">01</div>
+      <div class="modal-header-body">
+        <h2 id="modal-title">课程标题</h2>
+        <div class="sub" id="modal-sub">基本信息</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="mtab active" onclick="switchMtab('syllabus',this)">教学大纲</button>
+      <button class="mtab" onclick="switchMtab('plan',this)">详细教案</button>
+      <button class="mtab" onclick="switchMtab('steps',this)">课程步骤</button>
+      <button class="mtab" onclick="switchMtab('resources',this)">辅助资源</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <div class="mtab-content active" id="tab-syllabus"></div>
+      <div class="mtab-content" id="tab-plan"></div>
+      <div class="mtab-content" id="tab-steps"></div>
+      <div class="mtab-content" id="tab-resources"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  宏志计划 · 无人机行业应用人才培养方案 &nbsp;|&nbsp; 共15课时 · 每课时约25分钟视频 &nbsp;|&nbsp; 2026
+</div>
+
+<script>
+  function showModule(id) {
+    document.querySelectorAll('.module-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    var btn = document.querySelector('.tab-btn[onclick*="'+id+'"]');
+    if(btn) btn.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.hero').offsetHeight + 60, behavior: 'smooth' });
+  }
+
+  function toggleCard(card) {
+    const expand = card.querySelector('.card-expand');
+    if (expand) {
+      expand.classList.toggle('open');
+    }
+  }
+
+  // Build all course list
+  const allCourses = [
+    { n:'01', m:'m1', t:'无人机概述与行业图谱', mod:'基础认知', dur:'25分钟', tag:'理论' },
+    { n:'02', m:'m1', t:'飞行原理与空气动力学', mod:'基础认知', dur:'25分钟', tag:'理论' },
+    { n:'03', m:'m1', t:'无人机系统组成与硬件架构', mod:'基础认知', dur:'25分钟', tag:'理论' },
+    { n:'04', m:'m2', t:'无人机硬件组装实操', mod:'组装实操', dur:'25分钟', tag:'实操' },
+    { n:'05', m:'m2', t:'飞控系统调试与地面站使用', mod:'组装实操', dur:'25分钟', tag:'实操' },
+    { n:'06', m:'m2', t:'飞行安全规范与法规', mod:'组装实操', dur:'25分钟', tag:'法规' },
+    { n:'07', m:'m3', t:'航空摄影测量基础', mod:'基础应用', dur:'25分钟', tag:'技能' },
+    { n:'08', m:'m3', t:'航拍技巧与影像获取', mod:'基础应用', dur:'25分钟', tag:'技能' },
+    { n:'09', m:'m3', t:'影像数据处理与三维建模', mod:'基础应用', dur:'25分钟', tag:'技能' },
+    { n:'10', m:'m3', t:'多光谱与红外热成像技术', mod:'基础应用', dur:'25分钟', tag:'技能' },
+    { n:'11', m:'m4', t:'测绘地理信息行业应用', mod:'行业实战', dur:'25分钟', tag:'实战' },
+    { n:'12', m:'m4', t:'农业植保行业应用', mod:'行业实战', dur:'25分钟', tag:'实战' },
+    { n:'13', m:'m4', t:'电力巡检行业应用', mod:'行业实战', dur:'25分钟', tag:'实战' },
+    { n:'14', m:'m4', t:'应急救援与公共安全应用', mod:'行业实战', dur:'25分钟', tag:'实战' },
+    { n:'15', m:'m4', t:'无人机阵列表演', mod:'行业实战', dur:'25分钟', tag:'实战' },
+    { n:'16', m:'m5', t:'综合实训项目与职业发展', mod:'综合提升', dur:'25分钟', tag:'综合' },
+  ];
+
+  const colorMap = { m1:'#58a6ff', m2:'#3fb950', m3:'#d29922', m4:'#bc8cff', m5:'#ff7b72' };
+  const modBgMap = { m1:'rgba(56,139,253,0.08)', m2:'rgba(63,185,80,0.08)', m3:'rgba(210,153,34,0.08)', m4:'rgba(188,140,255,0.08)', m5:'rgba(255,123,114,0.08)' };
+  const modBdMap = { m1:'rgba(56,139,253,0.15)', m2:'rgba(63,185,80,0.15)', m3:'rgba(210,153,34,0.15)', m4:'rgba(188,140,255,0.15)', m5:'rgba(255,123,114,0.15)' };
+
+  const listEl = document.getElementById('all-course-list');
+  allCourses.forEach(c => {
+    const div = document.createElement('div');
+    div.style.cssText = `display:flex;align-items:center;gap:12px;padding:12px 16px;background:${modBgMap[c.m]};border:1px solid ${modBdMap[c.m]};border-radius:8px;margin-bottom:6px;cursor:pointer;transition:opacity 0.2s;`;
+    div.onmouseover = () => div.style.opacity = '0.85';
+    div.onmouseout = () => div.style.opacity = '1';
+    div.onclick = () => openModal(c.n);
+    div.innerHTML = `
+      <div style="min-width:36px;height:36px;border-radius:8px;background:${colorMap[c.m]}22;color:${colorMap[c.m]};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;">${c.n}</div>
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:14px;font-weight:600;color:#f0f6fc;margin-bottom:2px;">${c.t}</div>
+        <div style="font-size:11px;color:#8b949e;">${c.mod} · ${c.dur}</div>
+      </div>
+      <div style="font-size:11px;color:${colorMap[c.m]};background:${colorMap[c.m]}18;padding:2px 8px;border-radius:4px;flex-shrink:0;">${c.tag}</div>
+    `;
+    listEl.appendChild(div);
+  });
+
+const COURSES = {
+"01":{
+  "title":"无人机概述与行业图谱","module":"基础认知","duration":"25分钟","type":"理论",
+  "color":"blue","colorCode":"#58a6ff",
+  "syllabus":{"objective":"让学员全面认识无人机的定义、分类及行业全貌，建立对无人机产业的宏观认知框架。",
+    "focus":["多旋翼/固定翼/垂直起降无人机的结构与适用场景","军用/民用/消费级无人机的法规等级划分","无人机产业链上中下游全景图谱","低空经济政策背景与市场前景分析","国内外主流无人机品牌与产品矩阵","无人机驾驶员执照分类与考证路径"],
+    "difficulty":"理解多旋翼与固定翼的结构差异及其对应的适用场景，掌握无人机产业链的利益分配逻辑。",
+    "outcome":"能准确说出5种以上无人机类型及其适用场景；能描述产业链三大环节；了解国内无人机监管框架。"},
+  "plan":[
+    {"time":"0-3min","title":"课程导入","detail":"播放短片：从军事侦察到外卖配送，无人机正在改变哪些行业？引发学员兴趣，提出核心问题。"},
+    {"time":"3-10min","title":"无人机的定义与分类","detail":"讲解无人机（UAV）正式定义；按结构：多旋翼、固定翼、垂直起降；按用途：军用、工业、消费级。"},
+    {"time":"10-17min","title":"行业图谱与产业链","detail":"绘制产业链：上游（芯片、传感器）→中游（整机制造、飞控）→下游（农业植保、电力巡检、测绘数据服务）。介绍大疆、极飞、亿航等代表企业。"},
+    {"time":"17-22min","title":"政策东风与职业路径","detail":"解读《低空经济发展纲要》；介绍CAAC执照、UTC认证、AOPA合格证的区别；展示飞手职业成长路径。"},
+    {"time":"22-25min","title":"小结与课后任务","detail":"回顾核心知识点；任务：查阅所在省份无人机相关产业政策文件（至少2份）。"}
+  ],
+  "steps":[
+    {"num":1,"title":"什么是无人机？","body":"正式定义：无人驾驶航空器（UAV），由遥控站管理或自动驾驶的航空器。区分无人机与航模的法律边界：250g以上需实名登记；航模视距内飞行，无人机可超视距（需许可）。<div class='tip-box'><b>💡 法律边界：</b>航模≠无人机，关键看用途和飞行范围。</div>"},
+    {"num":2,"title":"结构分类详解","body":"<b>多旋翼：</b>最常见，垂直起降，悬停能力强，适合航拍/巡检，续航15-45分钟。<br><b>固定翼：</b>需跑道/弹射，续航长（数小时），适合大面积测绘/巡逻。<br><b>垂直起降（VTOL）：</b>结合两者优点，适合工业场景。<div class='tip-box'><b>💡 选择原则：</b>没有最好的无人机，只有最适合场景的无人机。</div>"},
+    {"num":3,"title":"产业链全景拆解","body":"<b>上游：</b>芯片（高通、英伟达）、传感器（索尼、盛思锐）、电池（宁德时代、比亚迪）。<br><b>中游：</b>整机制造（大疆占全球70%+消费级市场）、飞控系统（Pixhawk开源生态）。<br><b>下游：</b>农业植保服务、电力巡检服务、测绘数据服务、培训机构。<div class='tip-box'><b>💡 创业机会：</b>下游服务端门槛最低，是最容易切入的创业方向。</div>"},
+    {"num":4,"title":"考证路径指南","body":"<b>CAAC无人机执照：</b>民航局颁发，法律效力最高，分视距内/超视距/教员三个等级。<br><b>UTC认证：</b>大疆慧飞培训，行业认可度高，适合农业/巡检/测绘方向。<br><b>AOPA合格证：</b>原行业标准，现逐渐被CAAC替代。<div class='tip-box'><b>💡 从业建议：</b>优先考CAAC视距内执照，再按行业方向补充UTC认证。</div>"}
+  ],
+  "resources":[
+    {"type":"政策文件","name":"《无人驾驶航空器飞行管理暂行条例》（国务院/中央军委）"},
+    {"type":"行业报告","name":"《中国无人机行业发展白皮书2025》— 中国AOPA"},
+    {"type":"视频素材","name":"大疆官方产品宣传片（Mavic3、Matrice350、T50）"},
+    {"type":"参考网站","name":"民航局无人机实名登记系统 uom.caac.gov.cn"}
+  ]
+},
+"02":{
+  "title":"飞行原理与空气动力学基础","module":"基础认知","duration":"25分钟","type":"理论",
+  "color":"blue","colorCode":"#58a6ff",
+  "syllabus":{"objective":"使学员理解无人机飞行的力学原理，掌握升力、推力、阻力、重力的平衡关系，为安全飞行奠定理论基础。",
+    "focus":["伯努利原理与翼型升力产生机制","多旋翼无人机的升力控制方式","无人机六自由度运动模型","悬停状态下的受力平衡分析","风速/风向对飞行稳定性的影响","飞行包络线与安全边界概念"],
+    "difficulty":"理解六自由度运动模型和各轴之间的耦合关系。",
+    "outcome":"能解释多旋翼无人机如何实现悬停；能说明前进、转向的运动原理；理解风速限制对飞行安全的影响。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：为什么无人机能停在空中？","detail":"演示螺旋桨旋转产生升力。提问：升力与什么有关？引出伯努利原理和牛顿第三定律。"},
+    {"time":"3-10min","title":"升力从哪来？","detail":"用伯努利原理讲解翼型升力（固定翼）；用牛顿第三定律讲解多旋翼升力。动画演示螺旋桨旋转→向下推动空气→反作用力使飞机上升。"},
+    {"time":"10-17min","title":"六自由度与运动控制","detail":"建立坐标系：X（前进/后退）、Y（左/右）、Z（上/下）、俯仰（Pitch）、横滚（Roll）、偏航（Yaw）。演示四旋翼如何通过改变电机转速实现六个方向的运动。"},
+    {"time":"17-22min","title":"飞行包络线与安全边界","detail":"讲解飞行包络线：高度限制、距离限制、风速限制。演示超过包络线的后果。介绍地理围栏（GeoFence）技术——飞控自动限制飞行范围。"},
+    {"time":"22-25min","title":"小结","detail":"回顾：升力原理→六自由度→飞行包络线。预告下节课：无人机硬件组成。"}
+  ],
+  "steps":[
+    {"num":1,"title":"升力的两种理解方式","body":"<b>固定翼（伯努利）：</b>机翼上表面弧线长→气流速度快→压强小；下表面平坦→气流速度慢→压强大；压力差产生升力。<br><b>多旋翼（牛顿第三定律）：</b>螺旋桨高速旋转→将空气向下推→空气给飞机向上的反作用力。<div class='tip-box'><b>💡 关键点：</b>多旋翼不需要机翼，升力全部来自螺旋桨。</div>"},
+    {"num":2,"title":"四旋翼的运动密码","body":"四旋翼标配：M1、M2逆时针转；M3、M4顺时针转（抵消反扭矩）。<br><b>上升：</b>四个电机同时加速→总升力增大。<br><b>前进：</b>后面两个电机加速，前面两个减速→机头下俯→产生向前的分力。<br><b>右转（偏航）：</b>顺时针电机加速+逆时针电机减速→反扭矩失衡→机身旋转。"},
+    {"num":3,"title":"悬停的力学平衡","body":"悬停=升力=重力，且俯仰=0°、横滚=0°、偏航不变。但现实中有风扰！飞控的作用就是不断检测姿态偏差→不断调整电机转速→维持平衡。这就是GPS信号弱时悬停会漂的原因——飞控缺少位置参考，无法精确补偿风扰。"},
+    {"num":4,"title":"读懂飞行参数表","body":"<b>最大起飞重量（MTOW）：</b>决定能挂多少载荷。<br><b>悬停时间：</b>实际作业时间通常比最大飞行时间短20-30%。<br><b>抗风等级：</b>5级风=10.7m/s，多数工业机要求抗风≥5级。<div class='tip-box'><b>💡 安全提醒：</b>标称抗风5级≠能在5级风下精确作业，建议作业风速≤4级。</div>"}
+  ],
+  "resources":[
+    {"type":"动画演示","name":"NASA Glenn Research Center - Four Forces of Flight（中文配音版）"},
+    {"type":"模拟器","name":"DJI Flight Simulator（免费版）"},
+    {"type":"参考书籍","name":"《多旋翼无人机设计与控制》— 清华大学出版社"},
+    {"type":"在线工具","name":"eCalc螺旋桨/电机计算器（ecalc.ch）"}
+  ]
+},
+"03":{
+  "title":"无人机系统组成与硬件架构","module":"基础认知","duration":"25分钟","type":"理论+认知",
+  "color":"blue","colorCode":"#58a6ff",
+  "syllabus":{"objective":"让学员系统认识无人机的五大核心子系统，理解各部件的功能、参数及选型逻辑，能够看懂一份无人机技术参数表。",
+    "focus":["飞控系统：MCU、IMU（陀螺仪/加速度计/磁力计/气压计）","动力系统：无刷电机、电子调速器（ESC）、螺旋桨、锂电池","通信链路：遥控器（2.4GHz）、图传（5.8GHz）、数传（433MHz）","任务载荷：可见光相机、红外热成像、激光雷达、多光谱相机","地面站系统（GCS）功能与主流软件"],
+    "difficulty":"理解IMU各传感器的工作原理及数据融合逻辑；掌握动力系统各部件的参数匹配计算。",
+    "outcome":"能独立解读一份无人机参数表；能根据应用场景选择合适的任务载荷；理解飞控是无人机的大脑。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：拆开一台无人机","detail":"展示大疆Matrice 350RTK的爆炸图，引出飞控是无人机大脑的概念。"},
+    {"time":"3-10min","title":"飞控系统——无人机的大脑","detail":"飞控=MCU+传感器+输出接口。详解IMU各传感器作用。讲解数据融合：陀螺仪积分得到姿态但会漂移；加速度计受振动干扰；飞控用卡尔曼滤波把多传感器融合→稳定可靠的姿态。"},
+    {"time":"10-17min","title":"动力系统——力量从哪来？","detail":"无刷电机原理（三相交流电→旋转磁场→转子转动）。电子调速器（ESC）：飞控发PWM信号→ESC转换成三相交流→驱动电机。螺旋桨参数：1045表示直径10英寸、螺距4.5英寸。锂电池：3S/4S/6S表示电芯串联数，电压越高=升力越大。"},
+    {"time":"17-22min","title":"通信链路与任务载荷","detail":"通信三件套：遥控器（2.4GHz，控制指令）、图传（5.8GHz，实时画面）、数传（433MHz，遥测数据）。任务载荷：可见光适合航拍建模；红外热成像适合电力巡检和搜救；激光雷达适合高精度三维建模；多光谱适合农业。"},
+    {"time":"22-25min","title":"参数表解读实训","detail":"展示大疆M350RTK参数表，带领学员逐项解读。课后任务：对比两款无人机参数表，写出各自最适合的应用场景。"}
+  ],
+  "steps":[
+    {"num":1,"title":"飞控系统深度认知","body":"<b>核心MCU：</b>STM32F4/F7系列（消费级）→ 英伟达Jetson（行业级，带AI加速）。<br><b>传感器数据融合：</b>陀螺仪积分得到姿态但会漂移；加速度计受振动干扰；磁力计受金属干扰。飞控用卡尔曼滤波把三者融合→稳定可靠的姿态。<div class='tip-box'><b>💡 为什么飞控要安装在减振架上？</b>电机振动会干扰加速度计读数。</div>"},
+    {"num":2,"title":"动力系统选型逻辑","body":"<b>电机KV值：</b>越低=扭矩越大=适合大螺旋桨=适合重载；越高=转速越快=适合小螺旋桨=适合穿越机。<br><b>电池计算：</b>容量（mAh）×电压（V）÷1000=瓦时（Wh）。6000mAh 6S电池≈133Wh。<div class='tip-box'><b>💡 电池安全：</b>LiPo电池穿刺/过充会起火，必须存放在防爆袋内。</div>"},
+    {"num":3,"title":"通信链路详解","body":"<b>2.4GHz（遥控）：</b>绕射能力强，穿少量遮挡，控制距离一般8-15km。<br><b>5.8GHz（图传）：</b>带宽大，画质高，但绕射差，容易被遮挡。<br><b>OcuSync 3.0：</b>大疆私有协议，2.4/5.8GHz自动切换，最远15km。<div class='tip-box'><b>💡 飞行安全铁律：</b>图传可断，遥控不能断！遥控断了只能触发自动返航。</div>"},
+    {"num":4,"title":"任务载荷选择指南","body":"<b>测绘：</b>高精度可见光相机（如Sony RX1R II，42MP）+五向云台。<br><b>农业：</b>多光谱相机（如Sentera 6X）+NDVI分析软件。<br><b>电力巡检：</b>30x变焦可见光+640×512红外热成像。<br><b>搜救：</b>红外热成像+喊话器+探照灯。<div class='tip-box'><b>💡 选载荷原则：</b>先确定要采集什么数据，再选传感器，最后选能挂载该传感器的无人机平台。</div>"}
+  ],
+  "resources":[
+    {"type":"官方文档","name":"大疆Matrice 350 RTK 技术参数表（dji.com）"},
+    {"type":"拆解视频","name":"大疆Mavic 3 官方拆解视频"},
+    {"type":"工具软件","name":"eCalc — 电机/螺旋桨/电池匹配计算"},
+    {"type":"参考书籍","name":"《无人机系统组成与原理》— 北航出版社"}
+  ]
+},
+"04":{
+  "title":"无人机硬件组装实操","module":"组装实操","duration":"25分钟","type":"动手实操",
+  "color":"green","colorCode":"#3fb950",
+  "syllabus":{"objective":"让学员掌握多旋翼无人机从散件到可飞行的完整组装流程，建立硬件安装的规范意识和安全操作习惯。",
+    "focus":["机身结构件、机臂、起落架的安装顺序与注意事项","电机安装方向识别（正转/反转）与动平衡检查","电调（ESC）与飞控的接线定义","图传系统与天线布线与屏蔽处理","无人机实名登记流程与UOM平台使用","组装完成后的检查清单"],
+    "difficulty":"正确识别电机转向并配对电调信号线；理解接线定义避免接错烧毁设备。",
+    "outcome":"能独立完成一台四旋翼无人机的硬件组装；能正确连接飞控-电调-电机-电池之间的线路。"},
+  "plan":[
+    {"time":"0-3min","title":"安全提醒与工具准备","detail":"强调安全：螺旋桨有风险，开机前必须移除螺旋桨！准备工具：2.0/2.5mm内六角、螺丝刀、尖嘴钳、扎带、万用表、防静电手环。"},
+    {"time":"3-9min","title":"机身组装——搭好骨架","detail":"按说明书顺序安装：中心板→机臂（注意标号）→起落架→顶盖板。螺丝紧固：对角交替拧紧，不要过紧（碳纤维会裂）。重点：机臂安装方向必须和说明书一致。"},
+    {"time":"9-16min","title":"动力系统安装——赋予力量","detail":"<b>电机安装：</b>识别电机转向（说明书标注CW/CCW），按对角线原则安装。<b>螺旋桨安装：</b>螺旋桨上的箭头方向和电机转向箭头方向一致。<b>电调接线：</b>三根粗线接电机（任意接，转向反了换任意两根线序）；细线接飞控M1-M4输出端。"},
+    {"time":"16-22min","title":"飞控与图传安装——装上大脑和眼睛","detail":"<b>飞控安装：</b>箭头必须指向机头方向！用减振柱固定在中心板上方，保证水平。<b>GPS模块：</b>安装在机臂上方，远离电池、电机等金属物体。<b>图传：</b>摄像头固定在机头，天线垂直向下安装（保证地面接收效果最好）。"},
+    {"time":"22-25min","title":"实名登记与首检","detail":"登录uom.caac.gov.cn → 注册账号 → 实名登记 → 生成二维码 → 贴在机身上。首检清单：①所有螺丝复检 ②电机转向核对 ③飞控箭头方向 ④螺旋桨安装正确 ⑤电池电压检查 ⑥遥控器对码成功。"}
+  ],
+  "steps":[
+    {"num":1,"title":"准备与安全检查","body":"<b>工具清单：</b>2.0/2.5mm内六角×各1、十字螺丝刀、尖嘴钳、扎带、万用表、防静电手环。<br><b>安全铁律：</b>①组装全过程不装螺旋桨 ②电池最后接 ③接电源线前用万用表确认极性 ④第一次通电前找老师检查。<div class='tip-box'><b>💡 扎带技巧：</b>剪扎带时留1-2mm，别剪到线缆表皮。</div>"},
+    {"num":2,"title":"机架组装详解","body":"<b>四旋翼机架类型：</b>H架（机臂在中心板四角，稳定）vs X架（机臂呈X形，机动性好）。<br><b>安装顺序：</b>中心板→机臂（注意标号！）→起落架→顶盖板。<br><b>螺丝扭矩：</b>M3螺丝在碳纤维上扭矩约0.6-0.8N·m。<div class='tip-box'><b>💡 常见错误：</b>机臂装反→飞控定义的前进方向和实际机头不一致→飞起来后前后左右和遥控器相反！</div>"},
+    {"num":3,"title":"动力系统接线","body":"<b>电机-电调连接：</b>三根粗线任意接（无刷电机无正负之分），转向反了交换任意两根线即可。<br><b>电调信号线：</b>三根线：信号（白/黄）、地（黑）、+5V（红）。接飞控的输出端口M1-M4。<br><b>电源分配板（PDB）：</b>电池接口→PDB→各电调电源。注意：XT60接口有方向，强行插会烧毁！"},
+    {"num":4,"title":"飞控安装要点","body":"<b>方向：</b>飞控PCB上的箭头必须指向机头！这是所有飞控固件的通用约定。<br><b>减振：</b>飞控必须用硅胶减震柱安装，否则振动会干扰加速度计。<br><b>GPS安装：</b>安装在机臂上方，远离电机（电机工作时产生强磁场，会干扰磁力计读数）。<div class='tip-box'><b>💡 为什么GPS要远离电机？</b>强磁场干扰磁力计，导致航向计算错误。</div>"}
+  ],
+  "resources":[
+    {"type":"组装手册","name":"Pixhawk 4 组装手册（中文社区翻译版）"},
+    {"type":"视频教程","name":"DIY Quadcopter Build — Joshua Bardwell（YouTube）"},
+    {"type":"工具清单","name":"无人机组装工具包清单（含型号与购买链接）"},
+    {"type":"法规平台","name":"民用无人机实名登记系统 uom.caac.gov.cn"}
+  ]
+},
+"05":{
+  "title":"飞控系统调试与地面站使用","module":"组装实操","duration":"25分钟","type":"动手实操",
+  "color":"green","colorCode":"#3fb950",
+  "syllabus":{"objective":"使学员掌握飞控固件烧录、传感器校准、遥控器对码、飞行模式配置的全流程，能够独立使用地面站软件完成无人机调试。",
+    "focus":["飞控固件烧录（PX4 vs Ardupilot）与QGroundControl安装","遥控器对码、通道映射与模式切换逻辑","传感器校准：加速度计、磁力计、气压计","PID参数含义与调参基本原则","飞行模式配置：Stabilize/AltHold/Loiter/Auto","失效保护（Failsafe）设置"],
+    "difficulty":"理解PID三个参数的物理含义及调节方向；掌握磁力计校准的特殊要求。",
+    "outcome":"能独立完成一台新装无人机的飞控调试全流程；能正确设置失效保护保障飞行安全。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：飞控调试 = 给无人机上课","detail":"比喻：组装好的无人机就像装好身体的人，但还不会动——飞控调试就是教它如何感知世界、如何响应指令。"},
+    {"time":"3-9min","title":"固件烧录与地面站软件","detail":"介绍两大飞控固件：PX4（模块化好，适合二次开发）和Ardupilot（历史久，功能全）。演示QGroundControl固件烧录流程：连接飞控→检测固件版本→一键烧录。注意：烧录过程中不能断电！"},
+    {"time":"9-16min","title":"传感器校准——让无人机感知世界","detail":"<b>加速度计校准：</b>按提示把无人机六个面逐一朝下放置。<b>磁力计校准：</b>拿到户外远离金属！按提示旋转无人机。<b>气压计：</b>自动校准，只需保证当前环境气压稳定。<div class='tip-box'><b>💡 磁力计校准失败最常见原因：</b>在室内靠近电脑/金属桌/手机→有磁场干扰。</div>"},
+    {"time":"16-22min","title":"遥控器对码与飞行模式","detail":"<b>对码：</b>接收机和遥控器都进入对码模式（指示灯快闪→慢闪=成功）。<b>飞行模式：</b>Stabilize（自稳）= 最基础；AltHold（定高）= 油门控制升降速度；Loiter（悬停）= GPS定位+定高，最安全；Auto（自动）= 按预设航点飞行。<div class='tip-box'><b>💡 新手建议配置：</b>开关切换到Loiter模式作为日常飞行模式。</div>"},
+    {"time":"22-25min","title":"失效保护与首次试飞","detail":"<b>失效保护设置：</b>遥控信号丢失→触发自动返航（RTL）；电池电压过低→自动返航或原地降落。<b>首次试飞：</b>在开阔地，先不装螺旋桨通电检查各舵面响应方向→装上螺旋桨，怠速检查→小油门离地10cm测试→若一切正常再进行完整飞行。"}
+  ],
+  "steps":[
+    {"num":1,"title":"地面站软件选择","body":"<b>QGroundControl：</b>开源、跨平台、界面友好，支持PX4和Ardupilot，推荐新手使用。<br><b>Mission Planner：</b>Windows only，功能最全，参数调节最细致，适合进阶用户。<br><b>大疆Pilot2：</b>大疆行业机专用，功能受限但稳定可靠。<div class='tip-box'><b>💡 建议：</b>先用QGroundControl完成首次调参，熟悉后再用Mission Planner深入调参。</div>"},
+    {"num":2,"title":"PID调参入门","body":"<b>P（比例）：</b>控制反应的力度。P太大→振荡（无人机不停抖动）；P太小→反应迟钝。<b>I（积分）：</b>消除稳态误差。I太大→超调；I太小→不能保持姿态。<b>D（微分）：</b>阻尼振荡。D太大→反应迟钝；D太小→振荡不止。<div class='tip-box'><b>💡 黄金法则：</b>先用固件默认参数试飞，只有在明显振荡或明显迟钝时才调参，且每次只调一个参数！</div>"},
+    {"num":3,"title":"飞行模式深度解析","body":"<b>Stabilize（自稳）：</b>飞控维持姿态水平，但不管高度，松杆后飞机会保持当前姿态（可能飘走）。<br><b>AltHold（定高）：</b>自稳+高度保持，松油门杆飞机保持高度，最适合新手练习。<br><b>Loiter（GPS悬停）：</b>定高+GPS定位，松杆后飞机悬停在原地，最安全。"},
+    {"num":4,"title":"失效保护配置清单","body":"<b>RC Loss（遥控丢失）：</b>设置触发延迟（建议3-5秒）→ 触发后动作：RTL（返航）/Land（原地降落）。<br><b>Battery Failsafe：</b>设置低电压阈值（3.5V/芯 for LiPo）→ 触发后动作：RTL→继续下降则Land。<div class='tip-box'><b>💡 最安全的配置：</b>遥控丢失→RTL；电量低→先RTL再Land。</div>"}
+  ],
+  "resources":[
+    {"type":"软件下载","name":"QGroundControl 官方下载（qgroundcontrol.com）"},
+    {"type":"调参指南","name":"《Ardupilot PID调参完全指南》（官方文档中文版）"},
+    {"type":"视频教程","name":"《QGC从入门到精通》— 大疆社区视频教程"},
+    {"type":"软件","name":"Mission Planner（ardupilot.org）"}
+  ]
+},
+"06":{
+  "title":"飞行安全规范与法规","module":"组装实操","duration":"25分钟","type":"法规+安全",
+  "color":"green","colorCode":"#3fb950",
+  "syllabus":{"objective":"使学员系统掌握无人机飞行的法律法规框架和安全操作规范，建立合规飞行意识。",
+    "focus":["《民用航空法》无人机章节与《无人驾驶航空器飞行管理暂行条例》核心条款","实名登记、飞行资质、空域申请的法律效力","禁飞区、限飞区、管控区的识别工具","飞行前检查清单（PREFLIGHT CHECKLIST）","无人机第三者责任险"],
+    "difficulty":"理解空域分类体系及对应的审批流程。",
+    "outcome":"能独立查询飞行区域的空域属性；能正确完成实名登记和飞行申请；养成飞行前按检查清单操作的职业习惯。"},
+  "plan":[
+    {"time":"0-4min","title":"导入：一次黑飞的代价","detail":"案例：2023年某航拍爱好者在北京首都机场附近黑飞，导致多架航班备降，被处以行政拘留10日+没收无人机+罚款2万元。"},
+    {"time":"4-10min","title":"法规体系梳理","detail":"<b>核心要求三条：</b>①实名登记（250g以上必须登记）；②飞手资质（从事商业飞行需要CAAC执照）；③空域申请（管制空域内飞行必须申请）。<b>💡 250g以下：</b>不需要实名登记，但依然不能在禁飞区飞！"},
+    {"time":"10-16min","title":"空域与禁飞区","detail":"<b>绝对禁飞区：</b>机场净空保护区（周边20km）、军事禁区。<b>限飞区：</b>机场周边减速区、城市核心区（限高120m）。<b>查询工具：</b>大疆Fly Safe地图（fly-safe.dji.com）、UOM平台空域查询。<div class='tip-box'><b>⚠️ 重要：</b>即使地图上显示可以飞，如果现场有公安警示牌或临时管控通告，也必须遵守！</div>"},
+    {"time":"16-22min","title":"飞行前检查清单实训","detail":"<b>环境检查：</b>天气（风速<10m/s、无雨、能见度>5km）、空域（查禁飞区地图）、现场（远离人群/高压线）。<b>设备检查：</b>电池电量（>80%）、螺旋桨无裂纹、机臂锁定可靠、遥控器电量、图传正常。<b>系统检查：</b>GPS星数（>8颗）、IMU状态（无错误）、失控保护已开启。"},
+    {"time":"22-25min","title":"保险与责任","detail":"<b>第三者责任险：</b>保障因无人机事故造成第三方人身/财产损失的赔偿。平安、人保均有无人机专项保险，年费约500-2000元。<div class='tip-box'><b>💡 保险不赔的情况：</b>黑飞期间发生事故、飞手无证驾驶（商业飞行）。</div>"}
+  ],
+  "steps":[
+    {"num":1,"title":"法规核心三条","body":"<b>①实名登记：</b>250g以上无人机在uom.caac.gov.cn登记，生成二维码贴在机身上，未登记罚款2000元以下。<br><b>②飞手资质：</b>商业飞行需要CAAC视距内/超视距执照（考试费约8000-12000元）。<br><b>③空域申请：</b>在管制空域内飞行，需提前1-3天在UOM平台提交飞行计划，等待审批。"},
+    {"num":2,"title":"读懂空域地图","body":"<b>大疆Fly Safe地图：</b>红色=禁飞区（不能飞）；灰色=限飞区（120m以下可以飞）；蓝色=需要申请；无色=自由飞行区（仍需遵守120m限高）。<br><b>UOM平台：</b>民航局官方空域查询系统，数据最权威。"},
+    {"num":3,"title":"标准飞行前检查清单","body":"<b>环境：</b>✓ 天气适宜 ✓ 非禁飞区 ✓ 远离人群（>30m）✓ 远离机场/军事区<br><b>机身：</b>✓ 螺旋桨无损伤 ✓ 机臂锁紧 ✓ 电池充满并锁牢 ✓ 摄像头正常<br><b>系统：</b>✓ GPS星数>8 ✓ 罗盘无干扰 ✓ IMU正常 ✓ 失控保护已开启<br><div class='tip-box'><b>💡 检查清单不是建议，是铁律！</b>每次飞行前都必须逐项核对。</div>"},
+    {"num":4,"title":"违规的法律后果","body":"<b>行政处罚：</b>黑飞初犯→警告或2000元以下罚款；情节较重→没收无人机+5000-50000元罚款；造成严重后果→行政拘留。<br><b>刑事责任：</b>造成严重事故→可能构成过失以危险方法危害公共安全罪→刑事拘留。<div class='tip-box'><b>💡 保护自己：</b>合法飞行+购买保险+保留所有申请记录，三者缺一不可。</div>"}
+  ],
+  "resources":[
+    {"type":"法规原文","name":"《无人驾驶航空器飞行管理暂行条例》（国务院令第763号）"},
+    {"type":"官方网站","name":"民用无人机实名登记系统 uom.caac.gov.cn"},
+    {"type":"查询工具","name":"大疆Fly Safe 空域地图 fly-safe.dji.com"},
+    {"type":"保险参考","name":"平安无人机第三者责任险产品说明"}
+  ]
+},
+"07":{
+  "title":"航空摄影测量基础","module":"基础应用","duration":"25分钟","type":"技能",
+  "color":"amber","colorCode":"#d29922",
+  "syllabus":{"objective":"使学员掌握航空摄影测量的基本原理和作业流程，能够独立规划测绘航线并完成像控点布设。",
+    "focus":["航空摄影测量基本原理：中心投影、重叠率、同名点匹配","像控点（GCP）布设原则：数量、分布、精度要求","地面分辨率（GSD）计算与飞行高度选择","航线规划：东西向飞行、旁向重叠率设置","不同地形的飞行策略差异","RTK/PPK技术在航测中的应用"],
+    "difficulty":"掌握GSD计算公式并能够根据成图精度要求反算飞行高度。",
+    "outcome":"能根据测图比例尺要求计算所需GSD和飞行高度；能使用大疆Pilot2规划测绘航线；能正确布设像控点并通过RTK精确测量其坐标。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：从一张照片到一幅地图","detail":"展示：一张无人机航拍照片→经过几百张照片拼接→生成整个村庄的正射影像图。提问：这中间发生了什么？"},
+    {"time":"3-10min","title":"航测原理与GSD","detail":"<b>中心投影：</b>相机镜头像眼睛，物体反射光线通过镜头在传感器上成像，近大远小——这就是为什么航拍照片需要正射校正才能当地图用。<b>GSD（地面分辨率）：</b>每个像素对应地面多少厘米。公式：GSD = (传感器宽度 × 飞行高度) ÷ (焦距 × 像素数)。<b>💡 经验值：</b>1:500地形图需要GSD≤5cm；1:1000需要GSD≤8cm。"},
+    {"time":"10-17min","title":"像控点布设——精度的基础","detail":"<b>为什么需要像控点？</b>无人机GPS位置有误差（普通GPS有3-5m误差），空三加密需要地面控制点来锚定整个模型。<b>布设原则：</b>测区四周各布2-3个点+内部均匀布设（每平方公里至少4-6个）。用RTK测量，精度要求：平面±2cm，高程±3cm。<div class='tip-box'><b>💡 布设技巧：</b>用喷漆在地面画L形标志，或者用A4纸打印棋盘格贴在地面上。</div>"},
+    {"time":"17-23min","title":"航线规划实操","detail":"演示大疆Pilot2的测绘航线规划：①在地图上框选测区；②设置飞行高度（根据GSD要求）；③设置航向重叠率（75-80%）和旁向重叠率（65-70%）；④设置仿地飞行（开启雷达测高，保持真实离地高度不变）。"},
+    {"time":"23-25min","title":"小结","detail":"回顾：航测原理→GSD计算→像控点布设→航线规划。布置任务：用大疆Pilot2规划一个200亩地块的航测航线，计算所需飞行高度和预计飞行时间。"}
+  ],
+  "steps":[
+    {"num":1,"title":"GSD计算实战","body":"<b>公式：</b>GSD = (传感器宽度 × H) ÷ (焦距 × 图像像素数)<br>例：Sony RX1R II，全画幅36mm宽，6000万像素（9504像素宽），焦距35mm，飞行高度150m。<br>GSD = 36×150 ÷ (35×9504) × 1000 ≈ 1.6cm/像素。<div class='tip-box'><b>💡 快捷估算：</b>H（米）÷ 100 ≈ GSD（cm），当使用35mm镜头时。</div>"},
+    {"num":2,"title":"像控点布设规范","body":"<b>数量：</b>平地每0.5-1km²至少5-7个点；丘陵/山地需要更多。<br><b>分布：</b>测区四角各1-2个点+测区中央1-2个点。<br><b>测量：</b>用RTK测量像控点坐标，静态测量模式，采样时间≥60秒。"},
+    {"num":3,"title":"航线规划参数详解","body":"<b>航向重叠率：</b>建议75-80%。太低→模型有缝隙；太高→飞行时间增加但精度提升有限。<br><b>飞行速度：</b>建议5-8m/s。太快→照片运动模糊；太慢→效率低下。<br><b>仿地飞行：</b>丘陵地区一定要开！否则恒定相对起飞点高度会导致山腰处离地高度过低，有撞山风险。"},
+    {"num":4,"title":"成果验收标准","body":"<b>1:500地形图精度要求：</b>平面位置中误差≤0.25m，高程中误差≤0.15m（平地）。<br><b>检查方法：</b>用全站仪或RTK测量20-30个检查点（不在像控点之中），比较测量坐标和模型坐标的差值。<div class='tip-box'><b>💡 如果精度不达标：</b>在精度不够的区域补飞（降低高度或增加重叠率），然后重新建模。</div>"}
+  ],
+  "resources":[
+    {"type":"软件","name":"大疆Pilot 2 航线规划软件（DJI官网下载）"},
+    {"type":"规范标准","name":"GB/T 7930-2008《1:500 1:1000 1:2000 地形图航空摄影测量内业规范》"},
+    {"type":"计算工具","name":"GSD计算器（dji.com 地面分辨率计算工具）"},
+    {"type":"参考书籍","name":"《无人机航空摄影测量技术》— 武汉大学出版社"}
+  ]
+},
+"08":{
+  "title":"航拍技巧与影像获取","module":"基础应用","duration":"25分钟","type":"技能",
+  "color":"amber","colorCode":"#d29922",
+  "syllabus":{"objective":"使学员掌握无人机航拍的曝光控制、运镜手法和场景构图技巧，能够获取高质量航拍素材。",
+    "focus":["曝光三角在航拍中的特殊考虑","五种经典运镜手法：前进/后退/侧移/旋转/俯冲","ND滤镜的使用时机与档位选择","不同光照条件（顺光/逆光/晨昏）的拍摄策略","航拍素材质量快速判断法"],
+    "difficulty":"理解运动模糊与快门速度的关系（视频拍摄快门=2×帧率）。",
+    "outcome":"能独立设置相机参数获取清晰、曝光正确的航拍素材；能执行五种经典运镜手法。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：同样是航拍，为什么差距这么大？","detail":"对比展示：同一景点的两组航拍视频，一组专业（稳定、曝光准确、运镜流畅），一组业余（抖动、过曝、构图混乱）。"},
+    {"time":"3-10min","title":"曝光控制——航拍的特殊挑战","detail":"<b>快门速度：</b>拍视频时，快门速度应该是帧率的2倍（180°快门角）。拍4K/30fps→快门1/60s；拍4K/60fps→快门1/120s。<b>问题：</b>白天户外光线强，1/60s会过曝→需要用ND滤镜！"},
+    {"time":"10-16min","title":"ND滤镜——航拍必备神器","detail":"<b>ND滤镜的作用：</b>减少进光量，让你在强光下也能用慢快门（实现180°快门角）。<b>档位选择：</b>ND8=减3档（适合多云）；ND16=减4档（适合晴天）；ND32=减5档（适合强光）；ND1000=减10档（适合长曝光）。"},
+    {"time":"16-22min","title":"五种经典运镜手法","detail":"<b>①前进（Dolly In）：</b>机头朝向目标，缓慢推油门向前。<b>②后退（Dolly Out）：</b>背向目标后退，展示环境全貌。<b>③侧移（Slide）：</b>机身朝左或右平移，保持目标在画面中位置不变，电影感最强。<b>④旋转（Orbit）：</b>环绕目标飞行，保持目标始终在画面中心。<b>⑤俯冲（Reveal）：</b>从高处垂直下降，配合机头下俯，适合揭开场景。<div class='tip-box'><b>💡 运镜铁律：</b>动作要慢、要稳！操舵量不超过摇杆的1/3。</div>"},
+    {"time":"22-25min","title":"素材质量快速检查","detail":"航拍结束回到地面后，立即检查：①回放查看是否有抖动（抖动通常是因为快门太慢或螺旋桨入画）；②检查曝光（过曝区域是否有细节，可用直方图辅助判断）；③检查焦点（放大到100%看是否有虚焦）。"}
+  ],
+  "steps":[
+    {"num":1,"title":"相机参数设置详解","body":"<b>拍照模式：</b>光圈优先（A档）或手动（M档）。ISO尽量100-200（保证画质）。白平衡建议手动设置为日光（5500K），避免自动白平衡在不同光线条件下色温跳变。<br><b>视频模式：</b>4K/30fps（大多数场景）；4K/60fps（需要慢动作时）。色域建议选D-Log（大疆）或C-Log（索尼），保留最大后期空间。<div class='tip-box'><b>💡 航拍照片格式：</b>RAW（.DNG）+ JPEG同时保存。RAW格式保留最多图像信息，后期空间大。</div>"},
+    {"num":2,"title":"运镜手法分步教学","body":"<b>前进运镜：</b>左手油门缓慢推（约摇杆的1/4行程），同时右手微调俯仰杆保持画面水平。关键是缓慢——前进速度建议3-5m/s。<br><b>环绕运镜：</b>用地面站的兴趣点环绕功能最稳（设定目标GPS坐标+环绕半径+环绕速度）。"},
+    {"num":3,"title":"构图与光线","body":"<b>经典构图：</b>三分法（将画面九宫格划分，将主体放在交叉点）；引导线（道路/河流引导视线）；框景（用树枝/拱门做画框）。<br><b>光线选择：</b>顺光（色彩还原好，但缺乏立体感）→适合新手；侧光（最能表现质感）→适合建筑/地形；逆光（有氛围感但要防过曝）→适合日落/剪影；晨昏（黄金时刻）→最适合航拍。<div class='tip-box'><b>💡 避开正午：</b>顶光拍摄，阴影最短，画面平，缺少层次感。</div>"},
+    {"num":4,"title":"安全与拍摄的平衡","body":"<b>法律底线：</b>始终保持在视距内（VLOS），不要为了完美镜头飞太远。<br><b>电量管理：</b>航拍耗电比普通飞行快，建议剩余30%电量就返航。<br><b>障碍物规避：</b>侧移时最容易忽略侧方障碍物（建筑物/电线），务必保持视觉观察+图传画面双重确认。"}
+  ],
+  "resources":[
+    {"type":"视频参考","name":"大疆官方航拍教学系列视频（DJI Tutorial Series）"},
+    {"type":"滤镜推荐","name":"Freewell ND滤镜套装（ND8-ND128，适配大疆Mavic/M350）"},
+    {"type":"在线工具","name":"PhotoPills — 摄影计划工具（可计算黄金时刻时间）"},
+    {"type":"参考书籍","name":"《无人机航拍实用手册》— 人民邮电出版社"}
+  ]
+},
+"09":{
+  "title":"影像数据处理与三维建模","module":"基础应用","duration":"25分钟","type":"技能",
+  "color":"amber","colorCode":"#d29922",
+  "syllabus":{"objective":"使学员掌握从航拍影像到三维模型的完整数据处理流程，能够使用主流建模软件完成空三加密、密集匹配、三维重建。",
+    "focus":["主流建模软件对比：Pix4Dmapper、ContextCapture、Metashape","数据处理全流程：原始数据导入→影像对齐→刺点→空三→密集匹配→重建→输出","DOM（数字正射影像图）与DEM（数字高程模型）的区别","三维模型精度评估：GSD、点云密度、检查点中误差","成果格式与行业软件对接（CAD/GIS/BIM）"],
+    "difficulty":"理解光束法平差原理；掌握刺点操作。",
+    "outcome":"能独立完成一个航测项目的数据处理全流程；能刺点并评估空三精度；能根据应用需求选择合适的输出成果格式。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：从几百张照片到整个村庄的三维模型","detail":"展示实际案例：某村200亩，飞行2架次，获取1200张照片，经过一夜计算，生成整个村庄的三维模型。今天学习这夜里发生了什么。"},
+    {"time":"3-10min","title":"软件选择与项目建立","detail":"<b>Pix4Dmapper：</b>界面友好，适合新手，云处理选项，但订阅费贵（约2万元/年）。<b>ContextCapture：</b>工业级，精度最高，支持集群计算，学习曲线陡峭。<b>Metashape：</b>性价比高，一次性购买（约1.5万元），支持Mac，适合中小项目。<div class='tip-box'><b>💡 选择建议：</b>新手学习用Metashape；商业项目用ContextCapture。</div>"},
+    {"time":"10-18min","title":"数据处理全流程演示","detail":"以Metashape为例：<b>①导入照片：</b>软件自动读取EXIF中的GPS和姿态数据。<b>②对齐照片：</b>软件寻找同名点→估算每张照片的拍摄位置和姿态→生成稀疏点云。<b>③刺点：</b>在照片上标记像控点的位置，输入其精确坐标→软件进行空中三角测量平差。<b>④生成密集点云：</b>对每一像素进行深度估算→生成高密度点云（最耗计算资源的步骤）。<b>⑤生成网格和纹理：</b>从点云生成三维网格→从原始照片提取纹理贴图。"},
+    {"time":"18-23min","title":"成果输出与应用","detail":"<b>DOM（正射影像）：</b>类似卫星地图，每个像素都有精确坐标。输出格式：GeoTIFF。<b>DEM/DSM：</b>记录地面（或地表物体顶部）的高程信息。<b>三维模型：</b>输出格式：OBJ（通用3D格式）、OSGB（倾斜摄影标准格式）。<div class='tip-box'><b>💡 文件体积：</b>三维模型很占空间，一个200亩的村庄模型可能达到10-30GB，交付时注意压缩或分块。</div>"},
+    {"time":"23-25min","title":"精度检查与常见问题","detail":"<b>精度检查：</b>用20-30个检查点（非像控点）比较模型坐标和RTK测量坐标的差值，计算中误差。<b>常见问题：</b>①水面/雪地/玻璃→没有纹理特征→建模失败（解决：在水面区域手动添加标识物）；②高楼/悬崖→容易产生拉花（解决：用倾斜摄影，增加侧面照片）。"}
+  ],
+  "steps":[
+    {"num":1,"title":"刺点操作详解","body":"<b>步骤：</b>在软件中打开GCP Marking界面→选择第一个像控点→在照片中找到该像控点的图像（通常出现在30-80张照片中）→用鼠标精确点击像控点的中心位置。<br><b>数量要求：</b>每个像控点至少在5-10张照片中标记，分布要均匀。<div class='tip-box'><b>⚠️ 刺点错了比不刺点更糟！</b>错误的像控点坐标会导致整个模型发生扭曲。</div>"},
+    {"num":2,"title":"参数设置指南","body":"<b>对齐质量：</b>选High或Medium。Low速度快但精度差，只适合快速预览。<br><b>密集点云质量：</b>选High（最终成果）或Medium（快速验证）。Ultra High对计算资源要求极高，需要评估是否有必要。<br><b>深度滤波：</b>开启，可以过滤掉浮空点（空中飘浮的错误的点云）。"},
+    {"num":3,"title":"成果格式与对接","body":"<b>GIS对接：</b>DOM（.tif）+ DEM（.tif）可以直接导入ArcGIS/QGIS，叠加矢量边界进行面积/体积计算。<br><b>Civil3D对接：</b>将DEM导入AutoCAD Civil 3D，可以生成等高线、计算填挖方量。<br><b>BIM对接：</b>三维模型（.obj或.rcp）导入Revit/Navisworks，进行设计比对。<div class='tip-box'><b>💡 坐标系统一：</b>输出时务必选择和项目要求一致的坐标系（通常是CGCS2000），否则成果无法和其他数据叠加。</div>"},
+    {"num":4,"title":"建模失败排查清单","body":"<b>问题1：</b>对齐失败（照片数量太少或重叠率不足）→ 解决：补飞。<br><b>问题2：</b>模型有拉花（墙面扭曲）→ 解决：增加倾斜摄影角度（-45°镜头）。<br><b>问题3：</b>水面区域有空洞 → 解决：在水面放置标识物或在软件中手动补洞。<div class='tip-box'><b>💡 建模成功率提升技巧：</b>飞行时保证80%航向重叠+75%旁向重叠；选无风或微风天气（减少运动模糊）。</div>"}
+  ],
+  "resources":[
+    {"type":"软件","name":"Agisoft Metashape — 学生版优惠（教育邮箱申请）"},
+    {"type":"软件","name":"Pix4Dmapper — 30天免费试用（pix4d.com）"},
+    {"type":"教程","name":"《Metashape 从入门到精通》— B站系列视频教程"},
+    {"type":"硬件参考","name":"建模工作站配置推荐（CPU:i9, GPU:RTX4090, RAM:64GB+, SSD:2TB+）"}
+  ]
+},
+"10":{
+  "title":"多光谱与红外热成像技术","module":"基础应用","duration":"25分钟","type":"技能",
+  "color":"amber","colorCode":"#d29922",
+  "syllabus":{"objective":"使学员掌握多光谱成像和红外热成像的原理、数据采集方法和行业应用场景，能够规划多光谱/热红外飞行任务并解读分析结果。",
+    "focus":["多光谱成像原理：波段划分与光谱特征曲线","NDVI（归一化植被指数）的计算方法与农业意义","红外热成像原理：物体辐射与温度场成像","多光谱数据采集的飞行参数设置","热红外数据在设备检测中的应用"],
+    "difficulty":"理解NDVI计算公式及阈值划分（健康/一般/枯萎）。",
+    "outcome":"能规划多光谱数据采集飞行任务；能使用Pix4Dfields或DJI Terra生成NDVI地图；能解读红外热成像图并识别异常热点。"},
+  "plan":[
+    {"time":"0-4min","title":"导入：同一块田地，为什么有的人能看出生病？","detail":"展示同一块农田的可见光照片 vs NDVI地图 vs 热红外图的对比。提问：可见光照片里看起来正常的作物，为什么在NDVI地图里显示不健康？今天学习用超人视角（多光谱+热红外）看世界。"},
+    {"time":"4-11min","title":"多光谱成像原理","detail":"<b>多光谱：</b>在可见光谱基础上，增加近红外（NIR，700-1100nm）、红边（Red Edge，700-730nm）等波段。<b>核心原理：</b>健康植物的叶片结构会强烈反射近红外光（NIR），而生病或枯萎的植物反射NIR的能力大幅下降。这种差异在人眼看起来不明显，但在多光谱相机里一目了然！<b>💡 典型多光谱相机：</b>大疆P4 Multispectral（4个多光谱+1个可见光，共5个镜头）。"},
+    {"time":"11-17min","title":"NDVI计算与解读","detail":"<b>公式：</b>NDVI = (NIR - Red) ÷ (NIR + Red)。结果范围：-1到+1。<br><b>健康植被：</b>NDVI > 0.6（深绿色）；<b>一般：</b>0.3-0.6（浅绿色到黄色）；<b>枯萎/裸土：</b>< 0.3（红色）。<b>应用场景：</b>①识别病虫害区域（精准施药的依据）；②评估作物长势（变量施肥的依据）；③估算生物量（产量预测）。"},
+    {"time":"17-22min","title":"红外热成像原理与应用","detail":"<b>原理：</b>所有温度高于绝对零度的物体都会辐射红外线。热成像相机检测这种辐射，转换成温度分布图（热图）。<b>电力巡检应用：</b>连接点松动→电阻增大→发热→热图中显示热点。正常导线温度与环境温度相差不大；异常连接点温度可能高出10-30°C。<b>关键参数：</b>热灵敏度（NETD，越小越好）；分辨率（像素数，如640×512）。<div class='tip-box'><b>💡 热成像局限性：</b>受环境温度、风速、阳光直射影响大，最好在清晨或傍晚测量。</div>"},
+    {"time":"22-25min","title":"数据采集与处理流程","detail":"<b>多光谱飞行：</b>设置与正射航测类似，但对光照有要求（最好晴天10:00-14:00）。<b>数据处理：</b>用Pix4Dfields或DJI Terra生成NDVI地图，输出TIFF格式，每个像素包含NDVI值。<b>💡 标定板：</b>专业多光谱采集需要用反射率标定板（校准数据，消除大气和光照影响）。"}
+  ],
+  "steps":[
+    {"num":1,"title":"多光谱相机操作","body":"<b>大疆P4 Multispectral操作：</b>开机后先进行光谱校准（用自带校准板）→设置飞行参数（与正射航测相同）→开始飞行。飞行过程中，6个镜头（5个多光谱+1个可见光）同时拍摄。<br><b>💡 数据存储：</b>每个波段的照片分别存放在不同文件夹（如Band1_Red、Band2_Green等），处理软件会自动关联。"},
+    {"num":2,"title":"NDVI地图生成","body":"<b>步骤：</b>①导入所有多光谱照片 → ②软件自动进行辐射校准 → ③生成索引地图（NDVI/NDRE/OSAVI等）→ ④输出TIFF。<br><b>在QGIS中进一步分析：</b>用r.reclass工具将NDVI地图重新分类（0-0.3=裸土，0.3-0.6=一般，0.6-1=健康）→ 计算各类面积占比 → 生成施肥/施药处方图。<div class='tip-box'><b>💡 处方图：</b>将NDVI地图按阈值分区，生成变量施药任务文件，导入植保无人机，实现精准作业。</div>"},
+    {"num":3,"title":"热成像数据分析","body":"<b>温度测量：</b>热成像不仅能看相对温度分布，还能测绝对温度（需要用已知温度物体进行校准）。<b>电力巡检数据分析：</b>用DJI IR Analyzer或FLIR Tools，框选导线/连接点区域，软件自动计算最高/最低/平均温度。温升>15°C通常需要紧急处理；温升5-15°C需要计划检修；温升<5°C一般可接受。<div class='tip-box'><b>💡 发射率（Emissivity）设置：</b>不同材料的发射率不同（铜:0.95，铝:0.2-0.3），测温前要设置正确的发射率。</div>"},
+    {"num":4,"title":"多源数据融合案例","body":"<b>案例：</b>某光伏电站巡检，同时使用可见光+热红外。可见光发现面板破损/污渍；热红外发现热斑（电池片隐裂或旁路二极管失效）。<b>融合分析：</b>将两种数据叠加在GIS平台中，生成综合缺陷地图，按缺陷严重程度排序，指导运维优先处理。<div class='tip-box'><b>💡 价值：</b>单一数据源只能发现一类问题，多源融合才能实现全面体检。</div>"}
+  ],
+  "resources":[
+    {"type":"软件","name":"Pix4Dfields — 多光谱数据处理专用（pix4d.com）"},
+    {"type":"软件","name":"FLIR Tools — 热成像数据分析（flir.com，免费）"},
+    {"type":"设备参考","name":"大疆P4 Multispectral 技术参数与操作手册"},
+    {"type":"技术文档","name":"《植被指数计算与应用》— 中科院遥感与数字地球研究所"}
+  ]
+},
+"11":{
+  "title":"测绘地理信息行业应用","module":"行业实战","duration":"25分钟","type":"行业实战",
+  "color":"purple","colorCode":"#bc8cff",
+  "syllabus":{"objective":"以某县1:1000地形图测绘项目为案例线索，使学员掌握测绘类无人机项目的完整工作流程，从投标技术方案编写到最终成果交付。",
+    "focus":["测绘项目投标：技术方案编写要点、报价计算、资质要求","1:500/1:1000地形图生产的标准化作业流程","像控点布设与RTK测量（实地操作要点）","实景三维中国建设政策解读与市场机会","测绘成果质量检查与验收标准"],
+    "difficulty":"理解地形图精度标准与飞行参数之间的量化关系；掌握测绘项目报价的成本构成。",
+    "outcome":"能编写一份专业的测绘项目技术方案；能根据项目要求制定飞行方案和质量控制措施。"},
+  "plan":[
+    {"time":"0-3min","title":"案例导入：某县1:1000地形图测绘项目","detail":"展示项目背景：某县政府需要更新全县地形图（覆盖120km²，丘陵地貌），预算180万元，工期6个月。作为无人机测绘公司，如何应标？如何执行？今天以这个项目为线索，串联全部知识点。"},
+    {"time":"3-10min","title":"投标与技术路线制定","detail":"<b>技术方案核心内容：</b>①项目概述；②技术路线（用什么设备、什么方法）；③质量保证措施；④进度计划；⑤人员配置（需要哪些证书）；⑥安全保证措施。<b>设备选型：</b>120km²丘陵地区→推荐方案：大疆M350RTK+PSDK 102S五镜头（倾斜摄影），每天可完成约2-3km²。"},
+    {"time":"10-17min","title":"外业执行：从像控点到飞行","detail":"<b>像控点布设：</b>120km²分6个测区，每个测区布设8-10个像控点。用RTK测量，每个点测量2次取平均。<b>飞行执行：</b>每天出发前检查天气（能见度>5km，风速<10m/s）；到达测区后先飞一小块测试区（检查GSD和重叠率是否达标）。<div class='tip-box'><b>💡 丘陵地区飞行特别注意：</b>开启仿地飞行！绝对离地高度保持120m，这样山顶和山谷的GSD一致。</div>"},
+    {"time":"17-23min","title":"内业处理与质量检查","detail":"<b>数据处理：</b>每天飞行结束后，当晚完成数据导入和初步对齐检查（看是否有失败照片）。全部飞行完成后，统一进行空三加密和三维重建。<b>质量检查：</b>用全站仪测量30个检查点（不在像控点之中），比较三维坐标的差值。平面中误差应≤0.5m（1:1000标准）。"},
+    {"time":"23-25min","title":"项目总结与延展","detail":"回顾：投标→技术方案→外业执行→内业处理→质量检查→成果交付。延展：实景三维中国是国家级项目，未来5年市场空间超100亿元，无人机测绘是主要数据获取手段。获取测绘资质（甲级/乙级）是承接政府项目的前提。"}
+  ],
+  "steps":[
+    {"num":1,"title":"测绘项目技术方案编写","body":"<b>封面：</b>项目名称、投标单位、日期。<br><b>目录：</b>项目理解、技术路线、质量保障、进度计划、人员设备配置、安全环保措施、服务承诺。<br><b>项目理解（拿分关键）：</b>复述项目需求，展示你对当地地理环境的了解。<br><b>技术路线（核心）：</b>设备清单（附参数表）、飞行方案（高度、重叠率、精度指标）、质量控制措施（像控点数量、检查点数量）。"},
+    {"num":2,"title":"外业安全与效率管理","body":"<b>团队配置：</b>飞行员1名+助手1名（负责像控点测量和现场记录）。每天最多飞3-4个架次（受电池和光线限制）。<b>电池管理：</b>丘陵地区每块电池约飞15-18分钟，每组电池（6块）需要配备1名专职充电员。<b>数据备份：</b>每天飞行结束后，照片数据应复制到两块硬盘（一块现场盘，一份异地备份）。<div class='tip-box'><b>💡 外业最重要的原则：</b>当天的照片当天检查！发现问题当天补飞。</div>"},
+    {"num":3,"title":"成果质量验收标准","body":"<b>GB/T 7930（1:500/1:1000/1:2000地形图航空摄影测量内业规范）：</b>平面位置中误差（平地）：1:500→≤0.25m，1:1000→≤0.5m。<b>检查点数量：</b>每平方公里至少布设2-3个检查点，总检查点数量不少于20个。<b>验收流程：</b>作业单位自查→监理单位抽查（15-30%）→业主单位验收。"},
+    {"num":4,"title":"实景三维中国机遇","body":"<b>政策：</b>自然资源部《实景三维中国建设总体实施方案》，要求2025年前完成全国地级以上城市的三维模型建设。<br><b>市场空间：</b>一个地级市（如XX市，面积800km²）的三维建模项目，标的额通常在500-2000万元之间。<div class='tip-box'><b>💡 如何切入：</b>先承接县级试点项目（标的额50-200万元），做出成果样件，再拓展到地级市项目。需要同时具备测绘航空摄影资质和地理信息系统工程资质。</div>"}
+  ],
+  "resources":[
+    {"type":"政策文件","name":"《实景三维中国建设总体实施方案》— 自然资源部"},
+    {"type":"技术规范","name":"GB/T 7930-2008《1:500 1:1000 1:2000 地形图航空摄影测量内业规范》"},
+    {"type":"资质要求","name":"测绘资质管理办法（自然资发〔2021〕83号）"},
+    {"type":"报价参考","name":"《测绘工程产品价格》（国测财字〔2002〕3号）"}
+  ]
+},
+"12":{
+  "title":"农业植保行业应用","module":"行业实战","duration":"25分钟","type":"行业实战",
+  "color":"purple","colorCode":"#bc8cff",
+  "syllabus":{"objective":"以某水稻主产区统防统治项目为案例，使学员掌握农业植保无人机的选型、作业参数设置、变量施药技术，以及植保项目的运营模式。",
+    "focus":["植保无人机选型：载重、喷洒系统、雷达仿地、RTK功能的综合评估","作业参数设置：飞行高度、速度、喷幅、流量与防治效果的关系","仿地飞行（雷达/RTK）在复杂农田环境中的应用","变量施药技术：基于多光谱NDVI地图的精准喷洒决策","不同作物（小麦/水稻/柑橘）的植保方案差异","农业无人机运营模式"],
+    "difficulty":"理解液体在旋翼下洗气流中的沉积分布规律；掌握沉积密度与防治效果的关系。",
+    "outcome":"能根据作物类型和地块条件制定植保作业方案；能设置合理的飞行参数（高度/速度/流量）。"},
+  "plan":[
+    {"time":"0-3min","title":"案例导入：从农药桶到无人机","detail":"对比展示：传统人工喷洒（1人/天≈3-5亩）vs 植保无人机（1人/天≈200-300亩）。提问：无人机打药和传统打药有什么区别？今天系统学习农业植保无人机的操作技术。"},
+    {"time":"3-10min","title":"植保无人机选型","detail":"<b>核心参数：</b>载重（10L/16L/20L/30L，越大效率越高但续航挑战越大）；喷洒系统（离心式vs压力式，离心式雾化更均匀）；仿地雷达（丘陵果园必需）；RTK（精准喷洒边界必需）。<b>💡 推荐机型：</b>大疆T50（50L载重，适合大面积平原）；极飞P100（40L，适合大地块）；大疆T25（20L，适合小地块和丘陵）。"},
+    {"time":"10-17min","title":"作业参数设置","detail":"<b>飞行高度：</b>平原2-3m（作物上方1.5-2.5m）；丘陵地使用仿地飞行，保持离作物冠层1.5-2m。<b>飞行速度：</b>推荐3-6m/s。速度越慢→雾滴密度越大→覆盖越均匀。<b>喷幅：</b>根据螺旋桨下洗气流范围确定，一般4-6m（单喷头覆盖2-3m）。<b>流量：</b>根据飞行速度×喷幅确定：流量（L/min）= 亩用药量（L/亩）× 喷幅（m）× 飞行速度（m/s）÷ 667。"},
+    {"time":"17-23min","title":"变量施药与运营模式","detail":"<b>变量施药：</b>基于NDVI地图，对不同长势区域施用不同药量。健康区域少喷，病变区域多喷，实现精准施药，减少农药使用量20-40%。<b>运营模式：</b>①飞防服务队（按亩收费，市场价5-15元/亩）；②合作社模式（自有设备，自家农田+对外服务）；③政府购买服务（统防统治项目，招标方式）。"},
+    {"time":"23-25min","title":"小结","detail":"回顾：选型→参数设置→仿地飞行→变量施药→运营模式。重点强调：植保无人机的核心竞争力不是飞得好，而是打得准——雾滴覆盖均匀、施药量精准。"}
+  ],
+  "steps":[
+    {"num":1,"title":"植保无人机选型指南","body":"<b>载重选择：</b>10L适合小地块（<50亩）；16-20L适合中等地块；30L以上适合连片大田。<br><b>喷洒系统：</b>离心雾化（雾滴大小可调，适合多种作物）；高压泵（雾滴细，适合水稻等密闭作物冠层）。<br><b>雷达仿地：</b>适合丘陵果园、茶园、山地梯田。毫米波雷达检测精度高（0.1m）。<div class='tip-box'><b>💡 RTK的重要性：</b>精准定位可以避免重喷/漏喷，减少农药浪费和药害风险。</div>"},
+    {"num":2,"title":"作业参数详解","body":"<b>飞行高度：</b>推荐2-4m（作物冠层上方1.5-3m）。过高→雾滴漂移；过低→螺旋桨下洗气流吹散雾滴。<br><b>飞行速度：</b>3-6m/s推荐。速度越慢→雾滴密度越大→覆盖越均匀。<br><b>亩用药量：</b>根据农药说明书和当地农艺师建议确定。常用范围：1-2L/亩（稀释后）。<div class='tip-box'><b>💡 禁止事项：</b>严禁在风力>3级时作业；严禁在蜜峰活动高峰期（清晨/傍晚）作业，避免药害。</div>"},
+    {"num":3,"title":"仿地飞行技术","body":"<b>雷达仿地：</b>毫米波雷达持续测量飞机与下方地表/作物冠层的距离，自动调整飞行高度，保持恒定离作物距离。<b>适用场景：</b>丘陵果园（梯田高度变化大）、地形起伏的农田、大棚（棚内高度不一致）。<b>注意事项：</b>在果树冠层上方飞行时，雷达可能打到树叶/树枝，导致误判。需要选择合适的雷达模式和飞行高度。"},
+    {"num":4,"title":"运营模式分析","body":"<b>飞防服务队：</b>设备+操作员打包服务，按亩收费。市场价5-15元/亩（含药/不含药不同）。需要建立客户关系，积累口碑。<br><b>合作社模式：</b>自有农田作业+对外服务。年收入取决于设备利用率和作业面积。<br><b>政府购买服务：</b>统防统治项目招标，要求有资质（CAAC执照+作业经验），标的大（单个项目可达10-50万元），但回款周期长。<div class='tip-box'><b>💡 创业建议：</b>先从本地小规模开始，积累口碑和作业经验，再拓展到政府项目。</div>"}
+  ],
+  "resources":[
+    {"type":"设备手册","name":"大疆T50农业无人机操作手册"},
+    {"type":"软件","name":"大疆农业平台（djagri.com）— 作业管理、订单分配、数据统计"},
+    {"type":"农药知识","name":"《农药安全使用规范》— 农业农村部"},
+    {"type":"参考数据","name":"各省市植保无人机购置补贴政策汇总（农机补贴网）"}
+  ]
+},
+"13":{
+  "title":"电力巡检行业应用","module":"行业实战","duration":"25分钟","type":"行业实战",
+  "color":"purple","colorCode":"#bc8cff",
+  "syllabus":{"objective":"以某±800kV特高压直流线路巡检项目为案例，使学员掌握输电线路无人机巡检的完整工作流程，包括航线规划、AI缺陷识别和数字化验收。",
+    "focus":["输电线路无人机巡检的两种模式：通道巡检 vs 精细化巡检","杆塔航线自动生成与RTK精准定位技术","可见光照片+AI缺陷识别系统","红外热成像在电力设备缺陷检测中的应用","国网/南网无人机巡检规范解读与数字化验收"],
+    "difficulty":"理解杆塔航点规划的空间坐标逻辑；掌握AI缺陷识别的算法逻辑和误报处理。",
+    "outcome":"能使用大疆司空2规划杆塔巡检航线；能识别并处理AI缺陷识别结果；能编写电力巡检缺陷报告。"},
+  "plan":[
+    {"time":"0-3min","title":"案例导入：800公里的线路，如何一天巡完？","detail":"展示：传统人工巡检1基杆塔需要2-3人爬塔半天；无人机巡检1基杆塔仅需10-15分钟，且不需要人员登塔。今天学习如何使用无人机进行电力巡检。"},
+    {"time":"3-10min","title":"电力巡检的两种模式","detail":"<b>通道巡检：</b>沿输电线路走廊飞行，检查通道内的树障、违章建筑、外破施工等影响线路安全运行的因素。速度快（每公里约2-3分钟），适合周期性巡检。<b>精细化巡检：</b>逐基悬停，对杆塔的每个部件（导线、绝缘子、引流线、金具等）进行拍照。速度慢（每基10-20分钟），适合故障诊断和新建线路验收。"},
+    {"time":"10-17min","title":"杆塔航线规划与RTK","detail":"<b>杆塔航线自动生成：</b>基于杆塔GPS坐标和三维模型（如有），在地面站软件中自动生成悬停点和拍照点。典型配置：每个绝缘子串拍摄2张、每个引流板拍摄1张、每个线夹拍摄1张。<b>RTK的作用：</b>精准定位（厘米级）确保每张照片的拍摄位置一致，方便多期对比（发现缺陷变化）。<b>💡 精细化巡检的关键：</b>拍照位置要标准化，才能进行历年对比分析。"},
+    {"time":"17-23min","title":"AI缺陷识别与红外热成像","detail":"<b>可见光AI识别：</b>基于深度学习的目标检测算法，自动识别：断股、散股、锈蚀、螺栓缺失、绝缘子破损等缺陷。准确率可达90%+，但需要人工复核（误报率约10-20%）。<b>红外热成像：</b>连接点/线夹的接触电阻增大→发热→热图中显示热点。温升>15°C通常需要紧急处理；温升5-15°C需要计划检修。"},
+    {"time":"23-25min","title":"数字化验收与标准","detail":"<b>国网/南网规范：</b>国网《输电线路无人机巡检作业技术规范》（Q/GDW 11383-2015）；南网《南方电网输电线路机巡作业管理办法》。<b>数字化交付：</b>照片+缺陷报告+坐标→导入巡检平台→生成缺陷工单→派发维修。<b>💡 商业机会：</b>电网公司的巡检外包服务市场每年超过100亿元，且在快速增长。"}
+  ],
+  "steps":[
+    {"num":1,"title":"通道巡检作业流程","body":"<b>航线规划：</b>在地面站软件中导入线路坐标（KML格式）→设置飞行高度（通常是导线上方20-50m）和与线路的距离（通常在导线下风侧30-50m，避开电磁干扰）→一键起飞，自动沿航线飞行。<br><b>作业要点：</b>保持匀速飞行（3-5m/s）；全程监控图传画面；发现异常立即悬停记录。<div class='tip-box'><b>⚠️ 重要安全距离：</b>无人机与高压导线保持至少7.5m安全距离（国网要求），特高压线路要求更高。</div>"},
+    {"num":2,"title":"精细化巡检作业流程","body":"<b>航点规划：</b>在地面站中为每基杆塔设置悬停点（通常每基杆塔4-8个悬停点，每个点拍摄不同角度）。<br><b>拍摄清单：</b>杆塔全貌（2张）、绝缘子串（每个1-2张）、引流线（每相1张）、地线（2张）、基础（2张）、通道环境（2张）。<br><b>拍照技巧：</b>尽量让目标充满画面，保证足够分辨率。"},
+    {"num":3,"title":"AI缺陷识别系统使用","body":"<b>工作原理：</b>将采集的照片上传到AI识别平台（如大疆司空2、复亚无人机管理平台）→算法自动检测缺陷→生成缺陷列表（包含缺陷类型、置信度、照片）。<br><b>人工复核：</b>对每个AI识别结果进行人工确认，排除误报，标注严重程度（危急/严重/一般）。<br><b>报告生成：</b>按杆塔编号整理缺陷照片，填写缺陷描述、缺陷等级、处理建议。<div class='tip-box'><b>💡 误报处理：</b>AI误报常见于绝缘子反光、阴影遮挡、图像模糊等情况。人工复核是确保报告准确性的关键环节。</div>"},
+    {"num":4,"title":"红外热成像检测","body":"<b>测温原理：</b>红外热像仪检测物体表面红外辐射，转换成温度值。连接点松动→电阻增大→发热→在热图中显示为亮点。<b>拍摄方法：</b>在目标区域正下方或侧下方悬停，让热像仪正对被测设备。<b>温度判定标准：</b>温升（相对于环境温度）>15°C→危急缺陷，需立即处理；温升5-15°C→严重缺陷，需计划处理；温升<5°C→一般缺陷。<div class='tip-box'><b>💡 环境因素影响：</b>风速大会降低设备温度（散热快），测量应在微风或无风条件下进行。</div>"}
+  ],
+  "resources":[
+    {"type":"作业规范","name":"国网《输电线路无人机巡检作业技术规范》（Q/GDW 11383-2015）"},
+    {"type":"软件平台","name":"大疆司空2 — 电力巡检航线规划与数据管理平台"},
+    {"type":"软件平台","name":"复亚无人机管理平台 — AI缺陷识别"},
+    {"type":"参考书籍","name":"《无人机电力巡检技术》— 中国电力出版社"}
+  ]
+},
+"14":{
+  "title":"应急救援与公共安全应用","module":"行业实战","duration":"25分钟","type":"行业实战",
+  "color":"purple","colorCode":"#bc8cff",
+  "syllabus":{"objective":"以某山岳救援真实案例为线索，使学员掌握无人机在应急救援场景中的应用，包括搜索定位、火情监测、应急测绘和重大活动安保。",
+    "focus":["无人机应急救援装备体系：可见光/热红外/照明/喊话/抛投","山岳搜救场景的无人机搜索策略","森林草原火情的无人机火场监测与态势标绘","地震、洪涝等自然灾害中的无人机应急测绘","大型活动低空安保的无人机部署与管控"],
+    "difficulty":"理解应急场景下无人机与地面救援力量的协同作战逻辑；掌握搜救网格搜索的布点方法。"},
+  "plan":[
+    {"time":"0-3min","title":"案例导入：山岳救援，无人机能做什么？","detail":"展示真实案例：某山区发生驴友失联事件，无人机热成像在3小时内找到失联者。提问：无人机在这次救援中扮演了什么角色？今天系统学习应急救援中的无人机应用。"},
+    {"time":"3-10min","title":"无人机应急救援装备体系","body":"<b>基础配置：</b>可见光相机（白天搜索、记录）+红外热成像（夜间/隐蔽目标）+喊话器（远程通信）+探照灯（夜间照明）。<b>进阶配置：</b>抛投模块（投放救生圈、药品、绳子）+气体探测（检测有毒气体）+通信中继（扩大通信范围）。<b>💡 大疆经纬M30T：</b>一机整合可见光+热红外+探照灯+喊话器，是应急救援的标准机型。"},
+    {"time":"10-17min","title":"山岳搜救搜索策略","detail":"<b>信息收集：</b>了解失联者最后出现位置、携带装备、可能去向、年龄体力等信息，绘制可能的搜索区域。<b>网格搜索法：</b>将搜索区域划分为网格，逐格搜索。每格宽度约200-300m（保证重叠），飞行高度100-150m（人员最小可见高度）。<b>立体搜索：</b>结合可见光（搜索视觉标志物）和热红外（搜索体温信号）同时进行。<b>💡 搜索效率：</b>无人机搜索效率是人工搜索的5-10倍，且可以覆盖人工难以到达的区域。"},
+    {"time":"17-23min","title":"火情监测与应急测绘","detail":"<b>火情监测：</b>无人机挂载红外热成像，快速获取火场热图，标注火线位置、过火面积、蔓延方向。为指挥中心提供实时态势。<b>应急测绘：</b>地震/洪涝发生后，无人机快速获取灾区正射影像图（DOM）和数字高程模型（DEM），为救援力量部署和灾后重建提供基础数据。<b>典型案例：</b>2021年郑州720洪涝，多支救援队使用无人机进行人员搜救和物资投放。"},
+    {"time":"23-25min","title":"大型活动安保与行业资源","detail":"<b>活动安保：</b>马拉松、演唱会、体育赛事等大型活动，无人机负责空中警戒、实时监控、人群密度分析。<b>行业标准：</b>应急管理部《消防救援队伍无人机使用管理规定》；消防救援队伍无人机配备标准（各省市不同，每队1-3架）。<b>💡 商业机会：</b>政府应急部门采购、保险公司灾情评估、重大活动临时租用。"}
+  ],
+  "steps":[
+    {"num":1,"title":"搜救装备配置指南","body":"<b>首选机型：</b>大疆经纬M30T（一体化设计，便携性强）或M350RTK（续航更长，载荷能力更强）。<br><b>热成像参数：</b>分辨率640×512优于320×256；热灵敏度（NETD）<50mK为佳。<br><b>喊话器：</b>音量>100dB，有效喊话距离>300m。<br><b>抛投模块：</b>载重>1kg，可投放救生圈、绳索、急救药品。"},
+    {"num":2,"title":"网格搜索操作规范","body":"<b>搜索区域划分：</b>根据失联者最后出现位置，绘制搜索区域半径（通常按每小时搜索面积估算，山区约2-3km²/小时）。<br><b>网格划分：</b>按200m×200m划分网格，依次飞行。<br><b>高度选择：</b>山区100-150m；平原50-100m。<br><b>重叠率：</b>航向100%（相邻航线照片有重叠），旁向30%（确保无遗漏）。<div class='tip-box'><b>⚠️ 山区飞行注意：</b>山区气流复杂，注意侧风影响，保持足够机动余度。</div>"},
+    {"num":3,"title":"火场监测与态势标绘","body":"<b>红外热成像在火场的作用：</b>穿透烟雾，看到火线真实位置；识别地下火（看不到火焰但有温度异常）；评估火场边界和面积。<b>态势标绘方法：</b>在地面站软件中叠加GIS地图，标注火线、危险建筑、救援力量部署点，生成实时态势图，发送给指挥中心。<b>安全注意事项：</b>无人机不要飞入浓烟中（发动机有吸入烟尘的风险）；保持与火线的安全距离（>100m）。"},
+    {"num":4,"title":"应急测绘快速流程","body":"<b>快速正射：</b>使用DJI Terra或大疆智图，一键生成正射影像图。从飞行到输出成果约1-2小时（取决于测区面积）。<br><b>三维建模：</b>倾斜摄影→生成三维模型→用于灾后重建规划。<br><b>数据格式：</b>输出GeoTIFF格式的正射影像，可直接导入QGIS/ArcGIS进行面积测量和空间分析。<div class='tip-box'><b>💡 快速响应关键：</b>平时做好设备维护和应急预案，灾害发生时能在30分钟内完成设备准备和起飞。</div>"}
+  ],
+  "resources":[
+    {"type":"装备参考","name":"大疆经纬M30T 应急救援套装配置清单"},
+    {"type":"作业规范","name":"应急管理部《消防救援队伍无人机使用管理规定》"},
+    {"type":"案例分析","name":"《无人机应急救援案例汇编》— 中国灾害防御协会"},
+    {"type":"软件","name":"大疆司空2 — 应急响应实时指挥平台"}
+  ]
+},
+"15":{
+  "title":"无人机阵列表演","module":"行业实战","duration":"25分钟","type":"行业实战",
+  "color":"purple","colorCode":"#bc8cff",
+  "syllabus":{"objective":"以无人机灯光秀为案例，使学员掌握阵列表演的基本原理、飞行控制、节目编排与现场执行，培养在文旅演艺、广告营销等场景中的应用能力。",
+    "focus":["无人机阵列表演的行业背景与发展趋势","飞行控制系统：TDOA定位技术与地面站同步","单机操控 vs 阵列集群的差异与协同逻辑","节目编排与3D建模：如何设计立体动态图形","安全管控：电磁干扰、气象条件、应急处置"],
+    "difficulty":"理解大规模集群飞行的协同控制原理；掌握从创意设计到现场执行的完整流程。",
+    "outcome":"能理解无人机阵列表演的技术原理，了解行业应用场景，具备基础的操作认知。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：夜空中的像素","detail":"展示震撼的无人机灯光秀视频：国庆70周年庆典、春晚、迪士尼乐园、西安大唐不夜城……提问：你看到的每一帧画面，是由多少架无人机组成的？今天系统学习无人机阵列表演技术。"},
+    {"time":"3-10min","title":"阵列表演行业概述","detail":"<b>市场规模：</b>2023年中国无人机灯光秀市场规模约15亿元，年增速30%+。<b>应用场景：</b>商业庆典（开业、周年庆）、文旅演艺（景区驻场演出）、城市地标营销（灯光节）、体育赛事开闭幕式、品牌营销（汽车发布会）。<b>代表案例：</b>一飞智控（天津）、亿航智能（广州）、高巨创新（深圳）是国内三大阵列表演公司。<b>💡 商业模式：</b>按架次收费（300-800元/架次）+创意设计费+技术人员费用，利润可观。"},
+    {"time":"10-17min","title":"飞行控制技术","detail":"<b>单机飞行：</b>每架无人机通过RTK定位知道自己在哪里（精度±2cm）。<b>阵列协同：</b>地面站软件同时给所有飞机发送指令，每架飞机收到\"我在时刻T应该在位置(X,Y,Z)\"的轨迹数据。<b>定位技术：</b>RTK差分定位（精度最高）或TDOA时差定位（成本较低）。<b>时间同步：</b>NTP网络时间协议确保所有飞机时钟一致，延迟<1ms。<b>抗干扰：</b>无人机之间有防撞算法，即使定位短暂失锁也能保持安全间距。"},
+    {"time":"17-22min","title":"节目编排与3D建模","detail":"<b>编排流程：</b>创意设计→3D建模→动画制作→轨迹生成→仿真测试→现场调试。<b>3D建模：</b>在软件中用点阵模拟无人机位置，导入创意图形（如龙、凤、字牌）。<b>动画制作：</b>将静态图形变成动态演变，如字牌旋转、动物变形、烟花效果。<b>轨迹生成：</b>动画导出为每架飞机的XYZ+时间戳轨迹文件。<b>💡 架次计算：</b>图形分辨率=无人机数量。普通图案200-500架，大场面1000-3000架（如深圳创业1000架）。"},
+    {"time":"22-25min","title":"现场执行与安全管控","detail":"<b>场地勘察：</b>飞行区域净空条件、周边电磁环境（避开通信基站、高压线）。<b>气象条件：</b>风力≤3级、视距>1km、无降雨。夜间表演需足够亮度供飞手目视监控。<b>应急处置：</b>飞机失联→自动降落；集群失控→地面站一键强制降落；电池告警→触发低电量返航。<b>行业资质：</b>空域申请（向民航局/空军报批）+活动审批+临时飞行空域许可。<b>💡 商业机会：</b>婚庆、企业年会、景区驻场是入门级项目，可从100-200架小规模开始。"}
+  ],
+  "steps":[
+    {"num":1,"title":"阵列表演系统组成","body":"<b>无人机机体：</b>专用表演飞机（与大疆消费级不同），重量约350-500g，带载LED灯组。<br><b>定位系统：</b>RTK基准站+移动站（精度±2cm）或TDOA定位基站。<br><b>地面站软件：</b>集群控制软件（如一飞智控的FINI、亿航的Ghost）等。<br><b>通信链路：</b>专用频段（2.4GHz/5.8GHz），抗干扰能力强。<br><b>配套设备：</b>运输箱、充电柜、发电机（野外作业）。"},
+    {"num":2,"title":"单机与阵列操控差异","body":"<b>单机操控：</b>飞手手动控制或自主飞行，一条航线一个飞行员。<br><b>阵列集群：</b>飞行员不直接控制飞机，而是通过地面站发送宏观指令（起飞、降落、紧急处置）。<br><b>任务分工：</b>飞手（监控安全）+ 程序员/编导（发送节目指令）+ 地勤（更换电池、摆放飞机）。<br><b>💡 入门门槛：</b>阵列表演需要团队协作，单人无法完成，通常3-5人起。"},
+    {"num":3,"title":"节目编排基础流程","body":"<b>Step1 创意构思：</b>确定主题（如企业logo、产品造型、品牌口号）。<br><b>Step2 点位规划：</b>根据飞机数量设计点阵密度，高分辨率图案需要更多飞机。<br><b>Step3 建模仿真：</b>在软件中导入飞机数量，生成3D模型，预览效果。<br><b>Step4 动画制作：</b>设计动态变化，如旋转、缩放、变形、消失再现。<br><b>Step5 轨迹导出：</b>生成每架飞机的飞行轨迹文件，加载到地面站。<div class='tip-box'><b>⚠️ 注意：</b>无人机不能做急转弯，轨迹必须是平滑曲线，设计时需要考虑飞行器性能。</div>"},
+    {"num":4,"title":"安全规范与空域申请","body":"<b>飞行前检查：</b>飞机固件版本、电池电量、通信信号、定位精度。<br><b>电磁环境：</b>避开通信基站、雷达站、高压线，使用前用频谱仪扫描干扰。<br><b>空域申请：</b>向当地空管部门申请临时空域（提前7-30天），提供飞行计划、坐标、高度。<br><b>应急方案：</b>备用机（5-10%冗余）、一键强制降落、地面安全隔离区。<br><b>保险：</b>公众责任险+无人机机身险，每场表演必买。"}
+  ],
+  "resources":[
+    {"type":"行业报告","name":"《2024年中国无人机灯光秀行业发展白皮书》"},
+    {"type":"设备参考","name":"一飞智控FINI集群控制平台（官网）"},
+    {"type":"案例视频","name":"国庆70周年庆典无人机灯光秀幕后纪录片"},
+    {"type":"空域申请","name":"民用无人机空中交通管理办法（民航局）"}
+  ]
+},
+"16":{
+  "title":"综合实训项目与职业发展","module":"综合提升","duration":"25分钟","type":"综合实训",
+  "color":"red","colorCode":"#ff7b72",
+  "syllabus":{"objective":"以综合案例串联全部技能树，同时补充职业发展路径与行业资源对接，培养完整的从业者思维，产出可用的真实材料。",
+    "focus":["综合实训：需求分析→方案制定→外业飞行→数据处理→成果输出","如何撰写专业的无人机应用项目技术方案","从业路径规划：飞手→技术负责人→项目经理→创业","必备证书体系：AOPA/CAAC执照、行业认证、安全员认证","行业资源平台：政府采购平台、政企合作渠道、行业协会资源"],
+    "difficulty":"将前15节课的知识点融会贯通，完成一个完整的行业项目全流程。",
+    "outcome":"能独立完成一个行业应用项目的技术方案和投标文件；了解从业路径和行业资源，建立完整的从业者思维框架。"},
+  "plan":[
+    {"time":"0-3min","title":"导入：从学员到从业者","detail":"回顾：16天前，你是无人机零基础学员；今天，你已经具备了完整的行业应用技能。今天这节课，我们把这些技能串联起来，做一个真实的综合实训项目。"},
+    {"time":"3-10min","title":"综合实训任务发布","detail":"<b>任务背景：</b>某县政府需要采购无人机航测服务，用于农村不动产权籍调查（覆盖3个镇，约50km²）。<b>任务要求：</b>以小组为单位，撰写一份技术方案+投标报价书。<b>考核标准：</b>技术方案完整性、参数合理性、报价准确性、成果可交付性。"},
+    {"time":"10-17min","title":"技术方案撰写实训","detail":"带领学员一步步撰写：<b>①项目理解：</b>复述需求，描述技术路线选择理由。<b>②设备选型：</b>根据测图精度要求（1:1000），确定GSD、飞行高度、设备型号。<b>③人员配置：</b>飞行组+内业处理组+质检组，每组人数和资质要求。<b>④进度计划：</b>甘特图，估算总工期。<b>⑤报价清单：</b>外业费+内业处理费+管理费+利润，汇总总报价。"},
+    {"time":"17-22min","title":"职业发展与行业资源","detail":"<b>从业路径：</b>飞手（积累飞行经验）→技术负责人（掌握全套技术+管理能力）→项目经理（独立承接项目）→创业（建立团队和品牌）。<b>证书体系：</b>CAAC执照（必考）+UTC农业/测绘/巡检认证（按行业方向选考）+安全员证书（加分项）。<b>行业资源：</b>中国AOPA（培训+认证）、各地无人机协会（资源对接）、政采云/军队采购网（投标渠道）。"},
+    {"time":"22-25min","title":"课程总结与展望","detail":"回顾16节课的知识体系：基础认知（01-03）→组装调试（04-06）→基础应用（07-10）→行业实战（11-15）→综合提升（16）。展望：无人机行业正处于快速成长期，机会永远属于有准备的人！"}
+  ],
+  "steps":[
+    {"num":1,"title":"综合实训任务设计","body":"<b>任务背景：</b>某县政府采购无人机航测服务，用于农村不动产权籍调查（覆盖3个镇，约50km²）。<b>精度要求：</b>平面位置中误差≤0.3m，高程中误差≤0.2m。<b>交付成果：</b>DOM（正射影像图）+宗地图（矢量数据）+技术报告。<b>预算：</b>上限80万元。<div class='tip-box'><b>💡 任务目标：</b>小组撰写完整的技术方案+投标报价书，作为课程结业成果。</div>"},
+    {"num":2,"title":"技术方案撰写要点","body":"<b>项目理解（10%）：</b>准确复述需求，展示对农村不动产权籍调查业务的理解。<br><b>技术路线（40%）：</b>设备选型（根据精度要求确定GSD→计算飞行高度）、飞行方案（重叠率、速度、架次计算）、数据处理流程、质量控制措施。<br><b>进度计划（20%）：</b>甘特图，标注关键节点。<br><b>报价清单（30%）：</b>外业费（人员+设备折旧+差旅）、内业处理费、质检费、管理费、税金、利润。"},
+    {"num":3,"title":"从业路径规划","body":"<b>阶段1（0-1年）：</b>飞手期。积累飞行小时数（建议>500小时），考取CAAC执照。方向选择：农业植保门槛最低，电力巡检收入最高，测绘技术含量最高。<br><b>阶段2（1-3年）：</b>技术负责人期。掌握全套技术+项目管理能力，开始带团队。<br><b>阶段3（3-5年）：</b>项目经理期。独立承接项目，建立客户关系。<br><b>阶段4（5年+）：</b>创业/合伙人期。建立自己的飞防服务队或测绘公司。"},
+    {"num":4,"title":"行业资源平台","body":"<b>政府平台：</b>政采云（政府采购）、军队采购网（涉密项目）。<br><b>行业协会：</b>中国航空器拥有者及驾驶员协会（AOPA）、各地无人机协会。<br><b>企业合作：</b>大疆行业代理（设备+技术支持）、电网/农业局/测绘院（甲方资源）。<br><b>培训机构：</b>UTC慧飞（认证培训）、各地AOPA认证培训机构。<div class='tip-box'><b>💡 建立个人品牌：</b>在知乎/B站发布无人机作业案例，积累行业影响力，是获取客户信任的有效途径。</div>"}
+  ],
+  "resources":[
+    {"type":"证书指南","name":"CAAC无人机驾驶员执照报考指南（民航局官网）"},
+    {"type":"资质要求","name":"测绘航空摄影资质办理指南（自然资源部）"},
+    {"type":"行业平台","name":"中国AOPA无人机专业委员会（AOPA-CHINA.org）"},
+    {"type":"政府采购","name":"政采云无人机能采购目录（zc防空.com）"}
+  ]
+}
+};
+
+const modalColorMap = {m1:'blue',m2:'green',m3:'amber',m4:'purple',m5:'red'};
+const ccMap = {blue:'#58a6ff',green:'#3fb950',amber:'#d29922',purple:'#bc8cff',red:'#ff7b72'};
+const bgMap = {blue:'rgba(56,139,253,0.08)',green:'rgba(63,185,80,0.08)',amber:'rgba(210,153,34,0.08)',purple:'rgba(188,140,255,0.08)',red:'rgba(255,123,114,0.08)'};
+const modMap = {m1:'基础认知',m2:'组装实操',m3:'基础应用',m4:'行业实战',m5:'综合提升'};
+const modNum = {m1:'01',m2:'02',m3:'03',m4:'04',m5:'05'};
+
+function getMod(id){
+  if(['01','02','03'].includes(id)) return 'm1';
+  if(['04','05','06'].includes(id)) return 'm2';
+  if(['07','08','09','10'].includes(id)) return 'm3';
+  if(['11','12','13','14','15'].includes(id)) return 'm4';
+  return 'm5';
+}
+
+function renderCourses(containerId, ids){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  ids.forEach(id => {
+    const c = COURSES[id];
+    if(!c) return;
+    const m = getMod(id);
+    const div = document.createElement('div');
+    div.className = 'cli';
+    div.style.cssText = `background:${bgMap[c.color]};border-color:${ccMap[c.color]}22;`;
+    div.innerHTML = `<div class="cli-num c-${c.color}">${id}</div><div class="cli-body"><div class="cli-title">${c.title}</div><div class="cli-meta">${c.module} · ${c.duration} · ${c.type}</div></div><div class="cli-arrow">→</div>`;
+    div.onclick = () => openModal(id);
+    el.appendChild(div);
+  });
+}
+
+function renderAllCourses(){
+  const el = document.getElementById('all-courses');
+  if(!el) return;
+  const ids = Object.keys(COURSES).sort((a,b) => parseInt(a)-parseInt(b));
+  ids.forEach(id => {
+    const c = COURSES[id];
+    if(!c) return;
+    const m = getMod(id);
+    const div = document.createElement('div');
+    div.className = 'cli';
+    div.style.cssText = `background:${bgMap[c.color]}22;border-color:${ccMap[c.color]}22;`;
+    div.innerHTML = `<div class="cli-num c-${c.color}">${id}</div><div class="cli-body"><div class="cli-title">${c.title}</div><div class="cli-meta">${modMap[m]} · ${c.duration} · ${c.type}</div></div><div class="cli-arrow">→</div>`;
+    div.onclick = () => openModal(id);
+    el.appendChild(div);
+  });
+}
+
+
+function openModal(id){
+  const c = COURSES[id];
+  if(!c) return;
+  const m = getMod(id);
+  document.getElementById('modal-num').textContent = id;
+  document.getElementById('modal-num').className = `modal-num c-${c.color}`;
+  document.getElementById('modal-num').style.background = ccMap[c.color]+'22';
+  document.getElementById('modal-num').style.color = ccMap[c.color];
+  document.getElementById('modal-title').textContent = c.title;
+  document.getElementById('modal-sub').textContent = `${modMap[m]} · ${c.duration} · ${c.type}`;
+  switchMtab('syllabus', document.querySelector('.mtab'));
+  renderSyllabus(c);
+  renderPlan(c);
+  renderSteps(c);
+  renderResources(c);
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.mtab').click();
+}
+
+function renderSyllabus(c){
+  const el = document.getElementById('tab-syllabus');
+  const stepsHtml = c.syllabus.focus.map(f => `<div class="sg-item">${f}</div>`).join('');
+  el.innerHTML = `
+    <div class="syll-section">
+      <h3>教学目标</h3>
+      <div class="sg-item" style="font-size:13px;color:#c9d1d9;line-height:1.7">${c.syllabus.objective}</div>
+    </div>
+    <div class="syll-section">
+      <h3>知识要点</h3>
+      <div class="syll-grid">${stepsHtml}</div>
+    </div>
+    <div class="syll-section">
+      <h3>教学重点与难点</h3>
+      <div class="sg-item" style="font-size:13px;color:#c9d1d9;line-height:1.7">${c.syllabus.difficulty}</div>
+    </div>
+    <div class="syll-section">
+      <h3>学习成果</h3>
+      <div class="sg-item" style="font-size:13px;color:#c9d1d9;line-height:1.7">${c.syllabus.outcome}</div>
+    </div>
+    <div class="syll-section">
+      <h3>基本信息</h3>
+      <table class="info-table"><tr><td>课程编号</td><td>第${c.title.match(/^第(一|二|三|四|五|六|七|八|九|十)/)?.[1]||Object.keys(COURSES).indexOf(Object.keys(COURSES).find(k=>COURSES[k].title===c.title))+1}课</td></tr><tr><td>所属模块</td><td>${c.module}</td></tr><tr><td>课时长度</td><td>${c.duration}</td></tr><tr><td>课程类型</td><td>${c.type}</td></tr></table>
+    </div>
+  `;
+}
+
+function renderPlan(c){
+  const el = document.getElementById('tab-plan');
+  const stepsHtml = c.plan.map((p,i) => `
+    <div class="pstep">
+      <div class="pstep-time">${p.time} · 阶段${i+1}</div>
+      <div class="pstep-title">${p.title}</div>
+      <div class="pstep-detail">${p.detail}</div>
+    </div>
+  `).join('');
+  el.innerHTML = `<div class="plan-timeline">${stepsHtml}</div>
+  <div style="margin-top:20px;padding:12px 16px;background:rgba(56,139,253,0.06);border:1px solid rgba(56,139,253,0.12);border-radius:8px;font-size:12px;color:#8b949e;">
+    <b style="color:#58a6ff">💡 教案说明：</b>以上时间分配基于25分钟视频课时设计。教师可根据实际情况调整各阶段时长，建议每个阶段之间留出1-2分钟的过渡时间。
+  </div>`;
+}
+
+function renderSteps(c){
+  const el = document.getElementById('tab-steps');
+  const stepsHtml = c.steps.map(s => `
+    <div class="step-card">
+      <div class="step-card-header">
+        <div class="step-num c-${c.color}" style="background:${ccMap[c.color]}22;color:${ccMap[c.color]}">${s.num}</div>
+        <div class="step-card-title">${s.title}</div>
+      </div>
+      <div class="step-card-body">${s.body}</div>
+    </div>
+  `).join('');
+  el.innerHTML = stepsHtml;
+}
+
+function renderResources(c){
+  const el = document.getElementById('tab-resources');
+  const resHtml = c.resources.map(r => `
+    <div class="res-item">
+      <div class="ri-type">${r.type}</div>
+      <div class="ri-name">${r.name}</div>
+    </div>
+  `).join('');
+  el.innerHTML = `<div class="res-grid">${resHtml}</div>`;
+}
+
+function switchMtab(tab, btn){
+  document.querySelectorAll('.mtab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.mtab-content').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById(id);
+  if(sec) sec.classList.add('active');
+  const btn = document.querySelector('.tab-btn[onclick*="'+id+'"]');
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top: document.querySelector('.hero').offsetHeight+60, behavior:'smooth'});
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelector('.tab-btn').classList.add('active');
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+});
+
+</script>
+
+</body>
+</html>
