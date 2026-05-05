@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张博 | 低空安全·司法鉴定·消防应急</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  
+  * { margin:0; padding:0; box-sizing:border-box; }
+  
+  :root {
+    --bg: #0a0e17;
+    --bg2: #111827;
+    --card: rgba(255,255,255,0.04);
+    --card-hover: rgba(255,255,255,0.08);
+    --border: rgba(255,255,255,0.08);
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --accent: #3b82f6;
+    --accent2: #8b5cf6;
+    --accent3: #06b6d4;
+    --accent4: #f59e0b;
+    --gradient1: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    --gradient2: linear-gradient(135deg, #06b6d4, #3b82f6);
+    --gradient3: linear-gradient(135deg, #f59e0b, #ef4444);
+    --gradient4: linear-gradient(135deg, #10b981, #06b6d4);
+  }
+  
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  
+  /* ===== 背景动效 ===== */
+  .bg-grid {
+    position: fixed; top:0; left:0; width:100%; height:100%; z-index:0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(59,130,246,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139,92,246,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(6,182,212,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .container { max-width:1100px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+  
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero-content { max-width: 800px; }
+  
+  .hero-avatar {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    margin: 0 auto 28px;
+    background: var(--gradient1);
+    padding: 3px;
+    box-shadow: 0 0 40px rgba(59,130,246,0.25);
+    animation: fadeUp 0.8s ease;
+  }
+  .hero-avatar-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: var(--bg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    font-size: 13px;
+    color: #60a5fa;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s ease;
+  }
+  
+  .hero-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #3b82f6;
+    animation: pulse 2s infinite;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+  
+  .hero h1 .highlight {
+    background: var(--gradient1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-dim);
+    font-weight: 300;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  
+  .hero-quote {
+    font-size: 15px;
+    color: var(--text-dim);
+    font-style: italic;
+    border-left: 3px solid var(--accent);
+    padding-left: 16px;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto 40px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+  
+  .hero-tag {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--card);
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .hero-tag:hover { background: var(--card-hover); border-color: rgba(255,255,255,0.15); }
+  .hero-tag.t1 { color: #60a5fa; border-color: rgba(59,130,246,0.3); }
+  .hero-tag.t2 { color: #a78bfa; border-color: rgba(139,92,246,0.3); }
+  .hero-tag.t3 { color: #22d3ee; border-color: rgba(6,182,212,0.3); }
+  .hero-tag.t4 { color: #fbbf24; border-color: rgba(245,158,11,0.3); }
+  
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: var(--text-dim);
+    font-size: 12px;
+  }
+  .scroll-hint svg { display: block; margin: 8px auto 0; }
+  
+  /* ===== SECTION 通用 ===== */
+  section { padding: 100px 0; }
+  
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 48px;
+  }
+  
+  /* ===== 方向架构 ===== */
+  .arch-diagram {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 32px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .arch-diagram::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(59,130,246,0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  
+  .arch-center {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: var(--gradient1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto 40px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.4;
+    box-shadow: 0 0 60px rgba(59,130,246,0.3);
+    position: relative;
+  }
+  
+  .arch-center::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(59,130,246,0.3);
+    animation: pulse 3s infinite;
+  }
+  
+  .arch-nodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  
+  .arch-node {
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .arch-node:hover { transform: translateY(-4px); background: var(--card-hover); }
+  .arch-node .icon { font-size: 28px; margin-bottom: 8px; }
+  .arch-node h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .arch-node p { font-size: 12px; color: var(--text-dim); }
+  .arch-node.n1 { border-color: rgba(6,182,212,0.3); }
+  .arch-node.n1 h4 { color: #22d3ee; }
+  .arch-node.n2 { border-color: rgba(139,92,246,0.3); }
+  .arch-node.n2 h4 { color: #a78bfa; }
+  .arch-node.n3 { border-color: rgba(245,158,11,0.3); }
+  .arch-node.n3 h4 { color: #fbbf24; }
+  .arch-node.n4 { border-color: rgba(16,185,129,0.3); }
+  .arch-node.n4 h4 { color: #34d399; }
+  
+  /* ===== 时间线 ===== */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent3));
+    border-radius: 2px;
+  }
+  
+  .tl-item {
+    position: relative;
+    margin-bottom: 36px;
+    padding: 20px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.3s;
+  }
+  .tl-item:hover { background: var(--card-hover); transform: translateX(4px); }
+  
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 24px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: var(--bg);
+  }
+  .tl-item.t2::before { border-color: var(--accent2); }
+  .tl-item.t3::before { border-color: var(--accent3); }
+  .tl-item.t4::before { border-color: var(--accent4); }
+  
+  .tl-year {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .tl-item.t2 .tl-year { color: var(--accent2); }
+  .tl-item.t3 .tl-year { color: var(--accent3); }
+  .tl-item.t4 .tl-year { color: var(--accent4); }
+  
+  .tl-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .tl-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .tl-desc strong { color: var(--text); font-weight: 500; }
+  
+  /* ===== 领域标签切换 ===== */
+  .domain-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  
+  .domain-tab {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+  }
+  .domain-tab:hover { background: var(--card-hover); }
+  .domain-tab.active { border-color: transparent; color: #fff; }
+  .domain-tab.active.d1 { background: var(--gradient1); }
+  .domain-tab.active.d2 { background: var(--gradient2); }
+  .domain-tab.active.d3 { background: var(--gradient3); }
+  .domain-tab.active.d4 { background: var(--gradient4); }
+  
+  .domain-panel { display: none; }
+  .domain-panel.active { display: block; animation: fadeUp 0.5s ease; }
+  
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .stat-card {
+    padding: 20px;
+    border-radius: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 32px;
+    font-weight: 900;
+    background: var(--gradient1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  
+  .achievement-list {
+    list-style: none;
+  }
+  .achievement-list li {
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .achievement-list li:hover { background: var(--card-hover); }
+  .achievement-list li .bullet {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 8px;
+    background: var(--accent);
+  }
+  
+  /* ===== 3年路线图 ===== */
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .roadmap-card {
+    padding: 28px;
+    border-radius: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .roadmap-card:hover { transform: translateY(-4px); background: var(--card-hover); }
+  .roadmap-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .roadmap-card.r1::before { background: var(--gradient1); }
+  .roadmap-card.r2::before { background: var(--gradient2); }
+  .roadmap-card.r3::before { background: var(--gradient4); }
+  
+  .roadmap-card .year {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .roadmap-card.r1 .year { color: #60a5fa; }
+  .roadmap-card.r2 .year { color: #22d3ee; }
+  .roadmap-card.r3 .year { color: #34d399; }
+  
+  .roadmap-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .roadmap-card p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--text-dim);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+  }
+  footer .heart { color: #ef4444; }
+  
+  /* ===== 动画 ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+  
+  /* ===== 滚动渐入 ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    .timeline { padding-left: 30px; }
+    .tl-item::before { left: -23px; }
+    .arch-center { width: 120px; height: 120px; font-size: 13px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-avatar">
+      <div class="hero-avatar-inner">
+        <img src="data:image/jpeg;base64,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" alt="张博" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+      </div>
+    </div>
+    <h1>一个想让身边的<br/>人<span class="highlight">好起来</span>的人</h1>
+    <p class="hero-subtitle">张博 / 海南政法职业学院副教授 / 海南公平司法鉴定中心负责人</p>
+    <div class="hero-quote">
+      "看见未来，然后动手把它建出来。"<br/>
+      不是做无人机的人，是做低空安全规则的人。
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag t1">🚁 低空安全管控</span>
+      <span class="hero-tag t2">🔬 司法鉴定</span>
+      <span class="hero-tag t3">🔥 消防应急</span>
+      <span class="hero-tag t4">🤖 AI赋能</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    向下探索
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </div>
+</section>
+
+<!-- ===== 方向架构 ===== -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Strategy</div>
+      <div class="section-title">发展架构</div>
+    </div>
+    <div class="arch-diagram reveal">
+      <div class="arch-center">低空安全<br/>管控<br/>主轴</div>
+      <div class="arch-nodes">
+        <div class="arch-node n1">
+          <div class="icon">🔥</div>
+          <h4>消防：落地场景</h4>
+          <p>无人机消防巡检、森林爆燃火监测、产业学院实战平台</p>
+        </div>
+        <div class="arch-node n2">
+          <div class="icon">🔬</div>
+          <h4>鉴定：护城河</h4>
+          <p>无人机取证鉴定、电子数据鉴定、证据链规范、全国稀缺壁垒</p>
+        </div>
+        <div class="arch-node n3">
+          <div class="icon">🤖</div>
+          <h4>AI：赋能工具</h4>
+          <p>AI+无人机识别反制、视频图像证据分析、森林火灾预警</p>
+        </div>
+        <div class="arch-node n4">
+          <div class="icon">🎓</div>
+          <h4>教学：人才供给</h4>
+          <p>CAAC执照培训、低空安全课程、产教融合共同体</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 履历时间线 ===== -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Journey</div>
+      <div class="section-title">履历时间线</div>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item t1">
+        <div class="tl-year">2006</div>
+        <div class="tl-title">入职海南政法职业学院</div>
+        <div class="tl-desc">海南大学计算机科学与技术专业毕业，7月起任教至今。从计算机教师起步，开启跨界建构之路。</div>
+      </div>
+      <div class="tl-item t2">
+        <div class="tl-year">2007</div>
+        <div class="tl-title">进入司法鉴定领域</div>
+        <div class="tl-desc">10月起作为鉴定助理在海南公平司法鉴定中心从业，开始深耕<strong>声像资料及电子数据鉴定</strong>方向。</div>
+      </div>
+      <div class="tl-item t3">
+        <div class="tl-year">2016</div>
+        <div class="tl-title">晋升副教授</div>
+        <div class="tl-desc">取得厦门大学软件工程硕士学位；12月经海南省人社厅评为副教授资格，次年9月正式聘任。</div>
+      </div>
+      <div class="tl-item t4">
+        <div class="tl-year">2020</div>
+        <div class="tl-title">接掌鉴定中心 / 签署消防合作</div>
+        <div class="tl-desc">6月起任海南公平司法鉴定中心负责人；9月与海南省消防救援总队签署<strong>教育培训合作框架协议</strong>，消防+教育融合正式启动。</div>
+      </div>
+      <div class="tl-item t1">
+        <div class="tl-year">2021-2023</div>
+        <div class="tl-title">无人机专业起飞 / 海政蓝品牌</div>
+        <div class="tl-desc">开设无人机应用技术专业（省级创新试点）；指导"海政蓝"消防志愿者团队获<strong>第六届全国消防志愿者先进奖项</strong>；2023年4月与消防总队训保支队续签共建协议。</div>
+      </div>
+      <div class="tl-item t2">
+        <div class="tl-year">2024</div>
+        <div class="tl-title">鉴定中心扩项 / 产教融合提速</div>
+        <div class="tl-desc">鉴定中心新增<strong>12项鉴定门类</strong>；参加能力验证23项，20项"满意"；联合启动"海南大学生消防志愿服务全省行"活动；筹建低空安全管控研究中心。</div>
+      </div>
+      <div class="tl-item t3">
+        <div class="tl-year">2025</div>
+        <div class="tl-title">鉴定中心B级诚信 / 低空产业联盟</div>
+        <div class="tl-desc">鉴定中心获省司法厅诚信等级<strong>B级</strong>评估；全年受理案件1196起；建设低空安全管理产业联盟方案；与西北工业大学自动化学院开启合作。</div>
+      </div>
+      <div class="tl-item t1">
+        <div class="tl-year">2026</div>
+        <div class="tl-title">消防应急管理产教融合共同体</div>
+        <div class="tl-desc">正式启动"海南消防应急管理产教融合共同体"建设；低空安全管控研究中心方案完善推进；申请无人机相关发明专利2项。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 领域业绩 ===== -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Achievements</div>
+      <div class="section-title">领域业绩</div>
+    </div>
+    
+    <div class="domain-tabs reveal">
+      <div class="domain-tab d1 active" data-tab="drone">🚁 低空安全管控</div>
+      <div class="domain-tab d2" data-tab="forensic">🔬 司法鉴定</div>
+      <div class="domain-tab d3" data-tab="fire">🔥 消防应急</div>
+      <div class="domain-tab d4" data-tab="ai">🤖 AI赋能</div>
+    </div>
+    
+    <!-- 低空安全管控 -->
+    <div class="domain-panel active reveal" id="panel-drone">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="num">2</div>
+          <div class="label">发明专利</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">90%</div>
+          <div class="label">学生CAAC获证率</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">183</div>
+          <div class="label">政法学员获警航证</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">1</div>
+          <div class="label">省级创新试点专业</div>
+        </div>
+      </div>
+      <ul class="achievement-list">
+        <li><span class="bullet"></span>发明专利"基于视觉SLAM的无人机自主导航优化方法"</li>
+        <li><span class="bullet"></span>发明专利"动态视频流中的对象跟踪识别方法"</li>
+        <li><span class="bullet"></span>海南警察学院（筹）低空安全管控研究中心建设方案</li>
+        <li><span class="bullet"></span>海南政法职业学院低空安全管理产业联盟方案</li>
+        <li><span class="bullet"></span>琼州海峡无人机走私防控方案</li>
+        <li><span class="bullet"></span>无人机道路交通执法视频图像作为法庭证据的法律依据研究</li>
+        <li><span class="bullet"></span>与西北工业大学自动化学院合作交流</li>
+        <li><span class="bullet"></span>无人机综合训练基地标准化建设需求报告</li>
+        <li><span class="bullet"></span>无人机+机制+大数据新型警务运行模式研究</li>
+      </ul>
+    </div>
+    
+    <!-- 司法鉴定 -->
+    <div class="domain-panel reveal" id="panel-forensic">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="num">18</div>
+          <div class="label">年从业经验</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">1196</div>
+          <div class="label">2025年受理案件</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">12</div>
+          <div class="label">新增鉴定门类</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">B级</div>
+          <div class="label">省司法厅诚信等级</div>
+        </div>
+      </div>
+      <ul class="achievement-list">
+        <li><span class="bullet" style="background:#8b5cf6"></span>海南公平司法鉴定中心负责人（2020年至今），全省唯一公立全项目覆盖+CNAS认证机构</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>能力验证23项参评，20项"满意"、3项"通过"</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>司法鉴定中心党支部书记，严格落实"三会一课"、意识形态责任制</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>电子数据司法鉴定规范研究：医院电子病历完整性真实性鉴定、数据库数据真实性鉴定</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>司法鉴定行业新入职人员执业合规与风险防范专题讲座</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>海南省司法鉴定行业行政处罚与行业惩戒分析报告</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>筹建火灾调查方向司法鉴定中心（海南省首个）</li>
+        <li><span class="bullet" style="background:#8b5cf6"></span>执业风险基金与发展基金制度建设</li>
+      </ul>
+    </div>
+    
+    <!-- 消防应急 -->
+    <div class="domain-panel reveal" id="panel-fire">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="num">300+</div>
+          <div class="label">输送消防安全管理人才</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">1</div>
+          <div class="label">省级特色专业</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">90%</div>
+          <div class="label">毕业生获消防设施操作员资质</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">500+</div>
+          <div class="label">在校生规模</div>
+        </div>
+      </div>
+      <ul class="achievement-list">
+        <li><span class="bullet" style="background:#f59e0b"></span>建筑消防技术省级特色专业负责人</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>"海政蓝"消防志愿者品牌——第六届全国消防志愿者先进奖项</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>与海南省消防救援总队共建消防应急产业学院</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>"2N24"消防产业融合共同体多维协同人才培养体系</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>消防教学成果"12345"闭环设计</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>与海口桂林洋经济开发区消防救援大队校地合作</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>与海南科技职业大学联办"高职-本科"贯通班（消防+建筑工程）</li>
+        <li><span class="bullet" style="background:#f59e0b"></span>东方市消防应急无人机实训基地方案</li>
+      </ul>
+    </div>
+    
+    <!-- AI赋能 -->
+    <div class="domain-panel reveal" id="panel-ai">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="num">6S</div>
+          <div class="label">协同创新中心</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">1</div>
+          <div class="label">微专业建设项目</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">1</div>
+          <div class="label">数字教材建设项目</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">4</div>
+          <div class="label">AI平台对比研究</div>
+        </div>
+      </div>
+      <ul class="achievement-list">
+        <li><span class="bullet" style="background:#10b981"></span>"人工智能+政法6S协同创新中心"方案设计</li>
+        <li><span class="bullet" style="background:#10b981"></span>AI+政法基础课改造：AI通识教育、AI法治可视化、政法AIGC应用</li>
+        <li><span class="bullet" style="background:#10b981"></span>微专业建设：智慧物流+安全法规"法技融合"复合型人才</li>
+        <li><span class="bullet" style="background:#10b981"></span>AI在消防无人机专业中的赋能应用研究</li>
+        <li><span class="bullet" style="background:#10b981"></span>数字教材建设方案：重塑教材形态、重构教学模式</li>
+        <li><span class="bullet" style="background:#10b981"></span>FastGPT/Dify/Coze/n8n四个AI自动化平台对比研究</li>
+        <li><span class="bullet" style="background:#10b981"></span>赋能职业教育：AI全景布局、场景融合与实操工具指南</li>
+        <li><span class="bullet" style="background:#10b981"></span>AI助教赋能乡村振兴实践</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3年路线图 ===== -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Roadmap</div>
+      <div class="section-title">三年聚焦路线</div>
+    </div>
+    <div class="roadmap reveal">
+      <div class="roadmap-card r1">
+        <div class="year">2026 · 扎根</div>
+        <h4>低空安全管控研究中心落地</h4>
+        <p>主轴的"根据地"先扎下去。已完成完整建设方案，与西工大合作、产业联盟方案就绪，年内推动研究中心正式挂牌运营。</p>
+      </div>
+      <div class="roadmap-card r2">
+        <div class="year">2027 · 筑墙</div>
+        <h4>无人机取证鉴定 + 火灾调查鉴定中心</h4>
+        <p>把护城河嵌进主轴。筹建全国稀缺的火灾调查鉴定方向和无人机取证鉴定门类，形成别人绕不开的交叉壁垒。</p>
+      </div>
+      <div class="roadmap-card r3">
+        <div class="year">2028 · 定规</div>
+        <h4>低空安全领域标准制定者</h4>
+        <p>从"做项目的人"升级为"定规则的人"。依托鉴定资质+研究中心，参与低空安全取证规范、行业标准制定，获得规则层话语权。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p>用代码和方案搭建未来，用善意和坚持让身边的人好起来</p>
+    <p style="margin-top:8px;">张博 · 海南政法职业学院 · <span class="heart">❤</span> 2026</p>
+  </div>
+</footer>
+
+<script>
+// 标签切换
+document.querySelectorAll('.domain-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.domain-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.domain-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// 滚动渐入
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
