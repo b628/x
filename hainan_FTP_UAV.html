@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<!-- saved from url=(0167)file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海南自贸港低空经济发展报告</title>
+    <style>
+        /* 使用系统本地字体，无需网络 */
+
+        :root {
+            --primary: #0A4DA6;
+            --primary-light: #1A6FD4;
+            --primary-dark: #063570;
+            --accent: #00C9A7;
+            --accent-light: #33D4B8;
+            --gold: #F5A623;
+            --bg-light: #F0F6FF;
+            --bg-white: #FFFFFF;
+            --text-dark: #1A2332;
+            --text-gray: #5A6B7F;
+            --text-light: #8A9BB0;
+            --border: #E2EAF4;
+            --shadow: 0 4px 24px rgba(10, 77, 166, 0.08);
+            --shadow-lg: 0 12px 48px rgba(10, 77, 166, 0.12);
+            --gradient-primary: linear-gradient(135deg, #0A4DA6 0%, #1A6FD4 50%, #00C9A7 100%);
+            --gradient-hero: linear-gradient(160deg, #063570 0%, #0A4DA6 30%, #1A6FD4 60%, #00C9A7 100%);
+            --gradient-card: linear-gradient(145deg, rgba(10,77,166,0.03) 0%, rgba(0,201,167,0.03) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0,201,167,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                radial-gradient(circle at 60% 80%, rgba(10,77,166,0.2) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 24px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent-light), #7BFFE0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255,255,255,0.75);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.14);
+        }
+
+        .hero-stat .number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-light);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .hero-stat .unit {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent-light);
+        }
+
+        .hero-stat .label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.65);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce-down 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce-down {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .scroll-hint svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 4px 16px;
+            background: rgba(10,77,166,0.08);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ===== POLICY SECTION ===== */
+        .policy-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .policy-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .policy-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .policy-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .policy-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 2.2rem;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border: 3px solid var(--bg-white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .policy-year {
+            display: inline-block;
+            padding: 2px 12px;
+            background: var(--gradient-primary);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .policy-item h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-item p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== TARGET SECTION ===== */
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .target-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .target-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .target-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .target-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(10,77,166,0.1), rgba(0,201,167,0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .target-card .big-num {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .target-card .big-unit {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .target-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0.8rem 0 0.5rem;
+        }
+
+        .target-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* ===== SCENARIO SECTION ===== */
+        .scenario-section {
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-light) 100%);
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .scenario-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.4s, box-shadow 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scenario-visual {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-visual.bg-1 { background: linear-gradient(135deg, #0A4DA6, #1A6FD4); }
+        .scenario-visual.bg-2 { background: linear-gradient(135deg, #00C9A7, #00E5BF); }
+        .scenario-visual.bg-3 { background: linear-gradient(135deg, #F5A623, #FFBE4F); }
+        .scenario-visual.bg-4 { background: linear-gradient(135deg, #E74C6F, #FF6B8A); }
+
+        .scenario-visual::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to top, var(--bg-white), transparent);
+        }
+
+        .scenario-body {
+            padding: 1.8rem 2rem 2rem;
+            flex: 1;
+        }
+
+        .scenario-body h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .scenario-body p {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .scenario-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .scenario-tag {
+            padding: 3px 12px;
+            background: rgba(10,77,166,0.06);
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        /* ===== INFRASTRUCTURE SECTION ===== */
+        .infra-section {
+            background: var(--bg-white);
+        }
+
+        .infra-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .infra-map {
+            background: linear-gradient(135deg, rgba(10,77,166,0.05), rgba(0,201,167,0.05));
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .infra-map-content {
+            text-align: center;
+        }
+
+        .map-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .map-route {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .route-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .route-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .route-dot.blue { background: var(--primary); }
+        .route-dot.green { background: var(--accent); }
+        .route-dot.gold { background: var(--gold); }
+
+        .route-item span {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .infra-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .infra-item {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .infra-item:hover {
+            transform: translateX(4px);
+        }
+
+        .infra-item:nth-child(2) { border-left-color: var(--accent); }
+        .infra-item:nth-child(3) { border-left-color: var(--gold); }
+        .infra-item:nth-child(4) { border-left-color: #E74C6F; }
+
+        .infra-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .infra-item p {
+            font-size: 0.88rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ===== HIGHLIGHTS SECTION ===== */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .highlight-card .hl-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hl-icon.blue { background: rgba(10,77,166,0.1); }
+        .hl-icon.green { background: rgba(0,201,167,0.1); }
+        .hl-icon.gold { background: rgba(245,166,35,0.1); }
+
+        .highlight-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .highlight-card p {
+            font-size: 0.88rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ===== DATA SECTION ===== */
+        .data-section {
+            background: var(--gradient-hero);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-section .section-tag {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        .data-section .section-title {
+            color: #fff;
+        }
+
+        .data-section .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .data-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .data-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255,255,255,0.14);
+        }
+
+        .data-card .data-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-light);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-card .data-label {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 400;
+        }
+
+        /* ===== OUTLOOK SECTION ===== */
+        .outlook-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .outlook-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .outlook-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .outlook-num {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            background: var(--gradient-primary);
+            color: #fff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .outlook-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .outlook-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .footer .footer-brand {
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .target-grid,
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+            .scenario-grid,
+            .outlook-grid {
+                grid-template-columns: 1fr;
+            }
+            .infra-layout {
+                grid-template-columns: 1fr;
+            }
+            .data-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-particles" id="particles"><div class="particle" style="left: 87.1898%; animation-duration: 19.0532s; animation-delay: 2.85041s; height: 5.83554px; width: 5.83554px;"></div><div class="particle" style="left: 95.3276%; animation-duration: 17.3941s; animation-delay: 2.08779s; height: 2.33562px; width: 2.33562px;"></div><div class="particle" style="left: 90.1875%; animation-duration: 13.9564s; animation-delay: 7.22752s; height: 4.47819px; width: 4.47819px;"></div><div class="particle" style="left: 55.5651%; animation-duration: 9.39255s; animation-delay: 5.93107s; height: 5.78121px; width: 5.78121px;"></div><div class="particle" style="left: 94.9206%; animation-duration: 17.2071s; animation-delay: 1.31421s; height: 2.75235px; width: 2.75235px;"></div><div class="particle" style="left: 61.5002%; animation-duration: 9.40621s; animation-delay: 5.15882s; height: 2.34885px; width: 2.34885px;"></div><div class="particle" style="left: 63.18%; animation-duration: 19.3672s; animation-delay: 2.894s; height: 4.94166px; width: 4.94166px;"></div><div class="particle" style="left: 26.1453%; animation-duration: 10.2775s; animation-delay: 7.73004s; height: 3.63134px; width: 3.63134px;"></div><div class="particle" style="left: 72.7178%; animation-duration: 10.3944s; animation-delay: 8.54606s; height: 2.58599px; width: 2.58599px;"></div><div class="particle" style="left: 91.3765%; animation-duration: 9.8979s; animation-delay: 0.413516s; height: 5.42446px; width: 5.42446px;"></div><div class="particle" style="left: 79.1278%; animation-duration: 10.4763s; animation-delay: 1.68047s; height: 5.82156px; width: 5.82156px;"></div><div class="particle" style="left: 39.636%; animation-duration: 15.8781s; animation-delay: 7.89773s; height: 5.23861px; width: 5.23861px;"></div><div class="particle" style="left: 81.4751%; animation-duration: 16.1403s; animation-delay: 8.68523s; height: 3.39614px; width: 3.39614px;"></div><div class="particle" style="left: 67.4877%; animation-duration: 8.72931s; animation-delay: 1.87243s; height: 5.37691px; width: 5.37691px;"></div><div class="particle" style="left: 20.9863%; animation-duration: 8.24666s; animation-delay: 1.73161s; height: 5.68973px; width: 5.68973px;"></div><div class="particle" style="left: 5.65222%; animation-duration: 10.928s; animation-delay: 4.74448s; height: 4.18482px; width: 4.18482px;"></div><div class="particle" style="left: 93.1158%; animation-duration: 14.0239s; animation-delay: 4.49524s; height: 2.26996px; width: 2.26996px;"></div><div class="particle" style="left: 92.5419%; animation-duration: 13.2365s; animation-delay: 5.84655s; height: 4.97592px; width: 4.97592px;"></div><div class="particle" style="left: 50.5695%; animation-duration: 16.6622s; animation-delay: 1.24195s; height: 4.41185px; width: 4.41185px;"></div><div class="particle" style="left: 14.6485%; animation-duration: 18.3656s; animation-delay: 8.80886s; height: 3.68108px; width: 3.68108px;"></div><div class="particle" style="left: 86.2967%; animation-duration: 14.6931s; animation-delay: 8.26193s; height: 5.42668px; width: 5.42668px;"></div><div class="particle" style="left: 76.9636%; animation-duration: 17.6094s; animation-delay: 8.09772s; height: 4.14107px; width: 4.14107px;"></div><div class="particle" style="left: 83.6467%; animation-duration: 13.0564s; animation-delay: 8.3361s; height: 5.33779px; width: 5.33779px;"></div><div class="particle" style="left: 30.4078%; animation-duration: 8.54155s; animation-delay: 0.140307s; height: 2.21105px; width: 2.21105px;"></div><div class="particle" style="left: 32.9257%; animation-duration: 13.1514s; animation-delay: 5.97651s; height: 5.03248px; width: 5.03248px;"></div><div class="particle" style="left: 2.85307%; animation-duration: 19.465s; animation-delay: 2.59479s; height: 4.79916px; width: 4.79916px;"></div><div class="particle" style="left: 63.9394%; animation-duration: 19.7253s; animation-delay: 9.21482s; height: 4.16899px; width: 4.16899px;"></div><div class="particle" style="left: 95.1701%; animation-duration: 12.0211s; animation-delay: 3.92049s; height: 5.41394px; width: 5.41394px;"></div><div class="particle" style="left: 90.7651%; animation-duration: 10.1542s; animation-delay: 9.40174s; height: 4.01259px; width: 4.01259px;"></div><div class="particle" style="left: 58.9998%; animation-duration: 9.09491s; animation-delay: 2.58901s; height: 5.41422px; width: 5.41422px;"></div></div>
+    <div class="hero-content">
+        <div class="hero-badge">海南自由贸易港 · 低空经济专题报告</div>
+        <h1>海南自贸港<br><span>低空经济</span>发展报告</h1>
+        <p class="hero-subtitle">
+            依托自贸港政策优势与独特地理条件，海南正加速构建低空经济产业生态体系，
+            打造全国低空经济创新发展新高地
+        </p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="number">300</span><span class="unit">亿元</span>
+                <div class="label">2026年产业规模目标</div>
+            </div>
+            <div class="hero-stat">
+                <span class="number">300</span><span class="unit">条</span>
+                <div class="label">低空航线规划</div>
+            </div>
+            <div class="hero-stat">
+                <span class="number">500</span><span class="unit">个</span>
+                <div class="label">起降场布局</div>
+            </div>
+            <div class="hero-stat">
+                <span class="number">200</span><span class="unit">家</span>
+                <div class="label">产业链企业培育</div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        <span>向下滚动探索</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- ===== NAV ===== -->
+<nav class="nav-bar">
+    <div class="nav-inner">
+        <div class="nav-logo">
+            <svg viewBox="0 0 28 28" fill="none">
+                <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="2"></circle>
+                <path d="M8 18 L14 8 L20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="14" cy="14" r="3" fill="currentColor"></circle>
+            </svg>
+            海南低空经济报告
+        </div>
+        <ul class="nav-links">
+            <li><a href="file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html#policy">政策体系</a></li>
+            <li><a href="file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html#target">发展目标</a></li>
+            <li><a href="file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html#scenario">应用场景</a></li>
+            <li><a href="file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html#infra">基础设施</a></li>
+            <li><a href="file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html#highlight">产业亮点</a></li>
+            <li><a href="file:///Users/b/Library/Application%20Support/TRAE%20SOLO%20CN/ModularData/ai-agent/work-mode-projects/69f814a0fdd1e8919899f072/hainan_low_altitude_economy_report.html#outlook">未来展望</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===== POLICY SECTION ===== -->
+<section class="section fade-in visible" id="policy">
+    <div class="section-header">
+        <div class="section-tag">POLICY FRAMEWORK</div>
+        <h2 class="section-title">政策体系与战略布局</h2>
+        <p class="section-desc">海南自2021年以来连续出台低空经济支持政策，逐步构建起完善的政策框架体系，为产业发展提供坚实制度保障</p>
+    </div>
+    <div class="policy-timeline">
+        <div class="policy-item">
+            <span class="policy-year">2021年</span>
+            <h3>低空空域管理改革试点启动</h3>
+            <p>海南被列为"低空空域管理改革先行区"，率先探索低空空域分类管理，为全国低空飞行管理改革积累经验。海南独特的海岛地理环境为低空飞行提供了天然试验场。</p>
+        </div>
+        <div class="policy-item">
+            <span class="policy-year">2023年</span>
+            <h3>低空经济纳入自贸港重点产业</h3>
+            <p>海南省将低空经济正式纳入自贸港重点发展产业目录，出台专项扶持政策，鼓励发展低空飞行器研发、组装、测试及交付等全产业链环节，拓展低空应用场景。</p>
+        </div>
+        <div class="policy-item">
+            <span class="policy-year">2024年</span>
+            <h3>《海南省低空经济发展三年行动计划》发布</h3>
+            <p>海南省发改委等多部门联合印发《海南省低空经济发展三年行动计划（2024—2026年）》，构建"三纵三横三出岛"低空航线网络格局，明确到2026年的量化发展目标，为产业高速发展绘制清晰路线图。</p>
+        </div>
+        <div class="policy-item">
+            <span class="policy-year">2025年</span>
+            <h3>自贸港封关运作元年 · AI+低空经济深度融合</h3>
+            <p>海南自贸港封关运作元年，中国低空经济产业发展联盟在三亚正式成立。海南明确将"AI+低空经济"列为四大特色示范场景之一，推动人工智能技术与低空产业深度融合，打造全国首个"AI+低空经济"智能样板。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TARGET SECTION ===== -->
+<section class="section fade-in visible" id="target" style="background: var(--bg-white); max-width: 100%; padding: 5rem calc((100% - 1200px)/2);">
+    <div class="section-header">
+        <div class="section-tag">DEVELOPMENT TARGETS</div>
+        <h2 class="section-title">2026年核心发展目标</h2>
+        <p class="section-desc">依据《海南省低空经济发展三年行动计划》，海南设定了雄心勃勃的量化发展指标</p>
+    </div>
+    <div class="target-grid">
+        <div class="target-card">
+            <div class="target-icon">🏢</div>
+            <div class="big-num">9</div>
+            <div class="big-unit">个</div>
+            <h3>通用机场</h3>
+            <p>建成覆盖全省主要区域的通用机场网络，满足多元化低空飞行需求</p>
+        </div>
+        <div class="target-card">
+            <div class="target-icon">🛬</div>
+            <div class="big-num">500</div>
+            <div class="big-unit">个</div>
+            <h3>起降场布局</h3>
+            <p>布局低空飞行器起降场500个，构建密集便捷的起降基础设施网络</p>
+        </div>
+        <div class="target-card">
+            <div class="target-icon">✈️</div>
+            <div class="big-num">300</div>
+            <div class="big-unit">条</div>
+            <h3>低空航线</h3>
+            <p>划设低空航线300条，形成"三纵三横三出岛"的航线网络格局</p>
+        </div>
+        <div class="target-card">
+            <div class="target-icon">🚁</div>
+            <div class="big-num">30万</div>
+            <div class="big-unit">架次</div>
+            <h3>有人机飞行量</h3>
+            <p>实现有人机年飞行量达30万架次，推动通航运营规模化发展</p>
+        </div>
+        <div class="target-card">
+            <div class="target-icon">🤖</div>
+            <div class="big-num">450万</div>
+            <div class="big-unit">架次</div>
+            <h3>无人机飞行量</h3>
+            <p>实现无人机年飞行量达450万架次，支撑物流配送等商业应用</p>
+        </div>
+        <div class="target-card">
+            <div class="target-icon">💰</div>
+            <div class="big-num">300</div>
+            <div class="big-unit">亿元</div>
+            <h3>产业规模</h3>
+            <p>实现低空经济总产值超300亿元，引进培育产业链企业200家</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SCENARIO SECTION ===== -->
+<section class="scenario-section fade-in visible" id="scenario">
+    <div class="section">
+        <div class="section-header">
+            <div class="section-tag">APPLICATION SCENARIOS</div>
+            <h2 class="section-title">四大核心应用场景</h2>
+            <p class="section-desc">海南结合自贸港特色优势，重点发展四大低空经济应用场景，打造差异化竞争优势</p>
+        </div>
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <div class="scenario-visual bg-1">📦</div>
+                <div class="scenario-body">
+                    <h3>低空物流</h3>
+                    <p>依托海南自贸港物流枢纽优势，重点推进无人机跨海运输、城市即时配送等物流场景。吨级物流飞行器已成功跨越琼州海峡，海口江东新区跨琼州海峡低空物流航线完成首飞，为构建高效跨海低空物流体系奠定基础。</p>
+                    <div class="scenario-tags">
+                        <span class="scenario-tag">跨海运输</span>
+                        <span class="scenario-tag">即时配送</span>
+                        <span class="scenario-tag">冷链物流</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-visual bg-2">🌊</div>
+                <div class="scenario-body">
+                    <h3>海洋监测</h3>
+                    <p>利用无人机对海南广阔海域进行常态化巡查监测，覆盖海洋生态保护、渔业资源管理、海上搜救等领域。结合AI图像识别技术，实现对海洋环境的智能感知与预警，助力海南国家生态文明试验区建设。</p>
+                    <div class="scenario-tags">
+                        <span class="scenario-tag">生态监测</span>
+                        <span class="scenario-tag">渔业管理</span>
+                        <span class="scenario-tag">海上搜救</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-visual bg-3">🏝️</div>
+                <div class="scenario-body">
+                    <h3>旅游观光</h3>
+                    <p>发挥海南国际旅游消费中心优势，大力发展低空旅游。三亚等热门景区已开通低空观光航线，直升机、eVTOL载人飞行器让游客以"上帝视角"领略海南热带风光，打造独具特色的海岛低空旅游品牌。</p>
+                    <div class="scenario-tags">
+                        <span class="scenario-tag">空中游览</span>
+                        <span class="scenario-tag">景区观光</span>
+                        <span class="scenario-tag">跳伞体验</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-visual bg-4">🚨</div>
+                <div class="scenario-body">
+                    <h3>应急救援</h3>
+                    <p>构建低空应急救援体系，利用无人机和直升机快速响应台风、洪水等自然灾害。在偏远山区和海岛地区实现医疗物资紧急投送、灾情侦察评估等功能，提升海南防灾减灾和公共安全保障能力。</p>
+                    <div class="scenario-tags">
+                        <span class="scenario-tag">灾害响应</span>
+                        <span class="scenario-tag">医疗救援</span>
+                        <span class="scenario-tag">物资投送</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== INFRASTRUCTURE SECTION ===== -->
+<section class="infra-section fade-in visible" id="infra">
+    <div class="section">
+        <div class="section-header">
+            <div class="section-tag">INFRASTRUCTURE</div>
+            <h2 class="section-title">基础设施建设</h2>
+            <p class="section-desc">海南正加速构建低空智联基础设施体系，为低空经济高质量发展提供坚实支撑</p>
+        </div>
+        <div class="infra-layout">
+            <div class="infra-map">
+                <div class="infra-map-content">
+                    <div class="map-label">🗺️ "三纵三横三出岛"航线网络</div>
+                    <p style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 1.5rem;">构建覆盖全省、联通内外的低空航线骨架</p>
+                    <div class="map-route">
+                        <div class="route-item">
+                            <div class="route-dot blue"></div>
+                            <span>三纵：海口—三亚纵向通道</span>
+                        </div>
+                        <div class="route-item">
+                            <div class="route-dot green"></div>
+                            <span>三横：东部、中部、西部横向通道</span>
+                        </div>
+                        <div class="route-item">
+                            <div class="route-dot gold"></div>
+                            <span>三出岛：跨琼州海峡出岛通道</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infra-details">
+                <div class="infra-item">
+                    <h4>📡 低空智联网联平台</h4>
+                    <p>建设省级低空智能网联监管平台，实现低空飞行器实时监控、智能调度和空域协同管理，保障飞行安全与效率。</p>
+                </div>
+                <div class="infra-item">
+                    <h4>🛫 通用机场网络</h4>
+                    <p>重点拓展建设8个通用机场项目，到2026年建成9个通用机场，形成覆盖全省的通用航空服务网络。</p>
+                </div>
+                <div class="infra-item">
+                    <h4>📍 起降场体系</h4>
+                    <p>布局500个低空飞行器起降场，覆盖城市、景区、物流枢纽等关键节点，满足多样化起降需求。</p>
+                </div>
+                <div class="infra-item">
+                    <h4>🛰️ 通信导航设施</h4>
+                    <p>部署5G-A/6G低空通信网络、北斗导航增强系统，构建低空飞行"通信+导航+监视"一体化服务能力。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DATA SECTION ===== -->
+<section class="data-section fade-in visible">
+    <div class="section" style="max-width: 1200px;">
+        <div class="section-header">
+            <div class="section-tag">KEY DATA</div>
+            <h2 class="section-title">关键数据一览</h2>
+            <p class="section-desc">海南低空经济发展的核心指标与里程碑</p>
+        </div>
+        <div class="data-grid">
+            <div class="data-card">
+                <div class="data-num">16亿</div>
+                <div class="data-label">签约项目投资额（元）</div>
+            </div>
+            <div class="data-card">
+                <div class="data-num">8</div>
+                <div class="data-label">签约落地产业项目</div>
+            </div>
+            <div class="data-card">
+                <div class="data-num">2025</div>
+                <div class="data-label">自贸港封关运作元年</div>
+            </div>
+            <div class="data-card">
+                <div class="data-num">480万</div>
+                <div class="data-label">年总飞行架次目标</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HIGHLIGHTS SECTION ===== -->
+<section class="section fade-in visible" id="highlight">
+    <div class="section-header">
+        <div class="section-tag">INDUSTRY HIGHLIGHTS</div>
+        <h2 class="section-title">产业亮点与突破</h2>
+        <p class="section-desc">海南低空经济领域取得的一系列标志性成果</p>
+    </div>
+    <div class="highlight-grid">
+        <div class="highlight-card">
+            <div class="hl-icon blue">🤝</div>
+            <h3>中国低空经济产业发展联盟成立</h3>
+            <p>2025年5月，中国低空经济产业发展联盟在三亚正式成立，汇聚行业龙头企业与科研机构，推动产业协同发展，提升海南在全国低空经济领域的影响力。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="hl-icon green">🚀</div>
+            <h3>吨级飞行器跨越琼州海峡</h3>
+            <p>吨级物流飞行器成功完成跨越琼州海峡的飞行测试，标志着海南跨海低空物流运输取得重大技术突破，为后续商业化运营奠定基础。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="hl-icon gold">📋</div>
+            <h3>8大项目签约落地海南</h3>
+            <p>海南低空经济产业对接洽谈会成功签约8个产业投资项目，总投资额达16亿元，涵盖飞行营地、低空航线、无人机产业链、低空平台建设等领域。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="hl-icon blue">🧠</div>
+            <h3>AI+低空经济深度融合</h3>
+            <p>海南将"AI+低空经济"列为全省核心示范赛道，推动人工智能技术在低空物流、海洋监测等领域的创新应用，打造全国首个"AI+低空经济"智能样板。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="hl-icon green">✈️</div>
+            <h3>eVTOL适航认证领先推进</h3>
+            <p>海南深度参与eVTOL（电动垂直起降飞行器）适航认证进程，相关企业飞行汽车部件订单已超5亿元，在低空载人飞行器领域走在前列。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="hl-icon gold">🌐</div>
+            <h3>自贸港政策优势赋能</h3>
+            <p>依托自贸港"零关税、低税率、简税制"等政策优势，降低低空飞行器及零部件进口成本，吸引国际领先企业落户，加速产业国际化布局。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== OUTLOOK SECTION ===== -->
+<section class="section fade-in visible" id="outlook" style="background: var(--bg-white); max-width: 100%; padding: 5rem calc((100% - 1200px)/2);">
+    <div class="section-header">
+        <div class="section-tag">FUTURE OUTLOOK</div>
+        <h2 class="section-title">未来展望</h2>
+        <p class="section-desc">海南低空经济发展的六大战略方向</p>
+    </div>
+    <div class="outlook-grid">
+        <div class="outlook-card">
+            <div class="outlook-num">01</div>
+            <div>
+                <h3>深化空域管理改革</h3>
+                <p>持续优化低空空域分类管理，简化飞行审批流程，提升空域使用效率，为低空经济规模化发展提供更高效的空域保障。</p>
+            </div>
+        </div>
+        <div class="outlook-card">
+            <div class="outlook-num">02</div>
+            <div>
+                <h3>强化产业链集群建设</h3>
+                <p>围绕低空飞行器研发制造、运营服务、数据平台等环节，引进培育200家以上产业链企业，打造具有国际竞争力的低空经济产业集群。</p>
+            </div>
+        </div>
+        <div class="outlook-card">
+            <div class="outlook-num">03</div>
+            <div>
+                <h3>推进国际化合作</h3>
+                <p>借助自贸港开放优势，加强与国际低空经济领先国家和地区的合作交流，引入先进技术与管理经验，拓展国际低空物流与旅游市场。</p>
+            </div>
+        </div>
+        <div class="outlook-card">
+            <div class="outlook-num">04</div>
+            <div>
+                <h3>完善标准规范体系</h3>
+                <p>积极参与低空经济国家标准和行业标准制定，建立健全海南低空飞行安全监管、数据管理等地方标准体系，引领行业规范发展。</p>
+            </div>
+        </div>
+        <div class="outlook-card">
+            <div class="outlook-num">05</div>
+            <div>
+                <h3>加速技术创新突破</h3>
+                <p>加大低空经济领域研发投入，推动eVTOL、无人机自主飞行、低空智联网等核心技术攻关，建设低空经济科技创新高地。</p>
+            </div>
+        </div>
+        <div class="outlook-card">
+            <div class="outlook-num">06</div>
+            <div>
+                <h3>培育消费市场生态</h3>
+                <p>拓展低空旅游、空中出行、无人机配送等消费场景，培育公众低空消费习惯，构建低空经济可持续发展的市场生态。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-brand">海南自贸港低空经济发展报告</div>
+    <p>本报告基于公开政策文件及新闻报道整理，数据截至2025年</p>
+    <p>主要参考来源：《海南省低空经济发展三年行动计划（2024—2026年）》、海南省发改委新闻发布会、央广网等</p>
+</footer>
+
+<script>
+// ===== Particle Animation =====
+(function() {
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (8 + Math.random() * 12) + 's';
+        p.style.animationDelay = Math.random() * 10 + 's';
+        p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+        container.appendChild(p);
+    }
+})();
+
+// ===== Scroll Fade-in Animation =====
+(function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+
+// ===== Smooth Scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// ===== Counter Animation =====
+(function() {
+    function animateCounter(el, target, suffix = '') {
+        let current = 0;
+        const step = target / 60;
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = Math.floor(current) + suffix;
+        }, 16);
+    }
+
+    const dataSection = document.querySelector('.data-section');
+    let animated = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                const nums = dataSection.querySelectorAll('.data-num');
+                animateCounter(nums[0], 16, '亿');
+                animateCounter(nums[1], 8, '');
+                // Keep text for 2025 and 480万
+            }
+        });
+    }, { threshold: 0.3 });
+    observer.observe(dataSection);
+})();
+</script>
+
+
+
+</body></html>
