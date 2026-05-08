@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>战略合作框架方案演示文稿</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;600;700;900&display=swap');
+
+  :root {
+    --primary: #C0392B;
+    --primary-dark: #922B21;
+    --primary-light: #E74C3C;
+    --secondary: #1B2838;
+    --secondary-light: #2C3E50;
+    --accent: #D4AC0D;
+    --accent-light: #F4D03F;
+    --bg-dark: #0F1923;
+    --bg-card: rgba(255,255,255,0.06);
+    --text-white: #FFFFFF;
+    --text-light: #ECF0F1;
+    --text-muted: #BDC3C7;
+    --border: rgba(255,255,255,0.12);
+    --shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #000;
+    color: var(--text-white);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .presentation {
+    width: 100vw;
+    height: 56.25vw;
+    max-height: 100vh;
+    max-width: 177.78vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4% 6%;
+    overflow: hidden;
+  }
+
+  .slide.active { display: flex; }
+
+  /* ===== Backgrounds ===== */
+  .bg-dark {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary) 50%, #1a1a2e 100%);
+  }
+  .bg-dark-red {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #1a0a0a 40%, var(--secondary) 100%);
+  }
+  .bg-gradient {
+    background: linear-gradient(160deg, var(--secondary) 0%, var(--bg-dark) 60%, #1a0a0a 100%);
+  }
+
+  /* ===== Decorative Elements ===== */
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 80%; height: 200%;
+    background: radial-gradient(ellipse, rgba(192,57,43,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+  }
+
+  /* ===== Typography ===== */
+  .slide-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(24px, 3.2vw, 48px);
+    font-weight: 700;
+    color: var(--text-white);
+    text-align: center;
+    margin-bottom: 1.5%;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 1;
+  }
+  .slide-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 0.6% auto 0;
+    border-radius: 2px;
+  }
+
+  .subtitle {
+    font-size: clamp(14px, 1.6vw, 24px);
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
+  .body-text {
+    font-size: clamp(12px, 1.3vw, 20px);
+    line-height: 1.8;
+    color: var(--text-light);
+    text-align: justify;
+  }
+
+  /* ===== Cover Slide ===== */
+  .cover-badge {
+    display: inline-block;
+    padding: 0.4% 2%;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    color: var(--primary-light);
+    font-size: clamp(10px, 1.1vw, 16px);
+    letter-spacing: 0.3em;
+    margin-bottom: 2%;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(28px, 4vw, 64px);
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 1.5%;
+    background: linear-gradient(135deg, #fff 30%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cover-sub {
+    font-size: clamp(14px, 1.8vw, 28px);
+    color: var(--text-muted);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3%;
+    letter-spacing: 0.15em;
+  }
+  .cover-parties {
+    display: flex;
+    gap: 4%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .party-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5% 3%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  .party-card .label {
+    font-size: clamp(10px, 1vw, 14px);
+    color: var(--primary-light);
+    margin-bottom: 0.3%;
+    letter-spacing: 0.2em;
+  }
+  .party-card .name {
+    font-size: clamp(13px, 1.4vw, 20px);
+    font-weight: 500;
+    color: var(--text-white);
+  }
+  .party-vs {
+    font-size: clamp(16px, 2vw, 28px);
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ===== TOC ===== */
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    width: 100%;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+  }
+  .toc-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2.5% 3%;
+    display: flex;
+    align-items: center;
+    gap: 4%;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .toc-item:hover {
+    border-color: var(--primary);
+    background: rgba(192,57,43,0.1);
+    transform: translateY(-2px);
+  }
+  .toc-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 900;
+    color: var(--primary);
+    min-width: 1.5em;
+    line-height: 1;
+  }
+  .toc-label {
+    font-size: clamp(13px, 1.4vw, 20px);
+    font-weight: 500;
+    color: var(--text-white);
+  }
+
+  /* ===== Content Cards ===== */
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3%;
+    width: 100%;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+  }
+  .content-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3%;
+    backdrop-filter: blur(10px);
+  }
+  .content-card.full-width {
+    grid-column: 1 / -1;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 3%;
+    margin-bottom: 2%;
+  }
+  .card-icon {
+    width: clamp(32px, 3vw, 48px);
+    height: clamp(32px, 3vw, 48px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(16px, 1.8vw, 26px);
+    flex-shrink: 0;
+  }
+  .icon-red { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+  .icon-blue { background: linear-gradient(135deg, var(--secondary-light), var(--secondary)); }
+  .icon-gold { background: linear-gradient(135deg, var(--accent), #B7950B); }
+  .card-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(16px, 1.8vw, 26px);
+    font-weight: 700;
+    color: var(--text-white);
+  }
+  .card-body {
+    font-size: clamp(11px, 1.2vw, 18px);
+    line-height: 1.9;
+    color: var(--text-light);
+  }
+  .card-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .card-body li {
+    padding-left: 1.2em;
+    position: relative;
+    margin-bottom: 0.5em;
+  }
+  .card-body li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary-light);
+    font-weight: bold;
+  }
+
+  /* ===== Three Column Cards ===== */
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    width: 100%;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+  }
+  .col-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3% 2.5%;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+  }
+  .col-card .card-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 900;
+    color: var(--primary);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 1%;
+  }
+  .col-card .card-title {
+    font-size: clamp(14px, 1.5vw, 22px);
+    margin-bottom: 4%;
+  }
+  .col-card .card-body {
+    font-size: clamp(10px, 1.1vw, 16px);
+    line-height: 1.8;
+    flex: 1;
+  }
+
+  /* ===== Highlight Box ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(192,57,43,0.15), rgba(192,57,43,0.05));
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    padding: 2% 3%;
+    margin: 1.5% 0;
+  }
+  .highlight-box .hl-title {
+    font-size: clamp(13px, 1.4vw, 20px);
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: 0.5%;
+  }
+  .highlight-box .hl-text {
+    font-size: clamp(11px, 1.2vw, 17px);
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ===== Mission Slide ===== */
+  .mission-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 80%;
+  }
+  .mission-quote {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(20px, 2.8vw, 40px);
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--text-white);
+    margin-bottom: 3%;
+  }
+  .mission-quote em {
+    color: var(--accent-light);
+    font-style: normal;
+  }
+  .mission-goals {
+    display: flex;
+    gap: 3%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .goal-tag {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1% 2.5%;
+    font-size: clamp(11px, 1.2vw, 18px);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 2%;
+  }
+  .goal-tag .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+  }
+
+  /* ===== Timeline ===== */
+  .timeline {
+    width: 100%;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+  }
+  .timeline-item {
+    display: flex;
+    gap: 3%;
+    margin-bottom: 2%;
+    align-items: flex-start;
+  }
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: clamp(80px, 8vw, 130px);
+  }
+  .timeline-dot {
+    width: clamp(14px, 1.4vw, 20px);
+    height: clamp(14px, 1.4vw, 20px);
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 0 12px rgba(192,57,43,0.5);
+  }
+  .timeline-line {
+    width: 2px;
+    flex: 1;
+    min-height: 20px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+  }
+  .timeline-label {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(12px, 1.3vw, 18px);
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-top: 0.5%;
+  }
+  .timeline-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2% 3%;
+    flex: 1;
+  }
+  .timeline-content .tc-title {
+    font-size: clamp(13px, 1.4vw, 20px);
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 0.5%;
+  }
+  .timeline-content .tc-body {
+    font-size: clamp(11px, 1.1vw, 16px);
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ===== Comparison Table ===== */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3%;
+    width: 100%;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+  }
+  .compare-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3%;
+    backdrop-filter: blur(10px);
+  }
+  .compare-col.party-a { border-top: 3px solid var(--primary); }
+  .compare-col.party-b { border-top: 3px solid var(--accent); }
+  .compare-header {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(16px, 1.8vw, 26px);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-col.party-a .compare-header { color: var(--primary-light); }
+  .compare-col.party-b .compare-header { color: var(--accent-light); }
+  .compare-list {
+    list-style: none;
+    padding: 0;
+  }
+  .compare-list li {
+    font-size: clamp(11px, 1.2vw, 17px);
+    color: var(--text-light);
+    line-height: 1.8;
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 0.8em;
+  }
+  .party-a .compare-list li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.6em;
+    top: 0.15em;
+  }
+  .party-b .compare-list li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.6em;
+    top: 0.15em;
+  }
+
+  /* ===== Closing Slide ===== */
+  .closing-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(32px, 4.5vw, 72px);
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(135deg, #fff 30%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2%;
+  }
+  .closing-sub {
+    font-size: clamp(14px, 1.6vw, 24px);
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.2em;
+  }
+
+  /* ===== Page Number ===== */
+  .page-num {
+    position: absolute;
+    bottom: 2%;
+    right: 4%;
+    font-size: clamp(10px, 1vw, 14px);
+    color: var(--text-muted);
+    opacity: 0.5;
+    z-index: 10;
+  }
+
+  /* ===== Navigation ===== */
+  .nav-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+  }
+  .nav-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+  }
+  .nav-btn:hover {
+    background: rgba(192,57,43,0.4);
+    border-color: var(--primary);
+  }
+  .nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  /* ===== Section Divider ===== */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    width: 100%;
+    margin: 1% 0;
+    position: relative;
+    z-index: 1;
+  }
+  .section-divider .line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-divider .text {
+    font-size: clamp(10px, 1vw, 14px);
+    color: var(--text-muted);
+    letter-spacing: 0.3em;
+    white-space: nowrap;
+  }
+
+  /* ===== Summary Stats ===== */
+  .stats-row {
+    display: flex;
+    gap: 4%;
+    justify-content: center;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 900;
+    color: var(--primary-light);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: clamp(10px, 1vw, 14px);
+    color: var(--text-muted);
+    margin-top: 0.3%;
+  }
+
+  /* ===== Principles ===== */
+  .principle-row {
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+  }
+  .principle-card {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2.5% 2%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  .principle-icon {
+    font-size: clamp(24px, 2.8vw, 40px);
+    margin-bottom: 1%;
+  }
+  .principle-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(13px, 1.4vw, 20px);
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 0.5%;
+  }
+  .principle-desc {
+    font-size: clamp(10px, 1vw, 15px);
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ===== Full width content ===== */
+  .full-content {
+    width: 100%;
+    max-width: 90%;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== Appendix items ===== */
+  .appendix-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 80%;
+    position: relative;
+    z-index: 1;
+  }
+  .appendix-list li {
+    font-size: clamp(12px, 1.3vw, 19px);
+    color: var(--text-light);
+    line-height: 2;
+    padding-left: 2em;
+    position: relative;
+  }
+  .appendix-list li::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 0;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    color: var(--primary);
+  }
+</style>
+</head>
+<body>
+
+<div class="presentation">
+
+  <!-- ===== Slide 1: Cover ===== -->
+  <div class="slide bg-dark-red active" data-slide="1">
+    <div class="cover-badge">战 略 合 作 框 架 方 案</div>
+    <div class="cover-title">海南政法职业学院公安司法系<br>海口桂林洋经济开发区消防救援大队</div>
+    <div class="cover-sub">校地合作 · 产教融合 · 互利共赢</div>
+    <div class="cover-parties">
+      <div class="party-card">
+        <div class="label">甲 方</div>
+        <div class="name">海南政法职业学院<br>公安司法系</div>
+      </div>
+      <div class="party-vs">&</div>
+      <div class="party-card">
+        <div class="label">乙 方</div>
+        <div class="name">海口桂林洋经济开发区<br>消防救援大队</div>
+      </div>
+    </div>
+    <div class="page-num">1</div>
+  </div>
+
+  <!-- ===== Slide 2: TOC ===== -->
+  <div class="slide bg-dark" data-slide="2">
+    <div class="slide-title">目 录</div>
+    <div class="toc-grid">
+      <div class="toc-item"><div class="toc-num">01</div><div class="toc-label">合作背景</div></div>
+      <div class="toc-item"><div class="toc-num">02</div><div class="toc-label">合作宗旨</div></div>
+      <div class="toc-item"><div class="toc-num">03</div><div class="toc-label">核心合作内容</div></div>
+      <div class="toc-item"><div class="toc-num">04</div><div class="toc-label">落地推进安排</div></div>
+      <div class="toc-item"><div class="toc-num">05</div><div class="toc-label">双方权利义务</div></div>
+      <div class="toc-item"><div class="toc-num">06</div><div class="toc-label">附则与展望</div></div>
+    </div>
+    <div class="page-num">2</div>
+  </div>
+
+  <!-- ===== Slide 3: Background - Party A ===== -->
+  <div class="slide bg-gradient" data-slide="3">
+    <div class="slide-title">合作背景 — 甲方优势</div>
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon icon-red">🎓</div>
+          <div class="card-title">专业与人才储备</div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>开设消防救援技术、无人机应用技术等特色专业</li>
+            <li>每届招生200-300人，现有在校生约500人</li>
+            <li>毕业生多进入消防消控、维保、管理岗位</li>
+            <li>校友群体已形成400余人的专业技术交流网络</li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon icon-blue">🏆</div>
+          <div class="card-title">品牌与科研资源</div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>消防志愿者品牌「海政蓝」获第六届全国消防志愿者先进奖项</li>
+            <li>具备成熟校地合作经验</li>
+            <li>拥有司法鉴定、科研教学资源</li>
+            <li>计划筹建海南省首个火灾调查方向司法鉴定中心</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">在校生规模</div></div>
+      <div class="stat-item"><div class="stat-num">400+</div><div class="stat-label">校友专业网络</div></div>
+      <div class="stat-item"><div class="stat-num">6th</div><div class="stat-label">全国志愿者先进</div></div>
+    </div>
+    <div class="page-num">3</div>
+  </div>
+
+  <!-- ===== Slide 4: Background - Party B ===== -->
+  <div class="slide bg-gradient" data-slide="4">
+    <div class="slide-title">合作背景 — 乙方优势</div>
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon icon-red">🏢</div>
+          <div class="card-title">辖区资源与需求</div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>桂林洋江东园区核心消防管控单位</li>
+            <li>辖区入驻48家世界500强企业及多家知名民企</li>
+            <li>辖区企业消防管理岗位存在大量专业人才缺口</li>
+            <li>现有持证人员实操能力不足，无法满足标准化管理要求</li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-header">
+          <div class="card-icon icon-gold">🔬</div>
+          <div class="card-title">科研与实践场景</div>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>每年享有国家消防局科研项目申报指标</li>
+            <li>拥有丰富一线实践场景</li>
+            <li>存在人才培养需求</li>
+            <li>缺少科研精力与专业教学资源</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:2%;width:100%;max-width:90%;">
+      <div class="hl-title">核心结论</div>
+      <div class="hl-text">双方互补性极强，优先从基层落地试点，不追求大范围铺张，务实推进可落地项目。</div>
+    </div>
+    <div class="page-num">4</div>
+  </div>
+
+  <!-- ===== Slide 5: Mission ===== -->
+  <div class="slide bg-dark-red" data-slide="5">
+    <div class="slide-title">合作宗旨</div>
+    <div class="mission-container">
+      <div class="mission-quote">
+        坚持<em>「务实落地、解决问题、互利共赢」</em>原则<br>
+        不做虚夸框架协议
+      </div>
+      <div class="mission-goals">
+        <div class="goal-tag"><span class="dot"></span>园区消防管理提升</div>
+        <div class="goal-tag"><span class="dot"></span>学生实践就业</div>
+        <div class="goal-tag"><span class="dot"></span>双向人才培养</div>
+        <div class="goal-tag"><span class="dot"></span>应用型科研推进</div>
+      </div>
+    </div>
+    <div class="principle-row" style="margin-top:3%;">
+      <div class="principle-card">
+        <div class="principle-icon">🎯</div>
+        <div class="principle-title">务实落地</div>
+        <div class="principle-desc">全部项目均可直接推进落地</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🤝</div>
+        <div class="principle-title">互利共赢</div>
+        <div class="principle-desc">双方优势互补、资源共享</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">📈</div>
+        <div class="principle-title">逐步扩大</div>
+        <div class="principle-desc">试点成功后逐步扩大合作范围</div>
+      </div>
+    </div>
+    <div class="page-num">5</div>
+  </div>
+
+  <!-- ===== Slide 6: Core Cooperation (Part 1) ===== -->
+  <div class="slide bg-gradient" data-slide="6">
+    <div class="slide-title">核心合作内容（上）</div>
+    <div class="three-col">
+      <div class="col-card">
+        <div class="card-num">01</div>
+        <div class="card-title">联合消防志愿者队伍建设</div>
+        <div class="card-body">
+          <ul>
+            <li>依托甲方学生资源重新组建联合消防志愿者队伍</li>
+            <li>结合江东新区区位特点命名</li>
+            <li>在甲方团委完成注册报备</li>
+            <li><strong>甲方：</strong>承担经费、交通、保险费用</li>
+            <li><strong>乙方：</strong>安排消防宣传、日常检查等任务，提供实践场景</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="card-num">02</div>
+        <div class="card-title">学生实践与就业对接</div>
+        <div class="card-body">
+          <ul>
+            <li><strong>职业认知实践：</strong>大一大二学生滚动进入园区，跟随消防员参与查违、日常管控</li>
+            <li><strong>标准化试点：</strong>优先指定1-2家国企，师生进驻打造标准化消防管理样板</li>
+            <li><strong>就业对接：</strong>实习后直接对接园区企业消防岗位需求</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="card-num">03</div>
+        <div class="card-title">双向能力提升</div>
+        <div class="card-body">
+          <ul>
+            <li><strong>学历提升：</strong>为乙方消防员提供全日制大专学历提升通道（三年制，周末进队授课）</li>
+            <li><strong>招录预培训：</strong>乙方为甲方报考消防员的学生提供体能与技能预培训</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-num">6</div>
+  </div>
+
+  <!-- ===== Slide 7: Core Cooperation (Part 2) ===== -->
+  <div class="slide bg-gradient" data-slide="7">
+    <div class="slide-title">核心合作内容（下）</div>
+    <div class="three-col">
+      <div class="col-card">
+        <div class="card-num">04</div>
+        <div class="card-title">消防无人机方向合作</div>
+        <div class="card-body">
+          <ul>
+            <li>甲方开展国家CAAC认证无人机飞手培训</li>
+            <li>合作开设消防方向无人机飞手培训班</li>
+            <li>利用乙方场地开展飞行训练</li>
+            <li>满足日常出警无人机查火点等人才需求</li>
+            <li>拓展低空消防应用、无人机研发测试等合作空间</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="card-num">05</div>
+        <div class="card-title">外聘教师合作</div>
+        <div class="card-body">
+          <ul>
+            <li>乙方符合条件的干部可进入甲方外聘教师库</li>
+            <li>首次聘期1年，续聘后聘期3年</li>
+            <li>甲方按标准发放课酬</li>
+            <li>甲方安排教师在队里挂职锻炼</li>
+            <li>授课经历可作为职称评审业绩</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-card">
+        <div class="card-num">06</div>
+        <div class="card-title">产教融合与科研鉴定</div>
+        <div class="card-body">
+          <ul>
+            <li><strong>产教融合：</strong>共同建设江东园区市域产教融合共同体</li>
+            <li><strong>联合科研：</strong>乙方提供项目需求与场景，甲方负责课题申报</li>
+            <li><strong>司法鉴定：</strong>共建海南省首个火灾调查方向司法鉴定项目</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="page-num">7</div>
+  </div>
+
+  <!-- ===== Slide 8: Implementation Timeline ===== -->
+  <div class="slide bg-dark" data-slide="8">
+    <div class="slide-title">落地推进安排</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-label">第一步</div>
+        </div>
+        <div class="timeline-content">
+          <div class="tc-title">协议签署</div>
+          <div class="tc-body">甲方整理清单式合作框架，区分短期可落地项目与长期规划项目，发送乙方确认后，优先以甲方公安司法系名义签署（流程简便落地快）；申报省级产教融合共同体项目时，升级以海南政法职业学院名义签署。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-label">第二步</div>
+        </div>
+        <div class="timeline-content">
+          <div class="tc-title">对接机制</div>
+          <div class="tc-body">双方各指定1名专职对接人，建立工作对接群，逐项目落实合作细节，定期沟通推进进度。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line" style="min-height:0;"></div>
+          <div class="timeline-label">近期节点</div>
+        </div>
+        <div class="timeline-content">
+          <div class="tc-title">关键时间节点</div>
+          <div class="tc-body">
+            <strong>10个工作日内：</strong>甲方完成合作框架整理、志愿者队伍名称拟定；乙方完成试点企业名单确定、指定大队对接人。<br>
+            <strong>20个工作日内：</strong>完成志愿者队伍注册报备、签署战略合作协议，启动首批学生实践安排。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num">8</div>
+  </div>
+
+  <!-- ===== Slide 9: Rights & Obligations ===== -->
+  <div class="slide bg-gradient" data-slide="9">
+    <div class="slide-title">双方权利义务</div>
+    <div class="compare-grid">
+      <div class="compare-col party-a">
+        <div class="compare-header">甲方：海南政法职业学院公安司法系</div>
+        <ul class="compare-list">
+          <li>落实教学、科研、经费、人员保障</li>
+          <li>尊重乙方管理规定，保障学生实践安全</li>
+          <li>优先保障乙方人才、科研需求</li>
+        </ul>
+      </div>
+      <div class="compare-col party-b">
+        <div class="compare-header">乙方：海口桂林洋经济开发区消防救援大队</div>
+        <ul class="compare-list">
+          <li>提供实践场景、训练场地、项目信息</li>
+          <li>安排专人带队指导</li>
+          <li>配合甲方完成项目申报、对接工作</li>
+          <li>优先向辖区企业推荐甲方合格毕业生</li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-num">9</div>
+  </div>
+
+  <!-- ===== Slide 10: Appendix ===== -->
+  <div class="slide bg-dark" data-slide="10">
+    <div class="slide-title">附 则</div>
+    <div class="full-content" style="display:flex;flex-direction:column;align-items:center;">
+      <ul class="appendix-list">
+        <li data-num="一、">本方案为战略合作框架，具体单个项目可另行签署实施细则；</li>
+        <li data-num="二、">本方案未尽事宜，由双方协商一致后修改补充；</li>
+        <li data-num="三、">本方案一式两份，双方各执一份，自签字盖章之日起生效。</li>
+      </ul>
+      <div style="margin-top:3%;width:100%;max-width:80%;">
+        <div class="compare-grid" style="gap:4%;">
+          <div class="compare-col party-a" style="text-align:center;">
+            <div class="compare-header">甲方签章</div>
+            <div style="font-size:clamp(12px,1.3vw,18px);color:var(--text-light);line-height:2.2;">
+              海南政法职业学院公安司法系<br><br>
+              代表人签字：_______________<br><br>
+              日期：_______________
+            </div>
+          </div>
+          <div class="compare-col party-b" style="text-align:center;">
+            <div class="compare-header">乙方签章</div>
+            <div style="font-size:clamp(12px,1.3vw,18px);color:var(--text-light);line-height:2.2;">
+              海口桂林洋经济开发区消防救援大队<br><br>
+              代表人签字：_______________<br><br>
+              日期：_______________
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-num">10</div>
+  </div>
+
+  <!-- ===== Slide 11: Summary ===== -->
+  <div class="slide bg-dark-red" data-slide="11">
+    <div class="slide-title">合作展望</div>
+    <div class="mission-container">
+      <div class="mission-quote">
+        <em>务实落地</em>，从基层试点做起<br>
+        <em>互利共赢</em>，以项目驱动发展
+      </div>
+    </div>
+    <div class="stats-row" style="margin-top:2%;">
+      <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">大核心合作领域</div></div>
+      <div class="stat-item"><div class="stat-num">48+</div><div class="stat-label">辖区世界500强企业</div></div>
+      <div class="stat-item"><div class="stat-num">20</div><div class="stat-label">个工作日启动</div></div>
+    </div>
+    <div class="highlight-box" style="margin-top:3%;width:100%;max-width:70%;">
+      <div class="hl-text" style="text-align:center;">试点成功后逐步扩大合作范围，共同打造校地合作示范标杆</div>
+    </div>
+    <div class="page-num">11</div>
+  </div>
+
+  <!-- ===== Slide 12: Thank You ===== -->
+  <div class="slide bg-dark" data-slide="12">
+    <div class="closing-title">感谢聆听</div>
+    <div class="closing-sub">海南政法职业学院公安司法系 · 海口桂林洋经济开发区消防救援大队</div>
+    <div style="margin-top:3%;width:60px;height:3px;background:var(--primary);border-radius:2px;"></div>
+    <div class="closing-sub" style="margin-top:2%;font-size:clamp(11px,1.2vw,18px);opacity:0.6;">务实落地 · 不做虚功 · 互利共赢</div>
+    <div class="page-num">12</div>
+  </div>
+
+</div>
+
+<!-- Navigation Controls -->
+<div class="nav-controls">
+  <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ 上一页</button>
+  <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">下一页 ▶</button>
+</div>
+
+<script>
+  let currentSlide = 1;
+  const totalSlides = 12;
+
+  function showSlide(n) {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(s => s.classList.remove('active'));
+    currentSlide = Math.max(1, Math.min(n, totalSlides));
+    slides[currentSlide - 1].classList.add('active');
+    document.getElementById('prevBtn').disabled = currentSlide === 1;
+    document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+  }
+
+  function changeSlide(dir) {
+    showSlide(currentSlide + dir);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      e.preventDefault();
+      changeSlide(1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      changeSlide(-1);
+    } else if (e.key === 'Home') {
+      showSlide(1);
+    } else if (e.key === 'End') {
+      showSlide(totalSlides);
+    }
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+  });
+
+  showSlide(1);
+</script>
+
+</body>
+</html>
