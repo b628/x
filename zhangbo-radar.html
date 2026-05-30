@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博哥能力雷达图</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  
+  * { margin:0; padding:0; box-sizing:border-box; }
+  
+  :root {
+    --bg: #0a0e17;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.08);
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --accent: #3b82f6;
+    --accent2: #8b5cf6;
+    --accent3: #06b6d4;
+    --accent4: #f59e0b;
+  }
+  
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  
+  .bg-glow {
+    position: fixed; top:0; left:0; width:100%; height:100%; z-index:0;
+    background-image:
+      radial-gradient(circle at 30% 40%, rgba(59,130,246,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 70% 60%, rgba(139,92,246,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(6,182,212,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .page { position: relative; z-index:1; max-width: 900px; width: 100%; padding: 40px 20px; }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .header h1 span {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .header p { font-size: 14px; color: var(--text-dim); }
+  
+  /* 控制栏 */
+  .controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .ctrl-btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+  .ctrl-btn:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+  .ctrl-btn.active { border-color: transparent; color: #fff; }
+  .ctrl-btn.active.current { background: linear-gradient(135deg, #3b82f6, #8b5cf6); }
+  .ctrl-btn.active.previous { background: linear-gradient(135deg, #64748b, #475569); }
+  .ctrl-btn.active.both { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+  .ctrl-btn.active.potential { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+  
+  /* 雷达图容器 */
+  .radar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .radar-container {
+    position: relative;
+    width: 520px;
+    height: 520px;
+  }
+  
+  canvas { display: block; }
+  
+  /* 图例 */
+  .legend {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .legend-dot.now { background: linear-gradient(135deg, #3b82f6, #8b5cf6); }
+  .legend-dot.before { background: #475569; }
+  .legend-dot.pot { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+  
+  /* 维度卡片 */
+  .dim-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .dim-card {
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .dim-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+  .dim-card .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .dim-card .label { font-size: 14px; font-weight: 600; }
+  .dim-card .scores { display: flex; gap: 8px; align-items: center; }
+  .dim-card .score-now { font-size: 18px; font-weight: 900; }
+  .dim-card .score-before { font-size: 13px; color: var(--text-dim); text-decoration: line-through; }
+  .dim-card .score-pot { font-size: 13px; color: #f59e0b; }
+  .dim-card .bar-wrap {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+  .dim-card .bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .dim-card .desc { font-size: 11px; color: var(--text-dim); line-height: 1.5; }
+  
+  .c1 .score-now { color: #60a5fa; }
+  .c1 .bar { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+  .c2 .score-now { color: #a78bfa; }
+  .c2 .bar { background: linear-gradient(90deg, #8b5cf6, #c084fc); }
+  .c3 .score-now { color: #22d3ee; }
+  .c3 .bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .c4 .score-now { color: #fbbf24; }
+  .c4 .bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .c5 .score-now { color: #34d399; }
+  .c5 .bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .c6 .score-now { color: #f472b6; }
+  .c6 .bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .c7 .score-now { color: #fb923c; }
+  .c7 .bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .c8 .score-now { color: #818cf8; }
+  .c8 .bar { background: linear-gradient(90deg, #6366f1, #818cf8); }
+  
+  .growth-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    color: #fff;
+  }
+  .growth-tag.up { background: rgba(16,185,129,0.3); color: #34d399; }
+  .growth-tag.new { background: rgba(245,158,11,0.3); color: #fbbf24; }
+  .growth-tag.max { background: rgba(239,68,68,0.3); color: #f87171; }
+  
+  @media (max-width: 560px) {
+    .radar-container { width: 340px; height: 340px; }
+    .dim-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<div class="page">
+  <div class="header">
+    <h1>博哥 <span>能力雷达图</span></h1>
+    <p>看见未来，然后动手把它建出来</p>
+  </div>
+  
+  <div class="controls">
+    <button class="ctrl-btn current active" data-mode="current">📍 当前状态</button>
+    <button class="ctrl-btn previous" data-mode="previous">⏪ 一年前</button>
+    <button class="ctrl-btn both" data-mode="both">📊 对比模式</button>
+    <button class="ctrl-btn potential" data-mode="potential">🚀 潜力上限</button>
+  </div>
+  
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot now"></div>当前能力</div>
+    <div class="legend-item"><div class="legend-dot before"></div>一年前</div>
+    <div class="legend-item"><div class="legend-dot pot"></div>潜力上限</div>
+  </div>
+  
+  <div class="radar-wrap">
+    <div class="radar-container">
+      <canvas id="radarCanvas"></canvas>
+    </div>
+  </div>
+  
+  <div class="dim-cards" id="dimCards"></div>
+</div>
+
+<script>
+// ===== 数据定义 =====
+const dimensions = [
+  {
+    label: '低空安全管控',
+    now: 82, before: 55, potential: 95,
+    color: '#3b82f6',
+    cls: 'c1',
+    desc: '主轴方向。2项专利、基地方案、产业联盟、西工大合作，正从方案走向落地。',
+    growth: 'up'
+  },
+  {
+    label: '司法鉴定',
+    now: 95, before: 88, potential: 98,
+    color: '#8b5cf6',
+    cls: 'c2',
+    desc: '护城河。18年从业、全省唯一公立全项目覆盖+CNAS、B级诚信、年受理1196案。',
+    growth: 'max'
+  },
+  {
+    label: '消防应急',
+    now: 80, before: 72, potential: 88,
+    color: '#06b6d4',
+    cls: 'c3',
+    desc: '基本盘。省级特色专业、产业学院、海政蓝品牌，正从基本盘升级为落地场景。',
+    growth: 'up'
+  },
+  {
+    label: 'AI赋能',
+    now: 65, before: 35, potential: 90,
+    color: '#f59e0b',
+    cls: 'c4',
+    desc: '增速最快。5套课程落地（IMA/乡村振兴/电信），从方案纸面到实战教学，增长86%。',
+    growth: 'new'
+  },
+  {
+    label: '产教融合',
+    now: 85, before: 70, potential: 92,
+    color: '#10b981',
+    cls: 'c5',
+    desc: '核心打法。共同体→学院升级，理事会治理架构成型，东方基地实战教学推进中。',
+    growth: 'up'
+  },
+  {
+    label: '课程开发',
+    now: 72, before: 30, potential: 88,
+    color: '#ec4899',
+    cls: 'c6',
+    desc: '新增长极。无人机职业模块、宏志计划视频、AI课程矩阵，产品化能力跃升140%。',
+    growth: 'new'
+  },
+  {
+    label: '区块链+鉴定',
+    now: 58, before: 20, potential: 92,
+    color: '#f97316',
+    cls: 'c7',
+    desc: '新交叉点。链证通项目——多模态区块链+电子证据存证+司法协同，5项配套专利。',
+    growth: 'new'
+  },
+  {
+    label: '标准制定',
+    now: 30, before: 15, potential: 85,
+    color: '#6366f1',
+    cls: 'c8',
+    desc: '未来高地。目前参与度低，但鉴定资质+区块链平台+产业联盟是入场的三张门票。',
+    growth: 'up'
+  }
+];
+
+let currentMode = 'current';
+let animProgress = 0;
+let targetData = [];
+let currentData = [];
+let isAnimating = false;
+
+// ===== Canvas 初始化 =====
+const canvas = document.getElementById('radarCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  const container = canvas.parentElement;
+  const size = container.clientWidth;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = size * dpr;
+  canvas.height = size * dpr;
+  canvas.style.width = size + 'px';
+  canvas.style.height = size + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+resizeCanvas();
+window.addEventListener('resize', () => { resizeCanvas(); draw(); });
+
+// ===== 绘制函数 =====
+function getPoint(cx, cy, r, angle) {
+  return {
+    x: cx + r * Math.cos(angle),
+    y: cy + r * Math.sin(angle)
+  };
+}
+
+function getDataForMode(mode) {
+  return dimensions.map(d => {
+    if (mode === 'current') return d.now;
+    if (mode === 'previous') return d.before;
+    if (mode === 'potential') return d.potential;
+    return d.now; // 'both' handled separately
+  });
+}
+
+function drawRadarShape(cx, cy, maxR, data, progress, fillColor, strokeColor, lineWidth) {
+  const n = data.length;
+  const angleStep = (Math.PI * 2) / n;
+  const startAngle = -Math.PI / 2;
+  
+  ctx.beginPath();
+  for (let i = 0; i < n; i++) {
+    const angle = startAngle + i * angleStep;
+    const r = (maxR * data[i] / 100) * progress;
+    const pt = getPoint(cx, cy, r, angle);
+    if (i === 0) ctx.moveTo(pt.x, pt.y);
+    else ctx.lineTo(pt.x, pt.y);
+  }
+  ctx.closePath();
+  
+  ctx.fillStyle = fillColor;
+  ctx.fill();
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = lineWidth;
+  ctx.stroke();
+}
+
+function draw() {
+  const w = parseInt(canvas.style.width);
+  const h = parseInt(canvas.style.height);
+  const cx = w / 2;
+  const cy = h / 2;
+  const maxR = Math.min(w, h) / 2 - 60;
+  const n = dimensions.length;
+  const angleStep = (Math.PI * 2) / n;
+  const startAngle = -Math.PI / 2;
+  
+  ctx.clearRect(0, 0, w, h);
+  
+  // 绘制背景网格
+  const rings = [20, 40, 60, 80, 100];
+  rings.forEach(val => {
+    const r = maxR * val / 100;
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = startAngle + (i % n) * angleStep;
+      const pt = getPoint(cx, cy, r, angle);
+      if (i === 0) ctx.moveTo(pt.x, pt.y);
+      else ctx.lineTo(pt.x, pt.y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = val === 100 ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.04)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+  
+  // 绘制轴线
+  for (let i = 0; i < n; i++) {
+    const angle = startAngle + i * angleStep;
+    const pt = getPoint(cx, cy, maxR, angle);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(pt.x, pt.y);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+  
+  // 绘制刻度标签
+  rings.forEach(val => {
+    const r = maxR * val / 100;
+    ctx.fillStyle = 'rgba(255,255,255,0.15)';
+    ctx.font = '10px "Noto Sans SC"';
+    ctx.textAlign = 'center';
+    ctx.fillText(val, cx + 2, cy - r + 12);
+  });
+  
+  // 根据模式绘制数据
+  if (currentMode === 'both') {
+    // 一年前
+    const beforeData = getDataForMode('previous');
+    drawRadarShape(cx, cy, maxR, beforeData, animProgress,
+      'rgba(71,85,105,0.15)', 'rgba(100,116,139,0.5)', 1.5);
+    // 当前
+    drawRadarShape(cx, cy, maxR, currentData.length ? currentData : getDataForMode('current'), animProgress,
+      'rgba(59,130,246,0.12)', 'rgba(59,130,246,0.8)', 2);
+  } else if (currentMode === 'potential') {
+    // 潜力
+    drawRadarShape(cx, cy, maxR, getDataForMode('potential'), animProgress,
+      'rgba(245,158,11,0.08)', 'rgba(245,158,11,0.4)', 1, []);
+    // 当前
+    drawRadarShape(cx, cy, maxR, currentData.length ? currentData : getDataForMode('current'), animProgress,
+      'rgba(59,130,246,0.12)', 'rgba(59,130,246,0.8)', 2);
+  } else {
+    const data = currentData.length ? currentData : getDataForMode(currentMode);
+    const isNow = currentMode === 'current';
+    drawRadarShape(cx, cy, maxR, data, animProgress,
+      isNow ? 'rgba(59,130,246,0.12)' : 'rgba(71,85,105,0.15)',
+      isNow ? 'rgba(59,130,246,0.8)' : 'rgba(100,116,139,0.5)',
+      isNow ? 2 : 1.5);
+  }
+  
+  // 绘制数据点 + 标签
+  for (let i = 0; i < n; i++) {
+    const angle = startAngle + i * angleStep;
+    const d = dimensions[i];
+    const val = currentData.length ? currentData[i] : getDataForMode(currentMode)[i];
+    const r = (maxR * val / 100) * animProgress;
+    const pt = getPoint(cx, cy, r, angle);
+    
+    // 数据点光晕
+    const gradient = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, 8);
+    gradient.addColorStop(0, d.color + '80');
+    gradient.addColorStop(1, d.color + '00');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(pt.x, pt.y, 8, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 数据点
+    ctx.fillStyle = d.color;
+    ctx.beginPath();
+    ctx.arc(pt.x, pt.y, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // 标签
+    const labelR = maxR + 36;
+    const lpt = getPoint(cx, cy, labelR, angle);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '600 13px "Noto Sans SC"';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(d.label, lpt.x, lpt.y);
+    
+    // 分数
+    const scoreR = maxR + 52;
+    const spt = getPoint(cx, cy, scoreR, angle);
+    ctx.fillStyle = d.color;
+    ctx.font = '700 11px "Noto Sans SC"';
+    ctx.fillText(Math.round(val * animProgress), spt.x, spt.y);
+  }
+  
+  // 中心文字
+  ctx.fillStyle = 'rgba(255,255,255,0.06)';
+  ctx.font = '900 32px "Noto Sans SC"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  
+  const avg = currentData.length 
+    ? currentData.reduce((a,b) => a+b, 0) / currentData.length 
+    : getDataForMode(currentMode).reduce((a,b) => a+b, 0) / n;
+  ctx.fillText(Math.round(avg * animProgress), cx, cy - 6);
+  ctx.font = '400 10px "Noto Sans SC"';
+  ctx.fillStyle = 'rgba(255,255,255,0.15)';
+  ctx.fillText('综合指数', cx, cy + 14);
+}
+
+// ===== 动画 =====
+function animateTo(targetValues) {
+  const startValues = currentData.length ? [...currentData] : dimensions.map(() => 0);
+  targetData = targetValues;
+  const startTime = performance.now();
+  const duration = 1200;
+  
+  isAnimating = true;
+  
+  function tick(now) {
+    const elapsed = now - startTime;
+    const t = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3); // easeOutCubic
+    
+    currentData = startValues.map((s, i) => s + (targetValues[i] - s) * ease);
+    animProgress = 1;
+    draw();
+    
+    if (t < 1) requestAnimationFrame(tick);
+    else isAnimating = false;
+  }
+  
+  requestAnimationFrame(tick);
+}
+
+// ===== 按钮事件 =====
+document.querySelectorAll('.ctrl-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMode = btn.dataset.mode;
+    const target = getDataForMode(currentMode === 'both' ? 'current' : currentMode);
+    animateTo(target);
+  });
+});
+
+// ===== 维度卡片 =====
+function renderCards() {
+  const container = document.getElementById('dimCards');
+  container.innerHTML = dimensions.map(d => {
+    const pct = d.now;
+    const diff = d.now - d.before;
+    const diffPct = Math.round((diff / d.before) * 100);
+    let tag = '';
+    if (d.growth === 'new') tag = `<span class="growth-tag new">新突破</span>`;
+    else if (diffPct >= 80) tag = `<span class="growth-tag new">↑${diffPct}%</span>`;
+    else if (d.now >= 90) tag = `<span class="growth-tag max">天花板</span>`;
+    else if (diff > 0) tag = `<span class="growth-tag up">↑${diff}</span>`;
+    
+    return `
+      <div class="dim-card ${d.cls}">
+        <div class="top">
+          <span class="label">${d.label}${tag}</span>
+          <div class="scores">
+            <span class="score-now">${d.now}</span>
+            <span class="score-before">${d.before}</span>
+          </div>
+        </div>
+        <div class="bar-wrap"><div class="bar" style="width:0%" data-target="${pct}"></div></div>
+        <div class="desc">${d.desc}</div>
+      </div>
+    `;
+  }).join('');
+  
+  // 延迟动画条形
+  setTimeout(() => {
+    document.querySelectorAll('.dim-card .bar').forEach(bar => {
+      bar.style.width = bar.dataset.target + '%';
+    });
+  }, 100);
+}
+
+// ===== 初始化 =====
+renderCards();
+animProgress = 0;
+currentData = dimensions.map(() => 0);
+
+// 入场动画
+const startTime = performance.now();
+function introAnim(now) {
+  const elapsed = now - startTime;
+  const t = Math.min(elapsed / 1500, 1);
+  const ease = 1 - Math.pow(1 - t, 3);
+  animProgress = ease;
+  currentData = dimensions.map(d => d.now * ease);
+  draw();
+  if (t < 1) requestAnimationFrame(introAnim);
+}
+requestAnimationFrame(introAnim);
+
+// 粒子浮动效果
+const particles = [];
+for (let i = 0; i < 30; i++) {
+  particles.push({
+    x: Math.random() * 520,
+    y: Math.random() * 520,
+    r: Math.random() * 1.5 + 0.5,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    alpha: Math.random() * 0.3 + 0.1,
+    color: ['#3b82f6','#8b5cf6','#06b6d4','#f59e0b'][Math.floor(Math.random()*4)]
+  });
+}
+
+function drawParticles() {
+  const w = parseInt(canvas.style.width);
+  const h = parseInt(canvas.style.height);
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    if (p.x < 0 || p.x > w) p.vx *= -1;
+    if (p.y < 0 || p.y > h) p.vy *= -1;
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.alpha;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+}
+
+// 持续动画循环
+function loop() {
+  draw();
+  drawParticles();
+  requestAnimationFrame(loop);
+}
+
+// 覆盖draw为带粒子的版本
+const originalDraw = draw;
+draw = function() {
+  originalDraw();
+  drawParticles();
+};
+
+// 不重复启动，先停止再启动
+// 其实用requestAnimationFrame loop会重复draw，改为只在静态时补粒子
+// 简化：取消loop，改为单次draw+粒子
+draw = function() {
+  const w = parseInt(canvas.style.width);
+  const h = parseInt(canvas.style.height);
+  const cx = w / 2;
+  const cy = h / 2;
+  const maxR = Math.min(w, h) / 2 - 60;
+  const n = dimensions.length;
+  const angleStep = (Math.PI * 2) / n;
+  const startAngle = -Math.PI / 2;
+  
+  ctx.clearRect(0, 0, w, h);
+  
+  // 粒子
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    if (p.x < 0 || p.x > w) p.vx *= -1;
+    if (p.y < 0 || p.y > h) p.vy *= -1;
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.alpha;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+  
+  // 背景网格
+  const rings = [20, 40, 60, 80, 100];
+  rings.forEach(val => {
+    const r = maxR * val / 100;
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = startAngle + (i % n) * angleStep;
+      const pt = getPoint(cx, cy, r, angle);
+      if (i === 0) ctx.moveTo(pt.x, pt.y);
+      else ctx.lineTo(pt.x, pt.y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = val === 100 ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.04)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+  
+  // 轴线
+  for (let i = 0; i < n; i++) {
+    const angle = startAngle + i * angleStep;
+    const pt = getPoint(cx, cy, maxR, angle);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(pt.x, pt.y);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+  
+  // 数据层
+  if (currentMode === 'both') {
+    drawRadarShape(cx, cy, maxR, getDataForMode('previous'), animProgress,
+      'rgba(71,85,105,0.15)', 'rgba(100,116,139,0.5)', 1.5);
+    drawRadarShape(cx, cy, maxR, currentData.length ? currentData : getDataForMode('current'), animProgress,
+      'rgba(59,130,246,0.12)', 'rgba(59,130,246,0.8)', 2);
+  } else if (currentMode === 'potential') {
+    drawRadarShape(cx, cy, maxR, getDataForMode('potential'), animProgress,
+      'rgba(245,158,11,0.06)', 'rgba(245,158,11,0.35)', 1);
+    drawRadarShape(cx, cy, maxR, currentData.length ? currentData : getDataForMode('current'), animProgress,
+      'rgba(59,130,246,0.12)', 'rgba(59,130,246,0.8)', 2);
+  } else {
+    const data = currentData.length ? currentData : getDataForMode(currentMode);
+    const isNow = currentMode === 'current';
+    drawRadarShape(cx, cy, maxR, data, animProgress,
+      isNow ? 'rgba(59,130,246,0.12)' : 'rgba(71,85,105,0.15)',
+      isNow ? 'rgba(59,130,246,0.8)' : 'rgba(100,116,139,0.5)',
+      isNow ? 2 : 1.5);
+  }
+  
+  // 数据点 + 标签
+  for (let i = 0; i < n; i++) {
+    const angle = startAngle + i * angleStep;
+    const d = dimensions[i];
+    const val = currentData.length ? currentData[i] : getDataForMode(currentMode === 'both' ? 'current' : currentMode)[i];
+    const r = (maxR * val / 100) * animProgress;
+    const pt = getPoint(cx, cy, r, angle);
+    
+    const gradient = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, 8);
+    gradient.addColorStop(0, d.color + '80');
+    gradient.addColorStop(1, d.color + '00');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(pt.x, pt.y, 8, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.fillStyle = d.color;
+    ctx.beginPath();
+    ctx.arc(pt.x, pt.y, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+    
+    const labelR = maxR + 36;
+    const lpt = getPoint(cx, cy, labelR, angle);
+    ctx.fillStyle = '#e2e8f0';
+    ctx.font = '600 13px "Noto Sans SC"';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(d.label, lpt.x, lpt.y);
+    
+    const scoreR = maxR + 52;
+    const spt = getPoint(cx, cy, scoreR, angle);
+    ctx.fillStyle = d.color;
+    ctx.font = '700 11px "Noto Sans SC"';
+    ctx.fillText(Math.round(val * animProgress), spt.x, spt.y);
+  }
+  
+  // 中心
+  const avg = currentData.length 
+    ? currentData.reduce((a,b) => a+b, 0) / currentData.length 
+    : getDataForMode(currentMode === 'both' ? 'current' : currentMode).reduce((a,b) => a+b, 0) / n;
+  ctx.fillStyle = 'rgba(255,255,255,0.06)';
+  ctx.font = '900 32px "Noto Sans SC"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(Math.round(avg * animProgress), cx, cy - 6);
+  ctx.font = '400 10px "Noto Sans SC"';
+  ctx.fillStyle = 'rgba(255,255,255,0.15)';
+  ctx.fillText('综合指数', cx, cy + 14);
+};
+
+// 持续粒子动画
+function particleLoop() {
+  draw();
+  requestAnimationFrame(particleLoop);
+}
+// 不重复启动loop，intro完成后自动进入particleLoop
+let loopStarted = false;
+const origIntro = introAnim;
+// 直接启动粒子循环
+setTimeout(() => { if (!loopStarted) { loopStarted = true; particleLoop(); } }, 2000);
+</script>
+
+</body>
+</html>
