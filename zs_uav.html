@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>海南政法职业学院 无人机应用技术专业 招生宣传</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --primary: #0a1628;
+    --accent: #00d4ff;
+    --accent2: #0066ff;
+    --accent3: #ff6b35;
+    --gold: #ffd700;
+    --text: #ffffff;
+    --text-dim: rgba(255,255,255,0.65);
+    --card-bg: rgba(255,255,255,0.06);
+    --card-border: rgba(0,212,255,0.18);
+    --page-w: 420px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #050d18;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 100%;
+    max-width: var(--page-w);
+    overflow: hidden;
+    background: var(--primary);
+  }
+
+  /* ===== SCREEN: 每个section就是一个可截图的"屏" ===== */
+  .screen {
+    position: relative;
+    padding: 36px 22px;
+    overflow: hidden;
+  }
+
+  .screen + .screen {
+    border-top: 1px solid rgba(0,212,255,0.08);
+  }
+
+  /* ===== S1: HERO ===== */
+  .s1-hero {
+    text-align: center;
+    padding: 44px 22px 36px;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 0%, rgba(0,102,255,0.3) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 50% at 80% 100%, rgba(0,212,255,0.12) 0%, transparent 50%);
+  }
+
+  .s1-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%2300d4ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .badge-top {
+    position: relative; z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.25);
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+
+  .badge-top .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .drone-anim {
+    width: 100px; height: 100px;
+    margin: 0 auto 16px;
+    animation: float 3s ease-in-out infinite;
+    position: relative; z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .drone-anim svg { width: 100%; height: 100%; }
+
+  .hero-title {
+    position: relative; z-index: 1;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, #fff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  .hero-en {
+    position: relative; z-index: 1;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    position: relative; z-index: 1;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .hero-desc strong { color: var(--accent); font-weight: 500; }
+
+  .hero-tags {
+    position: relative; z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .htag {
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 11px;
+    color: var(--accent);
+  }
+
+  .stats-row {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .stat-lbl {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .sec-head {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .sec-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    border: 1px solid rgba(0,212,255,0.3);
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+
+  .sec-title {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  .sec-line {
+    width: 40px; height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    border-radius: 2px;
+    margin: 0 auto 8px;
+  }
+
+  .sec-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ===== S2: 学校简介 ===== */
+  .s2-school {
+    background: linear-gradient(180deg, rgba(0,102,255,0.06) 0%, transparent 100%);
+  }
+
+  .intro-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .i-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .i-card .ic-icon {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .i-card .ic-body h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .i-card .ic-body p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ===== S3: 专业介绍 ===== */
+  .s3-major {}
+
+  .block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+
+  .block:last-child { margin-bottom: 0; }
+
+  .block h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,212,255,0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cat-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+
+  .cat-label:first-of-type { margin-top: 0; }
+
+  .c-list {
+    list-style: none;
+  }
+
+  .c-list li {
+    padding: 5px 0;
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .c-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .c-list li:last-child { border-bottom: none; }
+
+  .block .desc-text {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .block .desc-text strong { color: var(--accent); font-weight: 500; }
+
+  .cert-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .cert-chip {
+    background: rgba(255,215,0,0.06);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 90px;
+  }
+
+  .cert-chip .cc-icon { font-size: 20px; margin-bottom: 4px; }
+  .cert-chip .cc-name { font-size: 11px; color: var(--gold); font-weight: 700; }
+
+  /* ===== S4: 实训体系 ===== */
+  .s4-training {
+    background: linear-gradient(180deg, rgba(0,212,255,0.04) 0%, transparent 100%);
+  }
+
+  .equip-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .eq-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .eq-card .eq-icon { font-size: 22px; margin-bottom: 4px; }
+  .eq-card .eq-name { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .eq-card .eq-desc { font-size: 10px; color: var(--text-dim); line-height: 1.4; }
+
+  .teacher-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .teacher-box h5 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .teacher-box p {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .teacher-box strong { color: var(--accent); font-weight: 500; }
+
+  /* ===== S5: 招生信息 ===== */
+  .s5-admission {
+    background: linear-gradient(180deg, rgba(255,107,53,0.04) 0%, transparent 100%);
+  }
+
+  .adm-card {
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .adm-card.normal {
+    background: rgba(0,212,255,0.06);
+    border: 1px solid rgba(0,212,255,0.2);
+  }
+
+  .adm-card.hot {
+    background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,102,255,0.06));
+    border: 1px solid rgba(255,107,53,0.3);
+  }
+
+  .hot-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--accent3);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+  }
+
+  .adm-card h4 {
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 4px;
+  }
+
+  .adm-card .adm-sub {
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .adm-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .adm-row:last-child { border-bottom: none; }
+  .adm-row .lbl { color: var(--text-dim); }
+  .adm-row .val { font-weight: 700; }
+  .adm-row .val.c1 { color: var(--accent); }
+  .adm-row .val.c3 { color: var(--accent3); }
+
+  /* 升学路径 */
+  .path-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .path-box h5 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .path-box .path-sub {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+
+  .path-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .p-step {
+    background: rgba(0,212,255,0.06);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 10px;
+    padding: 10px 8px;
+    min-width: 70px;
+  }
+
+  .p-step .ps-year {
+    font-size: 9px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .p-step .ps-txt {
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .p-arrow {
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .p-step.goal {
+    background: rgba(255,107,53,0.1);
+    border-color: rgba(255,107,53,0.3);
+  }
+
+  .p-step.goal .ps-year { color: var(--accent3); }
+
+  .path-note {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* ===== S6: 取得成绩 ===== */
+  .s6-achieve {}
+
+  .ach-list {
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .ach-list::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent3));
+    border-radius: 2px;
+  }
+
+  .ach-item {
+    position: relative;
+    margin-bottom: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .ach-item::before {
+    content: '';
+    position: absolute;
+    left: -20px; top: 18px;
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+  }
+
+  .ach-item:last-child { margin-bottom: 0; }
+
+  .ach-year {
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .ach-item h5 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .ach-item p {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ===== S7: 职业规划 ===== */
+  .s7-career {
+    background: linear-gradient(180deg, rgba(0,212,255,0.03) 0%, transparent 100%);
+  }
+
+  .career-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .car-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .car-card .car-icon {
+    font-size: 28px;
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .car-card .car-body h5 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .car-card .car-body .car-sub {
+    font-size: 10px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .car-card .car-body .car-jobs {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .car-card .car-body .car-jobs span {
+    display: inline-block;
+    background: rgba(0,212,255,0.08);
+    padding: 1px 8px;
+    border-radius: 4px;
+    margin: 2px 2px;
+    font-size: 10px;
+  }
+
+  .career-tip {
+    margin-top: 14px;
+    background: rgba(0,102,255,0.06);
+    border: 1px solid rgba(0,102,255,0.2);
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .career-tip strong { color: #fff; font-weight: 600; }
+  .career-tip em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  /* ===== S8: 未来展望 ===== */
+  .s8-future {
+    background: linear-gradient(180deg, rgba(255,107,53,0.04) 0%, transparent 100%);
+  }
+
+  .fut-card {
+    background: linear-gradient(135deg, rgba(0,102,255,0.08), rgba(0,212,255,0.04));
+    border: 1px solid rgba(0,212,255,0.18);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 10px;
+  }
+
+  .fut-card:last-child { margin-bottom: 0; }
+
+  .fut-card h5 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .fut-big {
+    font-size: 30px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent3), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 6px 0 4px;
+  }
+
+  .fut-card p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .fut-card p strong { color: var(--accent); font-weight: 500; }
+
+  /* ===== S9: CTA ===== */
+  .s9-cta {
+    text-align: center;
+    padding: 40px 22px;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,212,255,0.1), transparent 70%);
+  }
+
+  .cta-emoji { font-size: 40px; margin-bottom: 12px; }
+
+  .cta-title {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .cta-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .cta-desc strong { color: var(--accent); font-weight: 600; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 14px 36px;
+    border-radius: 60px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 24px;
+  }
+
+  .contact-row {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 2;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+
+  .contact-row span { color: #fff; font-weight: 500; }
+
+  .cta-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .cta-tag {
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 50px;
+    padding: 4px 12px;
+    font-size: 10px;
+    color: var(--accent);
+  }
+
+  /* ===== FOOTER ===== */
+  .foot {
+    text-align: center;
+    padding: 16px 22px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  /* ===== SCREEN DIVIDER LABEL ===== */
+  .screen-num {
+    position: absolute;
+    top: 8px; right: 14px;
+    font-size: 9px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== SCREEN 1: HERO ===== -->
+  <div class="screen s1-hero">
+    <span class="screen-num">01 / 09</span>
+
+    <div class="badge-top">
+      <span class="dot"></span>
+      海南政法职业学院 · 公安司法系
+    </div>
+
+    <div class="drone-anim">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="58" stroke="url(#g1)" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+        <circle cx="60" cy="60" r="40" stroke="url(#g1)" stroke-width="0.5" stroke-dasharray="2 6" opacity="0.2">
+          <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="20s" repeatCount="indefinite"/>
+        </circle>
+        <rect x="48" y="52" width="24" height="16" rx="4" fill="url(#g1)" opacity="0.9"/>
+        <line x1="48" y1="56" x2="24" y2="44" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="72" y1="56" x2="96" y2="44" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="48" y1="64" x2="24" y2="76" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="72" y1="64" x2="96" y2="76" stroke="#00d4ff" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="24" cy="44" rx="14" ry="3" fill="rgba(0,212,255,0.25)">
+          <animate attributeName="ry" values="3;4;3" dur="0.3s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="96" cy="44" rx="14" ry="3" fill="rgba(0,212,255,0.25)">
+          <animate attributeName="ry" values="3;4;3" dur="0.3s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="24" cy="76" rx="14" ry="3" fill="rgba(0,212,255,0.25)">
+          <animate attributeName="ry" values="4;3;4" dur="0.3s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="96" cy="76" rx="14" ry="3" fill="rgba(0,212,255,0.25)">
+          <animate attributeName="ry" values="4;3;4" dur="0.3s" repeatCount="indefinite"/>
+        </ellipse>
+        <circle cx="60" cy="70" r="4" fill="#ff6b35" opacity="0.9"/>
+        <circle cx="60" cy="70" r="2" fill="#fff" opacity="0.8"/>
+        <circle cx="48" cy="52" r="2" fill="#00ff88" opacity="0.8">
+          <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="72" cy="52" r="2" fill="#ff3333" opacity="0.8">
+          <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1s" repeatCount="indefinite"/>
+        </circle>
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00d4ff"/>
+            <stop offset="100%" style="stop-color:#0066ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <h1 class="hero-title">无人机应用技术</h1>
+    <div class="hero-en">UAV APPLICATION TECHNOLOGY</div>
+
+    <p class="hero-desc">
+      赋能自贸港安全建设，<strong>翱翔低空经济蓝海</strong><br>
+      海南唯一政法类院校 · 政法特色无人机人才培养高地
+    </p>
+
+    <div class="hero-tags">
+      <span class="htag">🏫 公办院校</span>
+      <span class="htag">🎓 专升本通道</span>
+      <span class="htag">👮 政法特色</span>
+      <span class="htag">🔧 产教融合</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">3+2</div>
+        <div class="stat-lbl">专本贯通培养</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">7大</div>
+        <div class="stat-lbl">核心实训设备</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">1.5万亿</div>
+        <div class="stat-lbl">低空经济规模</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">450万</div>
+        <div class="stat-lbl">行业人才缺口</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 2: 学院简介 ===== -->
+  <div class="screen s2-school">
+    <span class="screen-num">02 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">SCHOOL PROFILE</div>
+      <h2 class="sec-title">学院简介</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">海南省唯一一所专业涵盖公安、司法、法律类的<br>公办高等政法类职业院校</p>
+    </div>
+
+    <div class="intro-cards">
+      <div class="i-card">
+        <div class="ic-icon">🏛️</div>
+        <div class="ic-body">
+          <h4>政法摇篮</h4>
+          <p>创办于1993年，已为社会输送19届28153名毕业生，被誉为海南政法铁军后备人才培养的摇篮。</p>
+        </div>
+      </div>
+      <div class="i-card">
+        <div class="ic-icon">🏆</div>
+        <div class="ic-body">
+          <h4>荣誉满载</h4>
+          <p>获省级教学成果一等奖1项、二等奖5项，司法部成果二等奖2项，十一次评为"就业工作优秀单位"。</p>
+        </div>
+      </div>
+      <div class="i-card">
+        <div class="ic-icon">🌐</div>
+        <div class="ic-body">
+          <h4>自贸港核心阵地</h4>
+          <p>打造"自贸港消防应急管理产教融合共同体"，服务博鳌亚洲论坛、消博会等重大活动。</p>
+        </div>
+      </div>
+      <div class="i-card">
+        <div class="ic-icon">💼</div>
+        <div class="ic-body">
+          <h4>就业保障</h4>
+          <p>毕业生"上手快、听指挥、能吃苦、守纪律、懂礼貌"，涌现全国优秀人民警察等模范。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 3: 专业介绍 ===== -->
+  <div class="screen s3-major">
+    <span class="screen-num">03 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">MAJOR INTRODUCTION</div>
+      <h2 class="sec-title">专业介绍</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">专业代码 460609 · 装备制造大类 · 航空装备类</p>
+    </div>
+
+    <div class="block">
+      <h4>📚 课程体系</h4>
+      <div class="cat-label">▎专业基础课程</div>
+      <ul class="c-list">
+        <li>机械制图</li>
+        <li>无人机导论与飞行法规</li>
+        <li>无人机操控技术</li>
+        <li>电工电子技术</li>
+        <li>无人机组装与调试</li>
+        <li>单片机与嵌入式系统</li>
+        <li>传感器与检测技术</li>
+      </ul>
+      <div class="cat-label">▎专业核心课程</div>
+      <ul class="c-list">
+        <li>无人机结构与系统</li>
+        <li>空气动力学与飞行原理</li>
+        <li>无人机飞行控制技术</li>
+        <li>无人机管控与航迹规划</li>
+        <li>无人机维护技术</li>
+        <li>无人机任务载荷</li>
+        <li>无人机行业应用技术</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h4>🎯 培养目标</h4>
+      <p class="desc-text">
+        培养德智体美劳全面发展，掌握无人机飞行原理、系统结构、飞控技术、检测维护及相关法律法规等知识，能够从事<strong>无人机装配调试、飞行操控、售前售后技术服务、行业应用、检测维护</strong>等工作的高素质技术技能人才。
+      </p>
+    </div>
+
+    <div class="block">
+      <h4>🏆 职业技能证书</h4>
+      <div class="cert-row">
+        <div class="cert-chip">
+          <div class="cc-icon">🛩️</div>
+          <div class="cc-name">无人机驾驶</div>
+        </div>
+        <div class="cert-chip">
+          <div class="cc-icon">🔧</div>
+          <div class="cc-name">无人机操作应用</div>
+        </div>
+        <div class="cert-chip">
+          <div class="cc-icon">🔩</div>
+          <div class="cc-name">组装与调试</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 4: 实训体系 ===== -->
+  <div class="screen s4-training">
+    <span class="screen-num">04 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">TRAINING SYSTEM</div>
+      <h2 class="sec-title">实训体系建设</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">2026年1月全面建成，打造全国政法类院校<br>无人机应用教学示范标杆</p>
+    </div>
+
+    <div class="equip-row">
+      <div class="eq-card">
+        <div class="eq-icon">🔥</div>
+        <div class="eq-name">消防救援侦查</div>
+        <div class="eq-desc">红外热成像·AI识别·远程喊话</div>
+      </div>
+      <div class="eq-card">
+        <div class="eq-icon">📐</div>
+        <div class="eq-name">小型测绘</div>
+        <div class="eq-desc">精准测绘·三维建模</div>
+      </div>
+      <div class="eq-card">
+        <div class="eq-icon">🔍</div>
+        <div class="eq-name">巡检系统</div>
+        <div class="eq-desc">电力/能源巡检·智能检测</div>
+      </div>
+      <div class="eq-card">
+        <div class="eq-icon">🏗️</div>
+        <div class="eq-name">自动值守机场</div>
+        <div class="eq-desc">无人值守·自动起降</div>
+      </div>
+      <div class="eq-card">
+        <div class="eq-icon">🌾</div>
+        <div class="eq-name">植保无人机</div>
+        <div class="eq-desc">农业植保·精准作业</div>
+      </div>
+      <div class="eq-card">
+        <div class="eq-icon">📦</div>
+        <div class="eq-name">运载无人机</div>
+        <div class="eq-desc">载重运输·应急配送</div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 12px;">
+      <div class="eq-card" style="display: inline-block; width: 100%;">
+        <div class="eq-icon">✈️</div>
+        <div class="eq-name">Ⅳ类垂起固定翼培训机</div>
+        <div class="eq-desc">长航时 · 远距离飞行 · 专业培训机型</div>
+      </div>
+    </div>
+
+    <div class="teacher-box">
+      <h5>👩‍🏫 师资培训成效</h5>
+      <p>
+        采用<strong>"理论授课+实操演练+场景化考核"</strong>全流程培养模式，围绕无人机基础知识与飞行安全、主流机型操作、政法场景应用三大核心模块，开设DJI Matrice系列、机场3与司空2、运载机、植保机、垂起固定翼等<strong>7门精品课程</strong>。参训教师均通过考核获颁操作资质，实现<strong>"学用结合、以训促教"</strong>。
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 5: 招生信息 ===== -->
+  <div class="screen s5-admission">
+    <span class="screen-num">05 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">ADMISSION INFO</div>
+      <h2 class="sec-title">招生信息</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">2026年招生通道已开启，欢迎报考！</p>
+    </div>
+
+    <div class="adm-card normal">
+      <h4>📋 专科（三年制）</h4>
+      <div class="adm-sub">无人机应用技术 · 专业代码 460609</div>
+      <div class="adm-row"><span class="lbl">学制</span><span class="val">三年</span></div>
+      <div class="adm-row"><span class="lbl">学费</span><span class="val c1">5,720 元/学年</span></div>
+      <div class="adm-row"><span class="lbl">选科要求</span><span class="val">不限</span></div>
+      <div class="adm-row"><span class="lbl">住宿费</span><span class="val">1,050元/学年（六人间）</span></div>
+      <div class="adm-row"><span class="lbl">招生批次</span><span class="val">专科批</span></div>
+      <div class="adm-row"><span class="lbl">专业类别</span><span class="val">装备制造大类·航空装备类</span></div>
+    </div>
+
+    <div class="adm-card hot">
+      <span class="hot-badge">🔥 热门</span>
+      <h4>🎓 3+2 专本贯通</h4>
+      <div class="adm-sub">无人机应用技术 → 软件工程技术（本科）</div>
+      <div class="adm-row"><span class="lbl">培养模式</span><span class="val c3">3年专科 + 2年本科</span></div>
+      <div class="adm-row"><span class="lbl">前3年</span><span class="val">海南政法职业学院</span></div>
+      <div class="adm-row"><span class="lbl">后2年</span><span class="val c1">海南科技职业大学</span></div>
+      <div class="adm-row"><span class="lbl">对接专业</span><span class="val">软件工程技术（本科）</span></div>
+      <div class="adm-row"><span class="lbl">前3年学费</span><span class="val c1">5,720 元/学年</span></div>
+      <div class="adm-row"><span class="lbl">后2年学费</span><span class="val">按本科院校标准</span></div>
+    </div>
+
+    <div class="path-box">
+      <h5>🛤️ 升学路径</h5>
+      <div class="path-sub">多元化升学通道，助力持续发展</div>
+      <div class="path-flow">
+        <div class="p-step">
+          <div class="ps-year">第1-3年</div>
+          <div class="ps-txt">专科学习</div>
+        </div>
+        <div class="p-arrow">→</div>
+        <div class="p-step">
+          <div class="ps-year">选择一</div>
+          <div class="ps-txt">3+2贯通</div>
+        </div>
+        <div class="p-arrow">/</div>
+        <div class="p-step">
+          <div class="ps-year">选择二</div>
+          <div class="ps-txt">专升本</div>
+        </div>
+        <div class="p-arrow">→</div>
+        <div class="p-step goal">
+          <div class="ps-year">未来</div>
+          <div class="ps-txt">本科/研究生</div>
+        </div>
+      </div>
+      <div class="path-note">
+        接续本科：无人驾驶航空器系统工程 · 飞行器控制与信息工程 · 无人机系统应用技术
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 6: 取得成绩 ===== -->
+  <div class="screen s6-achieve">
+    <span class="screen-num">06 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">ACHIEVEMENTS</div>
+      <h2 class="sec-title">取得成绩</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">政法特色赋能，实战成果显著</p>
+    </div>
+
+    <div class="ach-list">
+      <div class="ach-item">
+        <div class="ach-year">2026年1月</div>
+        <h5>🚀 无人机专业教学实训体系全面建成</h5>
+        <p>7大类新型核心设备全部投入教学，配套三维重建软件及高性能工作站，教师均通过考核获颁操作资质。</p>
+      </div>
+      <div class="ach-item">
+        <div class="ach-year">2026年</div>
+        <h5>🎯 无人机驾驶员职业资格认定</h5>
+        <p>学院获准开展无人机驾驶员等7个工种职业技能等级认定，成为海南省官方认定机构之一。</p>
+      </div>
+      <div class="ach-item">
+        <div class="ach-year">2025-2026年</div>
+        <h5>🤝 产教融合深度推进</h5>
+        <p>携手行业企业共建<strong>产教融合共同体</strong>，深度对接无人机研发、制造、应用服务等产业链，承办全省检察机关公益诉讼无人机操作比赛。</p>
+      </div>
+      <div class="ach-item">
+        <div class="ach-year">持续推进</div>
+        <h5>🏆 打造全国政法类院校无人机教学示范标杆</h5>
+        <p>推动无人机与消防救援、公共安全、应急管理深度融合，建设覆盖政法核心场景的完整教学体系。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 7: 职业规划 ===== -->
+  <div class="screen s7-career">
+    <span class="screen-num">07 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">CAREER PLANNING</div>
+      <h2 class="sec-title">职业规划</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">全产业链岗位覆盖，政法特色加持</p>
+    </div>
+
+    <div class="career-list">
+      <div class="car-card">
+        <div class="car-icon">🛩️</div>
+        <div class="car-body">
+          <h5>飞行操控</h5>
+          <div class="car-sub">蓝天之上 · 尽在掌控</div>
+          <div class="car-jobs">
+            <span>无人机驾驶员</span><span>机长</span><span>航拍飞手</span><span>飞行教练</span>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <div class="car-icon">🔧</div>
+        <div class="car-body">
+          <h5>装调运维</h5>
+          <div class="car-sub">精益求精 · 匠心铸就</div>
+          <div class="car-jobs">
+            <span>装调工程师</span><span>检修技师</span><span>售后技术</span>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <div class="car-icon">👮</div>
+        <div class="car-body">
+          <h5>政法应用 ⭐海政特色</h5>
+          <div class="car-sub">独家优势 · 不可替代</div>
+          <div class="car-jobs">
+            <span>警用操控员</span><span>消防侦查员</span><span>现场勘察</span><span>安防巡逻</span>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <div class="car-icon">📐</div>
+        <div class="car-body">
+          <h5>航测建模</h5>
+          <div class="car-sub">精准测绘 · 数字赋能</div>
+          <div class="car-jobs">
+            <span>航测数据师</span><span>三维建模师</span><span>GIS工程师</span>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <div class="car-icon">🌾</div>
+        <div class="car-body">
+          <h5>行业应用</h5>
+          <div class="car-sub">深耕领域 · 专才之路</div>
+          <div class="car-jobs">
+            <span>植保工程师</span><span>电力巡检</span><span>油气巡检</span>
+          </div>
+        </div>
+      </div>
+      <div class="car-card">
+        <div class="car-icon">📡</div>
+        <div class="car-body">
+          <h5>物流应急</h5>
+          <div class="car-sub">科技向善 · 使命必达</div>
+          <div class="car-jobs">
+            <span>物流调度</span><span>应急配送</span><span>搜救专员</span><span>灾情监控</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="career-tip">
+      💡 依托政法院校背景，毕业生在<em>公安、消防、司法鉴定、应急管理</em>等政法领域具有<strong>独特竞争优势</strong>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 8: 未来展望 ===== -->
+  <div class="screen s8-future">
+    <span class="screen-num">08 / 09</span>
+    <div class="sec-head">
+      <div class="sec-tag">FUTURE OUTLOOK</div>
+      <h2 class="sec-title">未来展望</h2>
+      <div class="sec-line"></div>
+      <p class="sec-desc">低空经济元年已至，无人机人才需求井喷</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>📈 低空经济爆发</h5>
+      <div class="fut-big">1.5万亿元+</div>
+      <p>2025年作为低空经济元年，行业市场规模已突破1.5万亿元，无人机产业迎来黄金发展期。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>👷 人才缺口巨大</h5>
+      <div class="fut-big">450万人</div>
+      <p>全国无人机人才总缺口达450万，装调检修工缺口350万、操控员缺口100万，就业一片蓝海。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🏝️ 自贸港机遇</h5>
+      <div class="fut-big">仅数千人</div>
+      <p>海南持CAAC执照的操控员仅几千人，远不能满足自贸港需求，本地就业优势显著。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>💰 薪资竞争力强</h5>
+      <div class="fut-big">7,400元+</div>
+      <p>应届毕业生平均薪酬7,400元，高级飞手和行业专家年薪可达<strong>20万+</strong>。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🚀 政策红利持续</h5>
+      <p>国家大力推进低空经济战略，应用场景从航拍、植保到警用消防、应急救援、物流配送、环保监测不断拓展。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🎯 示范标杆建设</h5>
+      <p>力争打造<strong>全国政法类院校无人机应用教学示范标杆</strong>，为学生提供更优质的学习平台和更广阔的发展空间。</p>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN 9: CTA ===== -->
+  <div class="screen s9-cta">
+    <span class="screen-num">09 / 09</span>
+    <div class="cta-emoji">🛩️</div>
+    <h2 class="cta-title">逐梦蓝天<br>从这里起飞</h2>
+    <p class="cta-desc">
+      海南政法职业学院 无人机应用技术专业<br>
+      低空经济浪潮中的政法特色人才摇篮<br>
+      <strong>2026年，期待与你同行！</strong>
+    </p>
+    <a class="cta-btn" href="https://zs.hnplc.com" target="_blank">🎯 立即报考</a>
+
+    <div class="contact-row">
+      📍 <span>海口市琼山区新大洲大道280号</span><br>
+      🌐 <span>www.hnplc.com</span><br>
+      📖 <span>招生网：zs.hnplc.com</span><br>
+      📮 <span>邮编：571100</span>
+    </div>
+
+    <div class="cta-tags">
+      <span class="cta-tag">公办院校</span>
+      <span class="cta-tag">3+2专本贯通</span>
+      <span class="cta-tag">学费5720元/年</span>
+      <span class="cta-tag">奖助学金覆盖广</span>
+      <span class="cta-tag">就业前景广阔</span>
+    </div>
+  </div>
+
+  <div class="foot">
+    海南政法职业学院 · 公安司法系 · 无人机应用技术专业 | 2026年招生宣传
+  </div>
+
+</div>
+
+</body>
+</html>
