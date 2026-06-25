@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>海南政法职业学院 建筑消防技术专业 招生宣传</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --primary: #1a0e0e;
+    --accent: #ff6b35;
+    --accent2: #ff9500;
+    --accent3: #dc2626;
+    --warm: #fff3e0;
+    --gold: #ffd700;
+    --text: #ffffff;
+    --text-dim: rgba(255,255,255,0.65);
+    --card-bg: rgba(255,255,255,0.06);
+    --card-border: rgba(255,107,53,0.18);
+    --page-w: 420px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d0606;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { width: 100%; max-width: var(--page-w); overflow: hidden; background: var(--primary); }
+
+  .screen { position: relative; padding: 36px 22px; overflow: hidden; }
+  .screen + .screen { border-top: 1px solid rgba(255,107,53,0.06); }
+
+  .screen-num { position: absolute; top: 8px; right: 14px; font-size: 9px; color: rgba(255,255,255,0.15); letter-spacing: 1px; font-weight: 700; }
+
+  /* ===== S1: HERO ===== */
+  .s1-hero {
+    text-align: center;
+    padding: 44px 22px 36px;
+    background:
+      radial-gradient(ellipse 90% 60% at 50% 0%, rgba(255,107,53,0.25) 0%, transparent 65%),
+      radial-gradient(ellipse 70% 50% at 80% 100%, rgba(220,38,38,0.1) 0%, transparent 50%);
+  }
+
+  .badge-top {
+    position: relative; z-index: 1;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25);
+    border-radius: 50px; padding: 7px 18px; font-size: 12px; letter-spacing: 2px; color: var(--accent);
+    margin-bottom: 22px;
+  }
+
+  .badge-top .dot { width: 6px; height: 6px; background: var(--accent3); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .hero-icon { width: 80px; height: 80px; margin: 0 auto 18px; position: relative; z-index: 1; }
+  .hero-icon svg { width: 100%; height: 100%; }
+
+  .hero-title {
+    position: relative; z-index: 1; font-size: 34px; font-weight: 900; line-height: 1.2;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 50%, #fff 100%);
+    background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  @keyframes shimmer { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+
+  .hero-desc {
+    position: relative; z-index: 1; font-size: 13px; color: var(--text-dim); line-height: 1.9; margin-bottom: 20px;
+  }
+  .hero-desc strong { color: var(--accent); font-weight: 500; }
+
+  .hero-tags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 22px; }
+  .htag {
+    background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.2);
+    border-radius: 50px; padding: 5px 14px; font-size: 11px; color: var(--accent2);
+  }
+  .htag.hot { background: rgba(220,38,38,0.1); border-color: rgba(220,38,38,0.3); color: var(--accent3); }
+
+  .stats-row { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-box {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 14px 10px; text-align: center;
+  }
+  .stat-num {
+    font-size: 20px; font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-lbl { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+  /* ===== SEC HEADER ===== */
+  .sec-head { text-align: center; margin-bottom: 22px; }
+  .sec-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 3px; color: var(--accent2);
+    border: 1px solid rgba(255,107,53,0.3); padding: 4px 14px; border-radius: 50px; margin-bottom: 10px;
+  }
+  .sec-title { font-size: 24px; font-weight: 900; margin-bottom: 8px; }
+  .sec-line { width: 40px; height: 3px; background: linear-gradient(to right, var(--accent3), var(--accent)); border-radius: 2px; margin: 0 auto 8px; }
+  .sec-desc { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+
+  /* ===== BLOCKS ===== */
+  .block {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 16px; padding: 18px; margin-bottom: 12px;
+  }
+  .block:last-child { margin-bottom: 0; }
+  .block h4 { font-size: 15px; font-weight: 700; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,107,53,0.1); display: flex; align-items: center; gap: 6px; }
+
+  .cat-label { font-size: 11px; font-weight: 700; color: var(--accent2); margin-bottom: 6px; margin-top: 10px; letter-spacing: 1px; }
+  .cat-label:first-of-type { margin-top: 0; }
+
+  .c-list { list-style: none; }
+  .c-list li { padding: 5px 0; font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+  .c-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+  .c-list li:last-child { border-bottom: none; }
+
+  .block .desc-text { font-size: 12px; color: var(--text-dim); line-height: 1.8; }
+  .block .desc-text strong { color: var(--accent2); font-weight: 500; }
+
+  /* ===== I-CARD ===== */
+  .i-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 16px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 10px; }
+  .i-card:last-child { margin-bottom: 0; }
+  .i-card .ic-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent3), var(--accent)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .i-card .ic-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .i-card .ic-body p { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+
+  /* ===== HL-BOX ===== */
+  .hl-box {
+    background: linear-gradient(135deg, rgba(255,107,53,0.12), rgba(220,38,38,0.06));
+    border: 2px solid rgba(255,107,53,0.3); border-radius: 18px; padding: 22px 18px;
+    margin-bottom: 14px; position: relative; overflow: hidden;
+  }
+  .hl-box::before { content: ''; position: absolute; top: -30px; right: -30px; width: 80px; height: 80px; background: radial-gradient(circle, rgba(220,38,38,0.15), transparent); border-radius: 50%; }
+  .hl-box .hl-badge { display: inline-block; background: var(--accent3); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 50px; margin-bottom: 10px; }
+  .hl-box h4 { font-size: 17px; font-weight: 900; margin-bottom: 10px; }
+  .hl-box p { font-size: 12px; color: var(--text-dim); line-height: 1.8; }
+  .hl-box p strong { color: var(--accent); font-weight: 500; }
+  .hl-box .hl-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+  .hl-box .hl-stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,107,53,0.15); border-radius: 12px; padding: 10px; text-align: center; }
+  .hl-stat .hs-num { font-size: 18px; font-weight: 900; background: linear-gradient(135deg, var(--accent3), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hl-stat .hs-lbl { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+
+  /* ===== FEAT GRID ===== */
+  .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .feat-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 14px 12px; text-align: center; }
+  .feat-item .fi-icon { font-size: 26px; margin-bottom: 6px; }
+  .feat-item .fi-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .feat-item .fi-desc { font-size: 10px; color: var(--text-dim); line-height: 1.5; }
+
+  /* ===== ADMISSION ===== */
+  .adm-card { border-radius: 16px; padding: 18px; margin-bottom: 12px; position: relative; }
+  .adm-card.normal { background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.2); }
+  .adm-card.hot { background: linear-gradient(135deg, rgba(220,38,38,0.1), rgba(255,107,53,0.06)); border: 1px solid rgba(220,38,38,0.3); }
+  .hot-badge { position: absolute; top: 12px; right: 12px; background: var(--accent3); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 50px; }
+  .adm-card h4 { font-size: 17px; font-weight: 900; margin-bottom: 4px; }
+  .adm-card .adm-sub { font-size: 11px; color: var(--accent2); margin-bottom: 14px; }
+  .adm-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .adm-row:last-child { border-bottom: none; }
+  .adm-row .lbl { color: var(--text-dim); }
+  .adm-row .val { font-weight: 700; }
+  .adm-row .val.c1 { color: var(--accent2); }
+  .adm-row .val.c3 { color: var(--accent3); }
+
+  /* ===== PATH ===== */
+  .path-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 16px; text-align: center; }
+  .path-box h5 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .path-box .path-sub { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+  .path-flow { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+  .p-step { background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.2); border-radius: 10px; padding: 10px 8px; min-width: 72px; }
+  .p-step .ps-year { font-size: 9px; color: var(--accent2); font-weight: 700; }
+  .p-step .ps-txt { font-size: 11px; font-weight: 700; }
+  .p-arrow { font-size: 14px; color: var(--accent2); }
+  .p-step.goal { background: rgba(220,38,38,0.1); border-color: rgba(220,38,38,0.3); }
+  .p-step.goal .ps-year { color: var(--accent3); }
+  .path-note { font-size: 10px; color: var(--text-dim); margin-top: 10px; line-height: 1.6; }
+
+  /* ===== ACHIEVE ===== */
+  .ach-list { position: relative; padding-left: 24px; }
+  .ach-list::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--accent3), var(--accent), var(--gold)); border-radius: 2px; }
+  .ach-item { position: relative; margin-bottom: 12px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 14px; }
+  .ach-item::before { content: ''; position: absolute; left: -20px; top: 16px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; border: 2px solid var(--primary); }
+  .ach-item:last-child { margin-bottom: 0; }
+  .ach-year { font-size: 10px; color: var(--accent2); font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .ach-item h5 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .ach-item p { font-size: 11px; color: var(--text-dim); line-height: 1.7; }
+
+  /* ===== CAREER ===== */
+  .career-list { display: flex; flex-direction: column; gap: 10px; }
+  .car-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
+  .car-card .car-icon { font-size: 26px; width: 38px; text-align: center; flex-shrink: 0; padding-top: 2px; }
+  .car-card .car-body h5 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .car-card .car-body .car-sub { font-size: 10px; color: var(--accent2); margin-bottom: 6px; }
+  .car-card .car-body .car-jobs { font-size: 11px; color: var(--text-dim); line-height: 1.7; }
+  .car-card .car-body .car-jobs span { display: inline-block; background: rgba(255,107,53,0.08); padding: 1px 8px; border-radius: 4px; margin: 2px 2px; font-size: 10px; }
+  .car-card .car-body .car-jobs span.hot-tag { background: rgba(220,38,38,0.12); color: var(--accent3); }
+
+  .career-tip { margin-top: 14px; background: rgba(255,107,53,0.06); border: 1px solid rgba(255,107,53,0.2); border-radius: 12px; padding: 14px; font-size: 12px; color: var(--text-dim); line-height: 1.7; text-align: center; }
+  .career-tip strong { color: #fff; font-weight: 600; }
+  .career-tip em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  /* ===== FUTURE ===== */
+  .fut-card { background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(220,38,38,0.04)); border: 1px solid rgba(255,107,53,0.18); border-radius: 14px; padding: 18px; margin-bottom: 10px; }
+  .fut-card:last-child { margin-bottom: 0; }
+  .fut-card h5 { font-size: 14px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .fut-big { font-size: 28px; font-weight: 900; background: linear-gradient(135deg, var(--accent3), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 6px 0 4px; }
+  .fut-card p { font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+  .fut-card p strong { color: var(--accent); font-weight: 500; }
+
+  /* ===== CTA ===== */
+  .s9-cta { text-align: center; padding: 40px 22px; background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,107,53,0.1), transparent 70%); }
+  .cta-emoji { font-size: 36px; margin-bottom: 12px; }
+  .cta-title { font-size: 22px; font-weight: 900; margin-bottom: 10px; line-height: 1.3; }
+  .cta-desc { font-size: 13px; color: var(--text-dim); line-height: 1.8; margin-bottom: 20px; }
+  .cta-desc strong { color: var(--accent); font-weight: 600; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--accent3), var(--accent)); color: #fff; font-size: 16px; font-weight: 700; padding: 14px 36px; border-radius: 60px; text-decoration: none; border: none; cursor: pointer; margin-bottom: 24px; }
+  .contact-row { font-size: 11px; color: var(--text-dim); line-height: 2; text-align: left; margin-bottom: 16px; }
+  .contact-row span { color: #fff; font-weight: 500; }
+  .cta-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .cta-tag { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.2); border-radius: 50px; padding: 4px 12px; font-size: 10px; color: var(--accent2); }
+  .foot { text-align: center; padding: 16px 22px; font-size: 10px; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.04); }
+
+  .s2-school { background: linear-gradient(180deg, rgba(255,107,53,0.06) 0%, transparent 100%); }
+  .s5-admission { background: linear-gradient(180deg, rgba(220,38,38,0.04) 0%, transparent 100%); }
+  .s7-career { background: linear-gradient(180deg, rgba(255,107,53,0.03) 0%, transparent 100%); }
+  .s8-future { background: linear-gradient(180deg, rgba(220,38,38,0.04) 0%, transparent 100%); }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== S1: HERO ===== -->
+  <div class="screen s1-hero">
+    <span class="screen-num">01 / 09</span>
+    <div class="badge-top"><span class="dot"></span>海南政法职业学院 · 公安司法系</div>
+
+    <div class="hero-icon">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="38" r="28" stroke="url(#gf)" stroke-width="2" fill="rgba(255,107,53,0.08)"/>
+        <!-- Fire helmet -->
+        <path d="M28 28 L40 12 L52 28 L52 36 L28 36 Z" fill="url(#gf)" opacity="0.7"/>
+        <rect x="28" y="36" width="24" height="6" rx="2" fill="url(#gf)" opacity="0.5"/>
+        <!-- Shield badge -->
+        <path d="M36 20 L40 16 L44 20 L44 30 L40 34 L36 30 Z" fill="#fff" opacity="0.15"/>
+        <circle cx="40" cy="24" r="3" fill="#ffd700" opacity="0.8"/>
+        <!-- Flame -->
+        <path d="M40 52 Q35 48 37 42 Q40 38 43 42 Q45 48 40 52Z" fill="url(#gf2)" opacity="0.6"/>
+        <path d="M40 56 Q36 52 38 46 Q40 42 42 46 Q44 52 40 56Z" fill="url(#gf2)" opacity="0.4"/>
+        <!-- Fire hose -->
+        <path d="M20 50 Q30 55 40 50 Q50 55 60 50" stroke="#ff9500" stroke-width="2" fill="none" opacity="0.3"/>
+        <defs>
+          <linearGradient id="gf" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b35"/>
+            <stop offset="100%" style="stop-color:#dc2626"/>
+          </linearGradient>
+          <linearGradient id="gf2" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" style="stop-color:#ff9500"/>
+            <stop offset="100%" style="stop-color:#dc2626"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <h1 class="hero-title">建筑消防技术</h1>
+    <p class="hero-desc">
+      <strong>守护平安自贸港，锻造消防铁军</strong><br>
+      消防总队各支队实践基地 · 产教融合共同体标杆<br>
+      海政蓝全国先进 · 3+2专本贯通
+    </p>
+
+    <div class="hero-tags">
+      <span class="htag">🏫 公办院校</span>
+      <span class="htag hot">🚒 消防总队实践基地</span>
+      <span class="htag hot">🏆 全国119先进</span>
+      <span class="htag">🎓 3+2贯通</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">国家级</div>
+        <div class="stat-lbl">119消防先进集体</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3+2</div>
+        <div class="stat-lbl">专本贯通培养</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5,400元</div>
+        <div class="stat-lbl">应届平均薪酬</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">83万+时</div>
+        <div class="stat-lbl">海政蓝志愿服务</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== S2: 学院简介 ===== -->
+  <div class="screen s2-school">
+    <span class="screen-num">02 / 09</span>
+    <div class="sec-head"><div class="sec-tag">SCHOOL PROFILE</div><h2 class="sec-title">学院简介</h2><div class="sec-line"></div><p class="sec-desc">海南省唯一一所专业涵盖公安、司法、法律类的<br>公办高等政法类职业院校</p></div>
+    <div class="i-card"><div class="ic-icon">🏛️</div><div class="ic-body"><h4>政法摇篮</h4><p>创办于1993年，已输送19届28153名毕业生，被誉为海南政法铁军后备人才培养摇篮。</p></div></div>
+    <div class="i-card"><div class="ic-icon">🏆</div><div class="ic-body"><h4>荣誉满载</h4><p>省级教学成果一等奖1项、二等奖5项，司法部成果二等奖2项，十一次评为"就业优秀单位"。</p></div></div>
+    <div class="i-card"><div class="ic-icon">🚒</div><div class="ic-body"><h4>消防特色</h4><p>建筑消防技术专业办学规模稳定、师资力量雄厚，"海政蓝"消防志愿者品牌获评全国先进。</p></div></div>
+    <div class="i-card"><div class="ic-icon">💼</div><div class="ic-body"><h4>就业保障</h4><p>毕业生"上手快、听指挥、能吃苦、守纪律、懂礼貌"，消防专业就业对口率持续走高。</p></div></div>
+  </div>
+
+  <!-- ===== S3: 专业介绍 ===== -->
+  <div class="screen">
+    <span class="screen-num">03 / 09</span>
+    <div class="sec-head"><div class="sec-tag">MAJOR INTRODUCTION</div><h2 class="sec-title">专业介绍</h2><div class="sec-line"></div><p class="sec-desc">专业代码 440406 · 土木建筑大类 · 建筑设备类</p></div>
+
+    <div class="block">
+      <h4>🎯 培养目标</h4>
+      <p class="desc-text">
+        培养德智体美劳全面发展，掌握建筑消防工程设计、施工，消防设施运行维护等知识，具备<strong>建筑消防工程施工图绘制、施工组织设计与管理、消防设施操作</strong>等能力，能够从事中小型建筑消防工程施工图设计、施工组织设计与管理、消防系统调试与运行、消防设施检测维修与保养等工作的高素质技术技能人才。
+      </p>
+    </div>
+
+    <div class="block">
+      <h4>📚 课程体系</h4>
+      <div class="cat-label">▎专业基础课程</div>
+      <ul class="c-list">
+        <li>电工技术</li><li>电子技术</li><li>建筑识图与构造</li><li>计算机辅助设计</li>
+        <li>建筑设备BIM技术应用</li><li>建筑电气控制技术</li><li>火灾自动报警系统操作</li><li>消防法规</li>
+      </ul>
+      <div class="cat-label">▎专业核心课程</div>
+      <ul class="c-list">
+        <li>建筑水消防工程技术</li><li>气体和泡沫灭火系统工程技术</li>
+        <li>建筑防排烟工程技术</li><li>火灾自动报警与联动控制系统工程技术</li>
+        <li>消防管道施工技术</li><li>消防电气施工技术</li>
+        <li>消防工程造价</li><li>消防工程施工组织与管理</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h4>📜 职业证书</h4>
+      <div class="feat-grid">
+        <div class="feat-item"><div class="fi-icon">🧯</div><div class="fi-name">消防设施操作员</div><div class="fi-desc">国家职业资格证书</div></div>
+        <div class="feat-item"><div class="fi-icon">🏢</div><div class="fi-name">智能楼宇管理员</div><div class="fi-desc">职业技能等级证书</div></div>
+        <div class="feat-item"><div class="fi-icon">📐</div><div class="fi-name">建筑信息模型（BIM）</div><div class="fi-desc">职业技能等级证书</div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4>🔍 职业面向</h4>
+      <p class="desc-text">面向<strong>消防工程技术人员、消防设施操作员</strong>等职业，消防工程设计、检测监测、施工管理等岗位（群）。</p>
+    </div>
+  </div>
+
+  <!-- ===== S4: 产教融合共同体 ===== -->
+  <div class="screen">
+    <span class="screen-num">04 / 09</span>
+    <div class="sec-head"><div class="sec-tag">INDUSTRY-EDUCATION</div><h2 class="sec-title">产教融合共同体</h2><div class="sec-line"></div><p class="sec-desc">海南自贸港消防应急管理产教融合共同体<br>消防总队各支队——专业最大实践基地</p></div>
+
+    <div class="hl-box">
+      <span class="hl-badge">⭐ 最大亮点</span>
+      <h4>🚒 海南自贸港消防应急管理产教融合共同体</h4>
+      <p>
+        以<strong>海南省消防救援总队各支队</strong>为核心实践基地，联合消防工程施工企业、消防检测企业、消防技术服务企业等产业链单位，构建<strong>"校政企"三方联动</strong>的产教融合共同体。消防总队各支队为学生提供一线实战场景、专业师资互聘、就业直通渠道，实现<strong>人才培养与行业需求深度耦合</strong>。
+      </p>
+      <div class="hl-stats">
+        <div class="hl-stat"><div class="hs-num">总队训保支队</div><div class="hs-lbl">共建合作签约</div></div>
+        <div class="hl-stat"><div class="hs-num">桂林洋大队</div><div class="hs-lbl">战略合作落地</div></div>
+        <div class="hl-stat"><div class="hs-num">六大领域</div><div class="hs-lbl">核心合作内容</div></div>
+        <div class="hl-stat"><div class="hs-num">48家500强</div><div class="hs-lbl">辖区企业资源</div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4>🤝 消防总队训保支队共建合作</h4>
+      <p class="desc-text">
+        2023年4月，与<strong>海南省消防救援总队训练与战勤保障支队</strong>签署共建合作协议，坚持"长期合作、优势互补、互利共赢、共同发展"原则，推进<strong>党建合作、文化共建、专业共建、科研课题、消防员学历提升、毕业生报考消防设施操作员</strong>五大领域深度合作。
+      </p>
+    </div>
+
+    <div class="block">
+      <h4>🔥 桂林洋消防救援大队战略合作</h4>
+      <p class="desc-text">
+        2026年5月，与<strong>海口桂林洋经济开发区消防救援大队</strong>签署战略合作，明确<strong>六大核心合作内容</strong>：
+      </p>
+      <div class="feat-grid" style="margin-top: 10px;">
+        <div class="feat-item"><div class="fi-icon">👥</div><div class="fi-name">联合消防志愿者</div><div class="fi-desc">组建专业志愿队伍</div></div>
+        <div class="feat-item"><div class="fi-icon">🎯</div><div class="fi-name">实践就业对接</div><div class="fi-desc">搭建就业直通平台</div></div>
+        <div class="feat-item"><div class="fi-icon">📖</div><div class="fi-name">学历能力双提升</div><div class="fi-desc">消防员学历深造</div></div>
+        <div class="feat-item"><div class="fi-icon">✈️</div><div class="fi-name">消防无人机共建</div><div class="fi-desc">CAAC考证+搜救训练</div></div>
+        <div class="feat-item"><div class="fi-icon">👨‍🏫</div><div class="fi-name">双向外聘互聘</div><div class="fi-desc">师资深度共享</div></div>
+        <div class="feat-item"><div class="fi-icon">🔬</div><div class="fi-name">火灾调查共建</div><div class="fi-desc">鉴定中心+天津研究所</div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h4>🔬 筹建海南首个火灾调查鉴定中心</h4>
+      <p class="desc-text">
+        依托学院海南省唯一国家级综合性司法鉴定机构优势，<strong>联动天津消防研究所技术资源</strong>，联合开展火灾事故调查、物证鉴定及科研课题研究，补齐海南自贸港火灾调查鉴定业务短板，全面提升区域消防火灾处置与专业研判能力。
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== S5: 招生信息 ===== -->
+  <div class="screen s5-admission">
+    <span class="screen-num">05 / 09</span>
+    <div class="sec-head"><div class="sec-tag">ADMISSION INFO</div><h2 class="sec-title">招生信息</h2><div class="sec-line"></div><p class="sec-desc">2026年招生通道已开启，欢迎报考！</p></div>
+
+    <div class="adm-card normal">
+      <h4>📋 专科（三年制）</h4>
+      <div class="adm-sub">建筑消防技术 · 专业代码 440406</div>
+      <div class="adm-row"><span class="lbl">学制</span><span class="val">三年</span></div>
+      <div class="adm-row"><span class="lbl">学费</span><span class="val c1">5,720 元/学年</span></div>
+      <div class="adm-row"><span class="lbl">选科要求</span><span class="val">不限</span></div>
+      <div class="adm-row"><span class="lbl">住宿费</span><span class="val">1,050元/学年（六人间）</span></div>
+      <div class="adm-row"><span class="lbl">招生批次</span><span class="val">专科批</span></div>
+      <div class="adm-row"><span class="lbl">专业类别</span><span class="val">土木建筑大类·建筑设备类</span></div>
+      <div class="adm-row"><span class="lbl">男女比例</span><span class="val">81%男 / 19%女</span></div>
+    </div>
+
+    <div class="adm-card hot">
+      <span class="hot-badge">🔥 热门</span>
+      <h4>🎓 3+2 专本贯通</h4>
+      <div class="adm-sub">建筑消防技术 → 工程造价（本科）</div>
+      <div class="adm-row"><span class="lbl">培养模式</span><span class="val c3">3年专科 + 2年本科</span></div>
+      <div class="adm-row"><span class="lbl">前3年</span><span class="val">海南政法职业学院</span></div>
+      <div class="adm-row"><span class="lbl">后2年</span><span class="val c1">海南科技职业大学</span></div>
+      <div class="adm-row"><span class="lbl">对接专业</span><span class="val">工程造价（本科）</span></div>
+      <div class="adm-row"><span class="lbl">前3年学费</span><span class="val c1">5,720 元/学年</span></div>
+      <div class="adm-row"><span class="lbl">后2年学费</span><span class="val">按本科院校标准</span></div>
+    </div>
+
+    <div class="path-box">
+      <h5>🛤️ 升学路径</h5><div class="path-sub">多元化升学通道，助力持续发展</div>
+      <div class="path-flow">
+        <div class="p-step"><div class="ps-year">第1-3年</div><div class="ps-txt">专科学习</div></div>
+        <div class="p-arrow">→</div>
+        <div class="p-step"><div class="ps-year">选择一</div><div class="ps-txt">3+2贯通</div></div>
+        <div class="p-arrow">/</div>
+        <div class="p-step"><div class="ps-year">选择二</div><div class="ps-txt">专升本</div></div>
+        <div class="p-arrow">→</div>
+        <div class="p-step goal"><div class="ps-year">未来</div><div class="ps-txt">本科/深造</div></div>
+      </div>
+      <div class="path-note">接续本科：消防工程 · 建筑环境与能源应用工程 · 建筑电气与智能化</div>
+    </div>
+
+    <div class="block" style="margin-top: 12px;">
+      <h4>📌 招生亮点</h4>
+      <p class="desc-text" style="line-height: 2;">
+        ✅ 公办政法类院校，海南省消防专业特色标杆<br>
+        ✅ 消防总队各支队实践基地，一线实战场景<br>
+        ✅ 产教融合共同体，就业直通消防系统<br>
+        ✅ "海政蓝"全国119先进品牌加持<br>
+        ✅ 筹建海南首个火灾调查司法鉴定中心<br>
+        ✅ 3+2专本贯通，学费仅5720元/年
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== S6: 取得成绩 ===== -->
+  <div class="screen">
+    <span class="screen-num">06 / 09</span>
+    <div class="sec-head"><div class="sec-tag">ACHIEVEMENTS</div><h2 class="sec-title">取得成绩</h2><div class="sec-line"></div><p class="sec-desc">消防总队赋能，实战成果显著</p></div>
+
+    <div class="ach-list">
+      <div class="ach-item">
+        <div class="ach-year">国家级荣誉</div>
+        <h5>🏆 第六届全国119消防先进集体</h5>
+        <p>"海政蓝"消防志愿服务队荣获第六届全国119消防先进集体，七年间累计志愿服务83万+小时，覆盖26个社区、38个行政村、26家中小学。</p>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-year">2026年5月</div>
+        <h5>🤝 桂林洋消防救援大队战略合作落地</h5>
+        <p>与海口桂林洋经济开发区消防救援大队签署战略合作，明确六大核心合作内容，消防救援大队加入消防产教融合共同体，挂牌校外实践教学基地。</p>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-year">2023年4月</div>
+        <h5>🚒 消防总队训保支队共建合作续签</h5>
+        <p>与海南省消防救援总队训练与战勤保障支队签署共建合作协议，推进党建合作、专业共建、科研课题、消防员学历提升等多领域合作。</p>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-year">省级赛事</div>
+        <h5>🏅 "火焰蓝杯"防火业务大比武</h5>
+        <p>海南省消防救援总队在学院举办全省第二届"火焰蓝杯"防火业务大练兵比武竞赛，总队领导出席颁奖，学院提供赛事场地及专业支持。</p>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-year">2024年</div>
+        <h5>🌟 省职教周消防专业展示获高度关注</h5>
+        <p>消防战斗服、正压式空气呼吸器、专业无人机等教学设备亮相全省职教活动周，展现专业实战能力培养特色。</p>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-year">筹建中</div>
+        <h5>🔬 海南首个火灾调查司法鉴定中心</h5>
+        <p>依托国家级司法鉴定机构优势，联动天津消防研究所技术资源，筹建海南省首个火灾调查方向司法鉴定中心，填补自贸港消防鉴定业务空白。</p>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-year">长期合作</div>
+        <h5>🏢 与华润集团、珠江物业等大型企业深度合作</h5>
+        <p>为学生提供接触大型企业消防设施运作和维护的实习机会，了解高铁安全消防保障等行业前沿实践。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== S7: 职业规划 ===== -->
+  <div class="screen s7-career">
+    <span class="screen-num">07 / 09</span>
+    <div class="sec-head"><div class="sec-tag">CAREER PLANNING</div><h2 class="sec-title">职业规划</h2><div class="sec-line"></div><p class="sec-desc">消防行业持续刚需，就业前景广阔</p></div>
+
+    <div class="career-list">
+      <div class="car-card"><div class="car-icon">🧯</div><div class="car-body"><h5>消防设施操作员 ⭐核心岗位</h5><div class="car-sub">国家准入类 · 必持证上岗</div><div class="car-jobs"><span class="hot-tag">消防设施操作</span><span>消防值班监控</span><span>消防检测维保</span></div></div></div>
+
+      <div class="car-card"><div class="car-icon">🚒</div><div class="car-body"><h5>消防员/消防救援 ⭐海政特色</h5><div class="car-sub">产教融合共同体直通</div><div class="car-jobs"><span class="hot-tag">消防救援员</span><span>灭火战斗员</span><span>应急救援员</span></div></div></div>
+
+      <div class="car-card"><div class="car-icon">🔧</div><div class="car-body"><h5>消防工程技术</h5><div class="car-sub">设计 · 施工 · 管理</div><div class="car-jobs"><span>消防工程设计</span><span>施工管理</span><span>消防造价</span></div></div></div>
+
+      <div class="car-card"><div class="car-icon">🔍</div><div class="car-body"><h5>消防检测监测</h5><div class="car-sub">技术检测 · 智慧消防</div><div class="car-jobs"><span>消防检测</span><span>物联网监测</span><span>智慧消防运维</span></div></div></div>
+
+      <div class="car-card"><div class="car-icon">🔬</div><div class="car-body"><h5>火灾调查鉴定 ⭐新方向</h5><div class="car-sub">司法鉴定中心加持</div><div class="car-jobs"><span class="hot-tag">火灾调查</span><span>火灾物证鉴定</span><span>事故分析研判</span></div></div></div>
+
+      <div class="car-card"><div class="car-icon">🏢</div><div class="car-body"><h5>企业消防安全管理</h5><div class="car-sub">园区 · 商业 · 工业消防</div><div class="car-jobs"><span>消防安全管理</span><span>消防培训师</span><span>消防顾问</span></div></div></div>
+    </div>
+
+    <div class="career-tip">
+      💡 依托<strong>消防总队各支队实践基地</strong>和<em>产教融合共同体</em>，毕业生具备<em>一线实战经验</em>和<em>消防职业资格证书</em>双重优势，在消防系统就业中具有<strong>不可替代的竞争力</strong>
+    </div>
+  </div>
+
+  <!-- ===== S8: 未来展望 ===== -->
+  <div class="screen s8-future">
+    <span class="screen-num">08 / 09</span>
+    <div class="sec-head"><div class="sec-tag">FUTURE OUTLOOK</div><h2 class="sec-title">未来展望</h2><div class="sec-line"></div><p class="sec-desc">消防安全守护者，社会刚需紧缺人才</p></div>
+
+    <div class="fut-card">
+      <h5>📈 消防安全需求持续增长</h5>
+      <div class="fut-big">5,400元+</div>
+      <p>应届毕业生平均薪酬5,400元，消防设施操作员为国家准入类职业，必须持证上岗，就业稳定性远超一般行业。资深消防工程师年薪可达<strong>20万+</strong>。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🏝️ 自贸港建设加速消防人才需求</h5>
+      <p>海南自贸港对标最高开放形态，48家世界500强企业入驻江东园区，<strong>消防专业人才缺口持续扩大</strong>。桂林洋消防救援大队辖区即面临人才供不应求局面。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>💻 智慧消防数字化转型</h5>
+      <p>建筑消防安全物联网监测、BIM技术应用、智能报警联动系统——<strong>数字化智慧消防</strong>正在重塑行业，新技术催生新岗位、新机遇。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🔬 火灾调查新赛道</h5>
+      <p>筹建海南首个火灾调查方向司法鉴定中心，联动天津消防研究所技术资源，<strong>开辟消防+司法鉴定跨界新领域</strong>，全国政法类院校独有特色。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🤝 产教融合共同体持续深化</h5>
+      <p>消防总队各支队加入共同体，<strong>"校政企"三方联动</strong>模式不断完善——实训室共建、师资互聘、就业直通、科研共研、学历提升、志愿者联动，六大领域全面落地。</p>
+    </div>
+
+    <div class="fut-card">
+      <h5>🏆 "海政蓝"品牌持续发光</h5>
+      <p>全国119消防先进品牌持续深耕，消防志愿服务覆盖社区、农村、学校，<strong>"不忘初心海政蓝，守护自贸新海南"</strong>，一代代海政青年续写荣光。</p>
+    </div>
+  </div>
+
+  <!-- ===== S9: CTA ===== -->
+  <div class="screen s9-cta">
+    <span class="screen-num">09 / 09</span>
+    <div class="cta-emoji">🚒</div>
+    <h2 class="cta-title">守护平安自贸港<br>锻造消防铁军</h2>
+    <p class="cta-desc">
+      海南政法职业学院 建筑消防技术专业<br>
+      消防总队实践基地 · 产教融合共同体标杆<br>
+      <strong>2026年，期待与你同行！</strong>
+    </p>
+    <a class="cta-btn" href="https://zs.hnplc.com" target="_blank">🎯 立即报考</a>
+
+    <div class="contact-row">
+      📍 <span>海口市琼山区新大洲大道280号</span><br>
+      🌐 <span>www.hnplc.com</span><br>
+      📖 <span>招生网：zs.hnplc.com</span><br>
+      📞 <span>0898-65858299</span><br>
+      📮 <span>邮编：571100</span>
+    </div>
+
+    <div class="cta-tags">
+      <span class="cta-tag">公办院校</span>
+      <span class="cta-tag">消防总队实践基地</span>
+      <span class="cta-tag">产教融合共同体</span>
+      <span class="cta-tag">全国119先进</span>
+      <span class="cta-tag">3+2专本贯通</span>
+      <span class="cta-tag">火灾调查鉴定</span>
+    </div>
+  </div>
+
+  <div class="foot">海南政法职业学院 · 公安司法系 · 建筑消防技术专业 | 2026年招生宣传</div>
+</div>
+
+</body>
+</html>
