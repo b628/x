@@ -1,0 +1,26 @@
+{
+  "name": "dji-matrice-3d",
+  "version": "1.0.0",
+  "description": "DJI Matrice 4T / 4E / 4TD / 5TD 三维交互图鉴：机型对比、机场 3 / 4 配套与应用领域",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --format=iife --minify --outfile=assets/app.js",
+    "dev": "esbuild src/main.js --bundle --format=iife --outfile=assets/app.js --watch",
+    "start": "python3 -m http.server 4173"
+  },
+  "keywords": [
+    "threejs",
+    "dji",
+    "matrice",
+    "dock",
+    "3d",
+    "webgl"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "three": "^0.170.0"
+  },
+  "private": true
+}
